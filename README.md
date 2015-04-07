@@ -8,4 +8,3 @@ Kristoffer Osen - s198754
 Trym Skilleås - s198764
 Elisabeth Kongshavn - s194524
 
-
