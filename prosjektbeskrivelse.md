@@ -1,6 +1,6 @@
 # Prosjektarbeid i C++ 2015
 * **Tittel**: Friendly-birds!
-* **Gruppemedlemmer**: s101010, s121212, s424242
+* **Gruppemedlemmer**: s198737, s198754, s198764, s194524
 
 ## Prosjektbeskrivelse
 Linjene for "tittel" og "Gruppemedlemmer" over skal parses av en regex, så behold formatet! Bare fyll ut en valgfri tittel på en linje, og gruppemedlemmene som en kommaseparert liste av studentnumre.
