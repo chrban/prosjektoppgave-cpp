@@ -28,3 +28,7 @@ Vi skal lage et spill om pingvinen Tux sine eventyr for å bekjempe onde, ressur
 ### Hva vi minimum skal få til: 
 * Et fungerende spill hvor Tux kan bevege seg rundt, hoppe, plukke opp ting, miste liv og komme videre til neste brett.
 * Generering av brett.
+
+
+
+![tux](TUX3MINI.png)
