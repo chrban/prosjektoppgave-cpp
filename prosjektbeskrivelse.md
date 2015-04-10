@@ -3,17 +3,28 @@
 * **Gruppemedlemmer**: s198737, s198754, s198764, s194524
 
 ## Prosjektbeskrivelse
-Linjene for "tittel" og "Gruppemedlemmer" over skal parses av en regex, så behold formatet! Bare fyll ut en valgfri tittel på en linje, og gruppemedlemmene som en kommaseparert liste av studentnumre.
 
-Resten av fila tolkes som prosjektbeskrivelse, så her kan du skrive på eget format.
 
 ## Hovedfunksjonalitet i korte trekk
-Hva skal man kunne gjøre med / i programmet? 
+Vi skal lage et spill om pingvinen Tux sine eventyr for å bekjempe onde, ressursineffektive høynivåspråk. Man skal kunne strye en Tux rundt på en bane i 2D-perspektiv. Tux skal kunne hoppe over hindre og gå oppå objekter. Spillet går ut på å sammle nok ‘nøkler’ for å komme videre til neste nivå, samtidig unngå farlige hindringer, uten å gå tom for liv.  
 
 ## Designmål: 
-Bruke lite minne? Gå raskest mulig? Være mest mulig responsivt? Skalerbart? Utvidbart? Modulært? Sikkert (som i secure)? Valg av designmål vil avgjøre hva som er "hensiktsmessig" bruk av objektorientering, design patterns og andre teknikker.
+* Vi vil at programmet skal være skalerbart og  utvidbart. 
+
+* Vi vil kunne utvide med flere brett, temaer, hindere, karakterer, osv. For at dette skal være lettest mulig må programmet være modulært
+
+* Vi vil fokusere på god GUI, som er helt nødvendig for et spill. Kommunikasjonen mellom objekter i koden og på GUI er derfor viktig.
+
+* God objektorientering er viktig for å gjøre programmet modulært og utvidbart.
+
 
 
 ## Avgrensning:
-* Hva vi håper å oppnå: En fungerende angry-birds-klone, med 4-5 brett, fysikkmotor og animasjon imellom.
-* Hva vi minimum skal få til: En enkel scene av kasser koblet til fysikkmotor, der man kan stable kassene oppå hverandre med "drag'n drop", og så "kaste" noe på dem så de velter.
+###Hva vi håper å oppnå: 
+* En fungerende Tux/Mario-klone, med 4-5 brett,
+* Implimentasjon av en fysikkmotor, feks bullet.
+* Ekstra egenskaper til Tux feks skyte pingvinegg, dobbelthopp, jetpack, superfart, osv
+
+### Hva vi minimum skal få til: 
+* Et fungerende spill hvor Tux kan bevege seg rundt, hoppe, plukke opp ting, miste liv og komme videre til neste brett.
+* Generering av brett.
