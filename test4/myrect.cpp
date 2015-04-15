@@ -8,7 +8,7 @@
 #include <QList>
 
 myrect::myrect(){
-    setPixmap(QPixmap(":/new/img/TUX3MINI.png"));
+    setPixmap(QPixmap(":/new/img/TUXNY.png"));
     falling = false;
     jumping = false;
     timer_up = new QTimer();
@@ -33,10 +33,12 @@ void myrect::keyPressEvent(QKeyEvent *event)
     }
     else if(event->key()==Qt::Key_Right){
         if(x()+50<800)
-            setPos(x()+10,y());
+            setPos(x()+30,y());
         else{
-            scene()->clear();
+            //scene()->clear();
+            qDebug()<<"prenyttbrett";
             emit nyttBrett();
+
             return;
         }
 
