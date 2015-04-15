@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/img">
+        <file>TUX3MINI.png</file>
+    </qresource>
+</RCC>
