@@ -2,5 +2,11 @@
     <qresource prefix="/new/img">
         <file>TUX3MINI.png</file>
         <file>TUXNY.png</file>
+        <file>mariohopp.png</file>
+        <file>mario1.png</file>
+        <file>mariohoppleft.png</file>
+        <file>marioleft.png</file>
+        <file>mariowalkleft.png</file>
+        <file>mariowalkright.png</file>
     </qresource>
 </RCC>

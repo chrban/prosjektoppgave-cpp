@@ -8,11 +8,17 @@
 #include <QList>
 
 myrect::myrect(){
-    setPixmap(QPixmap(":/new/img/TUXNY.png"));
+    setPixmap(QPixmap(":/new/img/mario1.png"));
     falling = false;
     jumping = false;
-    timer_up = new QTimer();
+    walking = false;
+    left= false;
+    right = true;
+
+    walk = 0;
     velocity = 30;
+
+    timer_up = new QTimer();
     connect(timer_up,SIGNAL(timeout()),this,SLOT(jump()));
 
 }
@@ -21,6 +27,11 @@ myrect::myrect(){
 void myrect::keyPressEvent(QKeyEvent *event)
 {
     if(event->key()==Qt::Key_Left){
+        left=true;
+        right=false;
+        walking = true;
+        updateImg();
+
         if(x()>0)
             setPos(x()-10,y());
 
@@ -30,10 +41,17 @@ void myrect::keyPressEvent(QKeyEvent *event)
             velocity=15;
             timer_up->start();
         }
+        walking =false;
+        updateImg();
     }
     else if(event->key()==Qt::Key_Right){
+        left=false;
+        right=true;
+        walking = true;
+        updateImg();
+
         if(x()+50<800)
-            setPos(x()+30,y());
+            setPos(x()+10,y());
         else{
             //scene()->clear();
             qDebug()<<"prenyttbrett";
@@ -48,10 +66,14 @@ void myrect::keyPressEvent(QKeyEvent *event)
             velocity=15;
             timer_up->start();
         }
+
+        walking = false;
+        updateImg();
     }
     else if(event->key()==Qt::Key_Up){
         jumping = true;
-        timer_up->start(25);
+        walking = false;
+        timer_up->start(50);
     }
 
     else if(event->key()==Qt::Key_Space){
@@ -63,7 +85,12 @@ void myrect::keyPressEvent(QKeyEvent *event)
 
 void myrect::jump()
 {
+    //if(jumping) setPixmap(QPixmap(":/new/img/mariohopp.png"));
+    updateImg();
+
     if(falling){
+         //setPixmap(QPixmap(":/new/img/mario1.png"));
+        updateImg();
         QList<QGraphicsItem *> colliding_items = collidingItems();
         if(!colliding_items.isEmpty()){
             //setPos(x(),colliding_items[0]->y());
@@ -86,6 +113,66 @@ void myrect::jump()
         velocity -=2;
     }
 }
+/*
+void myrect::walk(){
+    if(left){
+        if(walk==3){
+            timerWalk->stop();
+            return;
+
+        }
+
+        if(x()>0)
+            setPos(x()-10,y());
+
+        QList<QGraphicsItem *> colliding_items = collidingItems();
+        if(colliding_items.isEmpty() && !jumping){
+            falling = true;
+            velocity=15;
+            timer_up->start();
+        }
+
+    }
+
+}
+*/
+void myrect::updateImg(){
+   /* if(jumping && right){
+         setPixmap(QPixmap(":/new/img/mariohopp.png"));
+    }
+    else if(jumping && left)
+         setPixmap(QPixmap(":/new/img/mariohoppleft.png"));
+    else if(left && walking)
+        setPixmap(QPixmap(":/new/img/marioleft.png"));
+    else if(right && walking)
+        setPixmap(QPixmap(":/new/img/mario1.png"));
+        */
+    if(jumping){
+        if(right){
+            setPixmap(QPixmap(":/new/img/mariohopp.png"));
+        }
+        else{
+            setPixmap(QPixmap(":/new/img/mariohoppleft.png"));
+            //setTransform(QTransform::fromScale(-1, 1));
+        }
+    }
+    else if(walking){
+        if(right){
+            setPixmap(QPixmap(":/new/img/mariowalkright.png"));
+        }
+        else{
+            setPixmap(QPixmap(":/new/img/mariowalkleft.png"));
+        }
+    }
+
+    else if(left){
+         setPixmap(QPixmap(":/new/img/marioleft.png"));
+    }
+    else if(right){
+         setPixmap(QPixmap(":/new/img/mario1.png"));
+    }
+}
+
 
 
 

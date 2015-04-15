@@ -12,14 +12,24 @@ public:
 public slots:
     void spawn();
     void jump();
+   // void walk();
 
 signals:
     void nyttBrett();
 private:
     bool falling;
     bool jumping;
+    bool walking;
+    bool left;
+    bool right;
     int velocity;
+    int walk;
+
     QTimer * timer_up;
+    QTimer * timerWalk;
+
+    void updateImg();
+
 
 
 };
