@@ -27,22 +27,29 @@ void myrect::keyPressEvent(QKeyEvent *event)
         QList<QGraphicsItem *> colliding_items = collidingItems();
         if(colliding_items.isEmpty() && !jumping){
             falling = true;
+            velocity=15;
             timer_up->start();
         }
     }
     else if(event->key()==Qt::Key_Right){
-        if(x()+100<800)
+        if(x()+50<800)
             setPos(x()+10,y());
+        else{
+            scene()->clear();
+            emit nyttBrett();
+            return;
+        }
 
         QList<QGraphicsItem *> colliding_items = collidingItems();
         if(colliding_items.isEmpty() && !jumping){
             falling = true;
+            velocity=15;
             timer_up->start();
         }
     }
     else if(event->key()==Qt::Key_Up){
         jumping = true;
-        timer_up->start(50);
+        timer_up->start(25);
     }
 
     else if(event->key()==Qt::Key_Space){

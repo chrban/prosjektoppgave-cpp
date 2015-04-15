@@ -15,12 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp \
     myrect.cpp \
     bullet.cpp \
-    enemy.cpp
+    enemy.cpp \
+    rectfac.cpp \
+    game.cpp
 
 HEADERS  += \
     myrect.h \
     bullet.h \
-    enemy.h
+    enemy.h \
+    abstractfac.h \
+    rectfac.h \
+    game.h
 
 RESOURCES += \
     res.qrc

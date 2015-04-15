@@ -4,21 +4,32 @@
 #include <QGraphicsRectItem>
 #include <QApplication>
 #include <QTimer>
+#include <rectfac.h>
+#include <game.h>
+
+
+
+game * g;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    g = new game();
+    g->show();
+
+    /*
     QGraphicsScene * scene = new QGraphicsScene();
-    myrect* rect = new myrect();
+    myrect* tux = new myrect();
     QGraphicsRectItem* bakke = new QGraphicsRectItem();
-    QGraphicsRectItem* dings = new QGraphicsRectItem();
+    //QGraphicsRectItem* dings = new QGraphicsRectItem();
     //rect->setRect(0,0,100,100);
 
-    scene->addItem(rect);
+    scene->addItem(tux);
 
 
-    rect->setFlag(QGraphicsItem::ItemIsFocusable);
-    rect->setFocus();
+    tux->setFlag(QGraphicsItem::ItemIsFocusable);
+    tux->setFocus();
 
     QGraphicsView * view = new QGraphicsView(scene);
 
@@ -30,16 +41,28 @@ int main(int argc, char *argv[])
     scene->setSceneRect(0,0,800,600);
 
     bakke->setRect(-1,view->height()-30,800,31);
-    dings->setRect(400,400,100,10);
+    //dings->setRect(400,400,100,10);
     scene->addItem(bakke);
-    scene->addItem(dings);
+    //scene->addItem(dings);
 
-    rect->setPos(view->width()/2,view->height() - 30-50);
 
+
+    //legger til hinder fra factory
+    rectFac * hinderFabrikk = new rectFac();
+
+    for(int i = 0; i<5;i++){
+        scene->addItem(hinderFabrikk->mekk());
+    }
+    delete hinderFabrikk;
+
+
+    tux->setPos(view->width()/2,view->height() - 30-50);
+*/
 
    /* QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),rect,SLOT(spawn()));
     timer->start(2000);
 */
+
     return a.exec();
 }

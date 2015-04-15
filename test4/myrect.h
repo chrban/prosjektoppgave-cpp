@@ -13,6 +13,8 @@ public slots:
     void spawn();
     void jump();
 
+signals:
+    void nyttBrett();
 private:
     bool falling;
     bool jumping;
