@@ -17,7 +17,9 @@ SOURCES += main.cpp \
     bullet.cpp \
     enemy.cpp \
     rectfac.cpp \
-    game.cpp
+    game.cpp \
+    box.cpp \
+    boxfactory.cpp
 
 HEADERS  += \
     myrect.h \
@@ -25,7 +27,10 @@ HEADERS  += \
     enemy.h \
     abstractfac.h \
     rectfac.h \
-    game.h
+    game.h \
+    box.h \
+    object.h \
+    boxfactory.h
 
 RESOURCES += \
     res.qrc

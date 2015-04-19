@@ -12,7 +12,7 @@ public:
 public slots:
     void spawn();
     void jump();
-   // void walk();
+    void walk();
 
 signals:
     void nyttBrett();
@@ -23,7 +23,7 @@ private:
     bool left;
     bool right;
     int velocity;
-    int walk;
+    int walked;
 
     QTimer * timer_up;
     QTimer * timerWalk;

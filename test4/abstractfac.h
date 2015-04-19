@@ -6,7 +6,7 @@
 
 class abstractFac{
 public:
-    virtual QGrapicsRectItem * mekk() = 0;
+    virtual QGraphicsItem * mekk() = 0;
 
 };
 
