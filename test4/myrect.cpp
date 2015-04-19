@@ -14,9 +14,10 @@ myrect::myrect(){
     walking = false;
     left= false;
     right = true;
+    timer = 5;
 
     walked = 0;
-    velocity = 15;
+    velocity = 50;
 
     timer_up = new QTimer();
     timerWalk = new QTimer();
@@ -56,7 +57,7 @@ void myrect::keyPressEvent(QKeyEvent *event)
             falling = true;
             updateImg();
             velocity=0;
-            timer_up->start(50);
+            timer_up->start(9);
         }
         walking =false;
         updateImg();
@@ -99,7 +100,7 @@ void myrect::keyPressEvent(QKeyEvent *event)
             falling = true;
             updateImg();
             velocity=0;
-            timer_up->start(50);
+            timer_up->start(9);
         }
 
         walking = false;
@@ -109,7 +110,7 @@ void myrect::keyPressEvent(QKeyEvent *event)
         if(!falling)
             jumping = true;
         walking = false;
-        timer_up->start(50);
+        timer_up->start(3);
     }
 
     else if(event->key()==Qt::Key_Space){
@@ -118,7 +119,6 @@ void myrect::keyPressEvent(QKeyEvent *event)
         scene()->addItem(bullet1);
     }
 }
-
 
 
 void myrect::jump()
@@ -136,12 +136,20 @@ void myrect::jump()
             jumping = false;
             timer_up->stop();
             walked=0;
-            velocity = 15;
+            velocity = 30;
             return;
         }
         else{
-            setPos(x(),y()+velocity);
-            if(velocity<15)
+            //setPos(x(),y()+velocity);
+            if(velocity <15 && timer>3){
+                timer -= 1;
+
+                timer_up->setInterval(timer);
+            }
+            else
+                timer =0;
+            setPos(x(),y()+3);
+            //if(velocity<15)
                 velocity += 1;
         }
     }
@@ -150,7 +158,32 @@ void myrect::jump()
        falling = true;
     }
     else{
-        setPos(x(),y()-velocity);
+        QList<QGraphicsItem *> colliding_items = collidingItems();
+        if(!colliding_items.isEmpty() && velocity<28){
+            if(y()+30>colliding_items[0]->y()){
+                setPos(x(),y()+10);
+                if(x() < colliding_items[0]->x()){
+                    setPos(x()-5,y());
+                }
+                else
+                    setPos(x()+5,y());
+            }
+
+            //setPos(x(),y()+5);
+            falling = true;
+            jumping =false;
+            updateImg();
+            velocity = 15;
+            timer =11;
+            return;
+        }
+
+        if(velocity < 16 && timer<12){
+            timer += 1;
+            timer_up->setInterval(timer);
+        }
+      //  setPos(x(),y()-velocity);
+        setPos(x(),y()-3);
         velocity -=1;
     }
 }
@@ -168,6 +201,13 @@ void myrect::walk()
 
        if(left){
            setPos(x()-2,y());
+
+           QList<QGraphicsItem *> colliding_items = collidingItems();
+           if(!colliding_items.isEmpty() && colliding_items[0]->y()<y()-20){
+
+           }
+
+
            return;
        }
        setPos(x()+2,y());

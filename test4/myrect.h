@@ -24,7 +24,7 @@ private:
     bool right;
     int velocity;
     int walked;
-
+    int timer;
     QTimer * timer_up;
     QTimer * timerWalk;
 
