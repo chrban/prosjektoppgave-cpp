@@ -110,12 +110,12 @@ void myrect::keyPressEvent(QKeyEvent *event)
         if(!falling)
             jumping = true;
         walking = false;
-        timer_up->start(3);
+        timer_up->start(0);
     }
 
     else if(event->key()==Qt::Key_Space){
         bullet * bullet1 = new bullet();
-        bullet1->setPos(x(),y());
+        bullet1->setPos(x(),y()+50);
         scene()->addItem(bullet1);
     }
 }
@@ -127,21 +127,46 @@ void myrect::jump()
 
     //Tux faller
     if(falling){
+
+        if(y()>700){
+            setPos(10,520);
+            falling=false;
+            jumping=false;
+            timer_up->stop();
+            walked=0;
+            velocity=30;
+            return;
+        }
+
         QList<QGraphicsItem *> colliding_items = collidingItems();
         // Tux har landet på toppen av noe
         if(!colliding_items.isEmpty() /*&& colliding_items.front()->y() > y()+27*/){
-            qDebug()<<colliding_items.back()->y();
-            setPos(x(),y());
-            falling = false;
-            jumping = false;
-            timer_up->stop();
-            walked=0;
-            velocity = 30;
-            return;
+            //qDebug()<<colliding_items.back()->y();
+
+            // krasjer han i noe på vei ned?
+
+          //  QList<QGraphicsItem *> colliding_items = collidingItems();
+            if(colliding_items.back()->y() < y()+26){
+                qDebug()<<"sitter fast på siden";
+               if(colliding_items.back()->x()>x())
+                   setPos(x()-2,y());
+               else
+                   setPos(x()+2,y());
+            }
+            else{
+
+                setPos(x(),y());
+                falling = false;
+                jumping = false;
+                timer_up->stop();
+                walked=0;
+                velocity = 30;
+                return;
+            }
         }
         else{
             //setPos(x(),y()+velocity);
-            if(velocity <15 && timer>3){
+            if(velocity <15 && timer>0){
                 timer -= 1;
 
                 timer_up->setInterval(timer);
@@ -149,19 +174,11 @@ void myrect::jump()
             else
                 timer =0;
 
-            setPos(x(),y()+4);
+            setPos(x(),y()+3);
 
 
-            // krasjer han i noe på vei ned?
-            /*
-            QList<QGraphicsItem *> colliding_items = collidingItems();
-            if(colliding_items.back()->y() < y()+26){
-               if(colliding_items.back()->x()>x())
-                   setPos(x()-2,y());
-               else
-                   setPos(x()+2,y());
-            }
-*/
+
+
 
             velocity += 1;
         }
@@ -174,7 +191,7 @@ void myrect::jump()
         QList<QGraphicsItem *> colliding_items = collidingItems();
         if(!colliding_items.isEmpty() && velocity<28){
             if(y()+30>colliding_items[0]->y()){
-                setPos(x(),y()+10);
+                setPos(x(),y()+3);
                 if(x() < colliding_items[0]->x()){
                     setPos(x()-5,y());
                 }
@@ -186,17 +203,17 @@ void myrect::jump()
             falling = true;
             jumping =false;
             updateImg();
-            velocity = 15;
+            velocity = 30;
             timer =11;
             return;
         }
 
-        if(velocity < 16 && timer<12){
+        if(velocity < 15 && timer<12){
             timer += 1;
             timer_up->setInterval(timer);
         }
       //  setPos(x(),y()-velocity);
-        setPos(x(),y()-4);
+        setPos(x(),y()-3);
         velocity -=1;
     }
 }
@@ -218,7 +235,8 @@ void myrect::walk()
            QList<QGraphicsItem *> colliding_items = collidingItems();
            if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-30){
                    setPos(x()+2,y());
-                   qDebug()<<"prømpleft";
+                   //setPixmap(QPixmap(":/new/img/marioleft.png"));
+                   //walked=0;
                    timerWalk->stop();
            }
 
@@ -229,7 +247,8 @@ void myrect::walk()
        QList<QGraphicsItem *> colliding_items = collidingItems();
        if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-30){
                setPos(x()-2,y());
-               qDebug()<<"prømpright";
+               //setPixmap(QPixmap(":/new/img/marioright.png"));
+               //walked=0;
                timerWalk->stop();
        }
        return;
@@ -255,18 +274,32 @@ void myrect::walk()
        }
        setPos(x()-2,y());
 
+       QList<QGraphicsItem *> colliding_items1 = collidingItems();
+       if(colliding_items1.isEmpty() && !jumping){
+           falling = true;
+           updateImg();
+           velocity=0;
+           timerWalk->stop();
+           timer_up->start(9);
+           return;
+       }
+
        QList<QGraphicsItem *> colliding_items = collidingItems();
        if(!colliding_items.isEmpty() && colliding_items.back()->y() < y()+26 && colliding_items.back()->y()!=0){
                setPos(x()+2,y());
                qDebug()<<"kollisjon på venstre side: vår y: "<<y()<<"  boksen sin y: "<<colliding_items.back()->y();
-
+               setPixmap(QPixmap(":/new/img/marioleft.png"));
+               walked=0;
+               walking = false;
                timerWalk->stop();
+               return;
        }
 
        walked++;
        if(walked == 10){
            setPixmap(QPixmap(":/new/img/marioleft.png"));
            walked =0;
+
            timerWalk->stop();
            return;
        }
@@ -293,10 +326,24 @@ void myrect::walk()
    setPos(x()+2,y());
 
    QList<QGraphicsItem *> colliding_items = collidingItems();
+   if(colliding_items.isEmpty() && !jumping){
+       falling = true;
+       updateImg();
+       velocity=0;
+       timerWalk->stop();
+       timer_up->start(9);
+       return;
+   }
+
+   //QList<QGraphicsItem *> colliding_items = collidingItems();
    if(!colliding_items.isEmpty() && colliding_items.back()->y() < y()+26 && colliding_items.back()->y() !=0){
            setPos(x()-2,y());
            qDebug()<<"kollisjon på høyre side";
+           setPixmap(QPixmap(":/new/img/mario1.png"));
+           walked=0;
+           walking=false;
            timerWalk->stop();
+           return;
    }
 
    walked++;

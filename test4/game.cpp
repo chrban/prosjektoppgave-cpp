@@ -39,22 +39,25 @@ void game::setUp(){
 
     boxFactory * hinderFabrikk2 = new boxFactory();
 
-    for(int i = 0; i<20;i++){
+    for(int i = 0; i<10;i++){
         scene->addItem(hinderFabrikk2->mekk());
+
     }
+   for(int i = 0; i < 29;i++)
+       scene->addItem(hinderFabrikk2->makeGround());
 
    // hinderFabrikk2->mekk
 
 
-    QGraphicsRectItem* bakke = new QGraphicsRectItem();
+   // QGraphicsRectItem* bakke = new QGraphicsRectItem();
     tux = new myrect();
     connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
     tux->setPos(10,520);
     tux->setFlag(QGraphicsItem::ItemIsFocusable);
     tux->setFocus();
-    bakke->setRect(-1,height()-50,800,31);
+   // bakke->setRect(-1,height()-50,800,31);
 
-    scene->addItem(bakke);
+   // scene->addItem(bakke);
     scene->addItem(tux);
 
     qDebug()<<"prefac";
