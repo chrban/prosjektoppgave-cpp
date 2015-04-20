@@ -123,14 +123,14 @@ void myrect::keyPressEvent(QKeyEvent *event)
 
 void myrect::jump()
 {
-    //if(jumping) setPixmap(QPixmap(":/new/img/mariohopp.png"));
     updateImg();
 
+    //Tux faller
     if(falling){
-         //setPixmap(QPixmap(":/new/img/mario1.png"));
-        updateImg();
         QList<QGraphicsItem *> colliding_items = collidingItems();
-        if(!colliding_items.isEmpty()){
+        // Tux har landet på toppen av noe
+        if(!colliding_items.isEmpty() /*&& colliding_items.front()->y() > y()+27*/){
+            qDebug()<<colliding_items.back()->y();
             setPos(x(),y());
             falling = false;
             jumping = false;
@@ -148,16 +148,29 @@ void myrect::jump()
             }
             else
                 timer =0;
-            setPos(x(),y()+3);
-            //if(velocity<15)
-                velocity += 1;
+
+            setPos(x(),y()+4);
+
+
+            // krasjer han i noe på vei ned?
+            /*
+            QList<QGraphicsItem *> colliding_items = collidingItems();
+            if(colliding_items.back()->y() < y()+26){
+               if(colliding_items.back()->x()>x())
+                   setPos(x()-2,y());
+               else
+                   setPos(x()+2,y());
+            }
+*/
+
+            velocity += 1;
         }
     }
     else if(velocity==0){
        jumping = false;
        falling = true;
     }
-    else{
+    else{ // hopper oppover
         QList<QGraphicsItem *> colliding_items = collidingItems();
         if(!colliding_items.isEmpty() && velocity<28){
             if(y()+30>colliding_items[0]->y()){
@@ -183,7 +196,7 @@ void myrect::jump()
             timer_up->setInterval(timer);
         }
       //  setPos(x(),y()-velocity);
-        setPos(x(),y()-3);
+        setPos(x(),y()-4);
         velocity -=1;
     }
 }
