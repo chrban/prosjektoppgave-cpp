@@ -203,14 +203,22 @@ void myrect::walk()
            setPos(x()-2,y());
 
            QList<QGraphicsItem *> colliding_items = collidingItems();
-           if(!colliding_items.isEmpty() && colliding_items[0]->y()<y()-20){
-
+           if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-30){
+                   setPos(x()+2,y());
+                   qDebug()<<"prømpleft";
+                   timerWalk->stop();
            }
 
 
            return;
        }
        setPos(x()+2,y());
+       QList<QGraphicsItem *> colliding_items = collidingItems();
+       if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-30){
+               setPos(x()-2,y());
+               qDebug()<<"prømpright";
+               timerWalk->stop();
+       }
        return;
    }
 
@@ -233,6 +241,14 @@ void myrect::walk()
 
        }
        setPos(x()-2,y());
+
+       QList<QGraphicsItem *> colliding_items = collidingItems();
+       if(!colliding_items.isEmpty() && colliding_items.back()->y() < y()+26 && colliding_items.back()->y()!=0){
+               setPos(x()+2,y());
+               qDebug()<<"kollisjon på venstre side: vår y: "<<y()<<"  boksen sin y: "<<colliding_items.back()->y();
+
+               timerWalk->stop();
+       }
 
        walked++;
        if(walked == 10){
@@ -262,6 +278,13 @@ void myrect::walk()
    }
 
    setPos(x()+2,y());
+
+   QList<QGraphicsItem *> colliding_items = collidingItems();
+   if(!colliding_items.isEmpty() && colliding_items.back()->y() < y()+26 && colliding_items.back()->y() !=0){
+           setPos(x()-2,y());
+           qDebug()<<"kollisjon på høyre side";
+           timerWalk->stop();
+   }
 
    walked++;
    if(walked == 10){

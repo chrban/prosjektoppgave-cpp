@@ -43,6 +43,8 @@ void game::setUp(){
         scene->addItem(hinderFabrikk2->mekk());
     }
 
+   // hinderFabrikk2->mekk
+
 
     QGraphicsRectItem* bakke = new QGraphicsRectItem();
     tux = new myrect();
