@@ -15,6 +15,7 @@ QGraphicsItem *boxFactory::mekk()
     return box;
 }
 
+// mekker bakke
 QGraphicsItem * boxFactory::makeGround(){
     int yesno=rand()%10;
 

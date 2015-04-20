@@ -37,16 +37,18 @@ void game::setUp(){
     scene->clear();
     qDebug()<<"post";
 
+
+    // setter opp bokser og bakke
     boxFactory * hinderFabrikk2 = new boxFactory();
 
     for(int i = 0; i<10;i++){
         scene->addItem(hinderFabrikk2->mekk());
 
     }
-   for(int i = 0; i < 29;i++)
+    for(int i = 0; i < 29;i++)
        scene->addItem(hinderFabrikk2->makeGround());
 
-   // hinderFabrikk2->mekk
+
 
 
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
