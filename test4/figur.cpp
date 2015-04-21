@@ -6,6 +6,7 @@
 #include <QTimer>
 #include "enemy.h"
 #include <QList>
+#include "linus.h"
 
 Figur::Figur(){
     setPixmap(QPixmap(":/new/img/mario1.png"));
@@ -357,6 +358,13 @@ void Figur::walk()
            timer_for_jump->start(9);
            return;
        }
+       for(int i = 0, n= colliding_items1.size();i<n;i++){
+           if(typeid(*(colliding_items1[i]))==typeid(Linus)){
+                       scene()->removeItem(colliding_items1[i]);
+                       delete colliding_items1[i];
+                       return;
+                   }
+       }
 
        // Treffer en dings
        QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -413,7 +421,13 @@ void Figur::walk()
        timer_for_jump->start(9);
        return;
    }
-
+   for(int i = 0, n= colliding_items.size();i<n;i++){
+        if(typeid(*(colliding_items[i]))==typeid(Linus)){
+                   scene()->removeItem(colliding_items[i]);
+                   delete colliding_items[i];
+                   return;
+               }
+   }
    // treffer en dings
    if(!colliding_items.isEmpty() && colliding_items.back()->y() < y()+26 && colliding_items.back()->y() !=0){
            setPos(x()-2,y());
