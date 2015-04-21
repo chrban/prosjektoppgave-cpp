@@ -8,6 +8,7 @@
 #include "rectfac.h"
 #include "boxfactory.h"
 #include "groundfactory.h"
+#include "linusfactory.h"
 #include <QBrush>
 #include <QImage>
 
@@ -42,6 +43,7 @@ void game::setUp(){
     // setter opp bokser og bakke
     boxFactory * hinderFabrikk2 = new boxFactory();
     GroundFactory * bakkeFabrikk = new GroundFactory();
+    LinusFactory * linusFabrikk = new LinusFactory();
 
     for(int i = 0; i<10;i++){
         scene->addItem(hinderFabrikk2->mekk());
@@ -50,6 +52,9 @@ void game::setUp(){
     for(int i = 0; i < 29;i++)
        scene->addItem(bakkeFabrikk->mekk());
 
+    for(int i = 0;i < 3;i++){
+        scene->addItem(linusFabrikk->mekk());
+    }
 
 
 
