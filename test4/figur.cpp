@@ -1,4 +1,4 @@
-#include "myrect.h"
+#include "figur.h"
 #include "bullet.h"
 #include <QDebug>
 #include <QKeyEvent>
@@ -7,7 +7,7 @@
 #include "enemy.h"
 #include <QList>
 
-myrect::myrect(){
+Figur::Figur(){
     setPixmap(QPixmap(":/new/img/mario1.png"));
 
     //states
@@ -23,15 +23,15 @@ myrect::myrect(){
     velocity = 50;
 
     //timers
-    timer_up = new QTimer();
-    timerWalk = new QTimer();
-    connect(timer_up,SIGNAL(timeout()),this,SLOT(jump()));
-    connect(timerWalk,SIGNAL(timeout()),this,SLOT(walk()));
+    timer_for_jump = new QTimer();
+    timer_for_walk = new QTimer();
+    connect(timer_for_jump,SIGNAL(timeout()),this,SLOT(jump()));
+    connect(timer_for_walk,SIGNAL(timeout()),this,SLOT(walk()));
 
 }
 
 
-void myrect::keyPressEvent(QKeyEvent *event)
+void Figur::keyPressEvent(QKeyEvent *event)
 {
     // VENSTRE
     if(event->key()==Qt::Key_Left){
@@ -46,15 +46,15 @@ void myrect::keyPressEvent(QKeyEvent *event)
             if(falling){
                 updateImg();
                 //starter timer som beveger figur horisontalt mens den er i luften
-                timerWalk->start();
+                timer_for_walk->start();
                 return;
             }
 
-            if(timerWalk->isActive())// ikke start timer på nytt hvis den allerede kjører
+            if(timer_for_walk->isActive())// ikke start timer på nytt hvis den allerede kjører
                 return;
 
             // starter timer som får figuren til å gå bortove, med mindre den støter på noe.
-            timerWalk->start(20);
+            timer_for_walk->start(20);
         }
         //trengs denne?
         updateImg();
@@ -69,7 +69,7 @@ void myrect::keyPressEvent(QKeyEvent *event)
             falling = true;
             updateImg();
             velocity=0;
-            timer_up->start(9);
+            timer_for_jump->start(9);
         }
 
         walking =false;
@@ -92,16 +92,16 @@ void myrect::keyPressEvent(QKeyEvent *event)
             if(falling){
                 updateImg();
                 //starter timer som beveger figur horisontalt mens den er i luften
-                timerWalk->start();
+                timer_for_walk->start();
                 return;
             }
 
             // ikke start timer på nytt hvis den allerede kjører
-            if(timerWalk->isActive())
+            if(timer_for_walk->isActive())
                 return;
 
              // starter timer som får figuren til å gå bortove, med mindre den støter på noe.
-            timerWalk->start(20);
+            timer_for_walk->start(20);
         }
 
         updateImg();
@@ -116,7 +116,7 @@ void myrect::keyPressEvent(QKeyEvent *event)
             falling = true;
             updateImg();
             velocity=0;
-            timer_up->start(9);
+            timer_for_jump->start(9);
         }
 
         walking = false;
@@ -130,7 +130,7 @@ void myrect::keyPressEvent(QKeyEvent *event)
         walking = false;
 
         //start hoppetimeren
-        timer_up->start(0);
+        timer_for_jump->start(0);
     }
 
     // dette er bare tull
@@ -142,7 +142,7 @@ void myrect::keyPressEvent(QKeyEvent *event)
 }
 
 
-void myrect::jump()
+void Figur::jump()
 {
     updateImg();//trengs denne?
 
@@ -154,7 +154,7 @@ void myrect::jump()
             setPos(10,520);
             falling=false;
             jumping=false;
-            timer_up->stop();
+            timer_for_jump->stop();
             walked=0;
             velocity=30;
             return;
@@ -184,7 +184,7 @@ void myrect::jump()
                 jumping = false;
                 walked=0;
                 updateImg();
-                timer_up->stop();
+                timer_for_jump->stop();
                 velocity = 30;
                 return;
             }
@@ -195,7 +195,7 @@ void myrect::jump()
             if(velocity <15 && timer>0){
                 timer -= 1;
 
-                timer_up->setInterval(timer);
+                timer_for_jump->setInterval(timer);
             }
             else
                 timer =0;
@@ -240,7 +240,7 @@ void myrect::jump()
         // Senker hastigheten på toppen av hoppet
         if(velocity < 15 && timer<12){
             timer += 1;
-            timer_up->setInterval(timer);
+            timer_for_jump->setInterval(timer);
         }
         // flytter oppover
         setPos(x(),y()-3);
@@ -248,7 +248,7 @@ void myrect::jump()
     }
 }
 
-void myrect::walk()
+void Figur::walk()
 {
 
    // horisontal bevegelse i luften
@@ -259,7 +259,7 @@ void myrect::walk()
        // flyttet seg nok
        if(walked>20){
            walked = 0;
-           timerWalk->stop();
+           timer_for_walk->stop();
            return;
        }
        // Flytter seg til venstre
@@ -270,7 +270,7 @@ void myrect::walk()
            QList<QGraphicsItem *> colliding_items = collidingItems();
            if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-30){
                    setPos(x()+2,y());
-                   timerWalk->stop();
+                   timer_for_walk->stop();
            }
            updateImg();
 
@@ -284,7 +284,7 @@ void myrect::walk()
        QList<QGraphicsItem *> colliding_items = collidingItems();
        if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-30){
                setPos(x()-2,y());
-               timerWalk->stop();
+               timer_for_walk->stop();
        }
        return;
    }
@@ -316,8 +316,8 @@ void myrect::walk()
            falling = true;
            walked =0;
            velocity=0;
-           timerWalk->stop();
-           timer_up->start(9);
+           timer_for_walk->stop();
+           timer_for_jump->start(9);
            return;
        }
 
@@ -328,7 +328,7 @@ void myrect::walk()
                setPixmap(QPixmap(":/new/img/marioleft.png"));// gjør det i updateImg
                walked=0;
                walking = false;
-               timerWalk->stop();
+               timer_for_walk->stop();
                return;
        }
 
@@ -338,7 +338,7 @@ void myrect::walk()
            setPixmap(QPixmap(":/new/img/marioleft.png"));
            walked =0;
 
-           timerWalk->stop();
+           timer_for_walk->stop();
            return;
        }
        return;
@@ -372,8 +372,8 @@ void myrect::walk()
        falling = true;
        walked=0;
        velocity=0;
-       timerWalk->stop();
-       timer_up->start(9);
+       timer_for_walk->stop();
+       timer_for_jump->start(9);
        return;
    }
 
@@ -383,7 +383,7 @@ void myrect::walk()
            setPixmap(QPixmap(":/new/img/mario1.png"));
            walked=0;
            walking=false;
-           timerWalk->stop();
+           timer_for_walk->stop();
            return;
    }
 
@@ -393,13 +393,13 @@ void myrect::walk()
    if(walked == 10){
        setPixmap(QPixmap(":/new/img/mario1.png"));
        walked=0;
-       timerWalk->stop();
+       timer_for_walk->stop();
        return;
    }
 }
 
 // Må bruke denne mer? God ide å basere alt på states og tellere?
-void myrect::updateImg(){
+void Figur::updateImg(){
     if(jumping){
         if(right){
             setPixmap(QPixmap(":/new/img/mariohopp.png"));
@@ -430,7 +430,7 @@ void myrect::updateImg(){
 
 
 // fra youtube
-void myrect::spawn()
+void Figur::spawn()
 {
     enemy * enemyen = new enemy();
     scene()->addItem(enemyen);

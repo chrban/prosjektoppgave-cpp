@@ -13,16 +13,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    myrect.cpp \
     bullet.cpp \
     enemy.cpp \
     rectfac.cpp \
     game.cpp \
     box.cpp \
-    boxfactory.cpp
+    boxfactory.cpp \
+    figur.cpp
 
 HEADERS  += \
-    myrect.h \
     bullet.h \
     enemy.h \
     abstractfac.h \
@@ -30,7 +29,8 @@ HEADERS  += \
     game.h \
     box.h \
     object.h \
-    boxfactory.h
+    boxfactory.h \
+    figur.h
 
 RESOURCES += \
     res.qrc

@@ -4,7 +4,7 @@
 #include <QGraphicsView>
 #include <QWidget>
 #include <QGraphicsScene>
-#include "myrect.h"
+#include "figur.h"
 
 
 class game: public QGraphicsView{
@@ -12,7 +12,7 @@ class game: public QGraphicsView{
 public:
     game(QWidget * parent=0);
     QGraphicsScene * scene;
-    myrect * tux;
+    Figur * tux;
 
 public slots:
     void setUp();

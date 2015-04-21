@@ -4,10 +4,10 @@
 #include <QObject>
 #include <QTimer>
 
-class myrect:public QObject, public QGraphicsPixmapItem{
+class Figur:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    myrect();
+    Figur();
     void keyPressEvent(QKeyEvent * event);
 public slots:
     void spawn();
@@ -25,8 +25,8 @@ private:
     int velocity;
     int walked;
     int timer;
-    QTimer * timer_up;
-    QTimer * timerWalk;
+    QTimer * timer_for_jump;
+    QTimer * timer_for_walk;
 
     void updateImg();
 

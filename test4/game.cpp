@@ -52,7 +52,7 @@ void game::setUp(){
 
 
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
-    tux = new myrect();
+    tux = new Figur();
     connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
     tux->setPos(10,520);
     tux->setFlag(QGraphicsItem::ItemIsFocusable);
