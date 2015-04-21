@@ -11,7 +11,7 @@
 
 * sol og skyer
 
-* Mario i true == enemy
+* Mario i truse == enemy
 
 * Global ordning for liv og poeng - betty
 * kode en fiende og kollisjon med denne - betty
