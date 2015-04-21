@@ -1,5 +1,5 @@
 #include <QGraphicsScene>
-#include "myrect.h"
+#include "figur.h"
 #include <QGraphicsView>
 #include <QGraphicsRectItem>
 #include <QApplication>
@@ -14,6 +14,8 @@ game * g;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    srand ( time(NULL) );
 
     g = new game();
     g->show();

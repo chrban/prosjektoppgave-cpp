@@ -1,5 +1,20 @@
 <RCC>
     <qresource prefix="/new/img">
         <file>TUX3MINI.png</file>
+        <file>TUXNY.png</file>
+        <file>mariohopp.png</file>
+        <file>mario1.png</file>
+        <file>mariohoppleft.png</file>
+        <file>marioleft.png</file>
+        <file>mariowalkleft.png</file>
+        <file>mariowalkright.png</file>
+        <file>BOKS.png</file>
+        <file>Stdbackground.png</file>
+        <file>mariowalkright2.png</file>
+        <file>mariowalkleft4.png</file>
+        <file>mariowalkright4.png</file>
+        <file>mariowalkleft3.png</file>
+        <file>mariowalkright3.png</file>
+        <file>mariowalkleft2.png</file>
     </qresource>
 </RCC>
