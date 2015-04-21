@@ -9,6 +9,7 @@ class Figur:public QObject, public QGraphicsPixmapItem{
 public:
     Figur();
     void keyPressEvent(QKeyEvent * event);
+    void keyReleaseEvent(QKeyEvent *event);
 public slots:
     void spawn();
     void jump();
