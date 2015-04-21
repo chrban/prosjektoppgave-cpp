@@ -1,21 +1,20 @@
 
 ## stufs to do
 
-* gjøre hopping smuuth
+* gjøre hopping smuuth - chrbng
 
-* brettsetup!
+* lage startmeny - trymz
 
-* lyder
+* brettsetup! -chrbng 
+
+* lyder - kristoffer 
 
 * sol og skyer
 
-* Global ordning for liv og poeng
-* kode en fiende og kollisjon med denne 
-* Plukke opp objekt
+* Global ordning for liv og poeng - betty
+* kode en fiende og kollisjon med denne - betty
 
+* Plukke opp objekt - kristoffer 
 
+* Lage mål, killscreen - trym?
 
-
-* Lage mål
-
-* hva skjer når han dør?
