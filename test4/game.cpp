@@ -7,6 +7,7 @@
 #include "Enemy.h"
 #include "rectfac.h"
 #include "boxfactory.h"
+#include "groundfactory.h"
 #include <QBrush>
 #include <QImage>
 
@@ -40,13 +41,14 @@ void game::setUp(){
 
     // setter opp bokser og bakke
     boxFactory * hinderFabrikk2 = new boxFactory();
+    GroundFactory * bakkeFabrikk = new GroundFactory();
 
     for(int i = 0; i<10;i++){
         scene->addItem(hinderFabrikk2->mekk());
 
     }
     for(int i = 0; i < 29;i++)
-       scene->addItem(hinderFabrikk2->makeGround());
+       scene->addItem(bakkeFabrikk->mekk());
 
 
 
