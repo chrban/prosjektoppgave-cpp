@@ -17,6 +17,8 @@ Figur::Figur(){
     walking = false;
     left= false;
     right = true;
+    superspeed=0;
+
 
     //tellere
     timer = 5;
@@ -52,6 +54,10 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
     if(event->key()==Qt::Key_Up){ // her er du , fortsett her
         qDebug()<<"Slapp HOPP";
 
+    }
+
+    if(event->key()==Qt::Key_Space){
+        superspeed=0;
     }
 
 
@@ -170,9 +176,10 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
     // dette er bare tull
     else if(event->key()==Qt::Key_Space){
-        bullet * bullet1 = new bullet();
-        bullet1->setPos(x(),y()+50);
-        scene()->addItem(bullet1);
+//        bullet * bullet1 = new bullet();
+//        bullet1->setPos(x(),y()+50);
+//        scene()->addItem(bullet1);
+        superspeed=10;
     }
 }
 
@@ -302,7 +309,7 @@ void Figur::walk()
 //       }
        // Flytter seg til venstre
        if(left){
-           setPos(x()-2,y());
+           setPos(x()-2-superspeed,y());
 
            //Treffer noe på siden
            QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -316,7 +323,7 @@ void Figur::walk()
        }
 
        //Flytter seg til høyre
-       setPos(x()+2,y());
+       setPos(x()+2+superspeed,y());
 
        // Treffer noe på siden
        QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -345,8 +352,8 @@ void Figur::walk()
         setPixmap(QPixmap(":/new/img/mariowalkleft.png"));
        }
 
-       //flytter
-       setPos(x()-2,y());
+       //flytter venstre
+       setPos(x()-2-superspeed,y());
 
        // Faller utenfor et stup!
        QList<QGraphicsItem *> colliding_items1 = collidingItems();
@@ -407,8 +414,8 @@ void Figur::walk()
     setPixmap(QPixmap(":/new/img/mariowalkright.png"));
    }
 
-   //flytter
-   setPos(x()+2,y());
+   //flytter høyre
+   setPos(x()+2+superspeed,y());
 
 
    // FAller utfor et stup!

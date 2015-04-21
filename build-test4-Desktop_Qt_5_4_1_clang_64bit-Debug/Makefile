@@ -55,7 +55,11 @@ SOURCES       = ../test4/main.cpp \
 		../test4/game.cpp \
 		../test4/box.cpp \
 		../test4/boxfactory.cpp \
-		../test4/figur.cpp qrc_res.cpp \
+		../test4/figur.cpp \
+		../test4/ground.cpp \
+		../test4/groundfactory.cpp \
+		../test4/linus.cpp \
+		../test4/linusfactory.cpp qrc_res.cpp \
 		moc_bullet.cpp \
 		moc_enemy.cpp \
 		moc_game.cpp \
@@ -68,6 +72,10 @@ OBJECTS       = main.o \
 		box.o \
 		boxfactory.o \
 		figur.o \
+		ground.o \
+		groundfactory.o \
+		linus.o \
+		linusfactory.o \
 		qrc_res.o \
 		moc_bullet.o \
 		moc_enemy.o \
@@ -215,14 +223,22 @@ DIST          = /Users/Christer/Qt/5.4/clang_64/mkspecs/features/spec_pre.prf \
 		../test4/box.h \
 		../test4/object.h \
 		../test4/boxfactory.h \
-		../test4/figur.h ../test4/main.cpp \
+		../test4/figur.h \
+		../test4/ground.h \
+		../test4/groundfactory.h \
+		../test4/linus.h \
+		../test4/linusfactory.h ../test4/main.cpp \
 		../test4/bullet.cpp \
 		../test4/enemy.cpp \
 		../test4/rectfac.cpp \
 		../test4/game.cpp \
 		../test4/box.cpp \
 		../test4/boxfactory.cpp \
-		../test4/figur.cpp
+		../test4/figur.cpp \
+		../test4/ground.cpp \
+		../test4/groundfactory.cpp \
+		../test4/linus.cpp \
+		../test4/linusfactory.cpp
 QMAKE_TARGET  = test4
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = test4.app/Contents/MacOS/test4
@@ -573,8 +589,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../test4/res.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../test4/bullet.h ../test4/enemy.h ../test4/abstractfac.h ../test4/rectfac.h ../test4/game.h ../test4/box.h ../test4/object.h ../test4/boxfactory.h ../test4/figur.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../test4/main.cpp ../test4/bullet.cpp ../test4/enemy.cpp ../test4/rectfac.cpp ../test4/game.cpp ../test4/box.cpp ../test4/boxfactory.cpp ../test4/figur.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../test4/bullet.h ../test4/enemy.h ../test4/abstractfac.h ../test4/rectfac.h ../test4/game.h ../test4/box.h ../test4/object.h ../test4/boxfactory.h ../test4/figur.h ../test4/ground.h ../test4/groundfactory.h ../test4/linus.h ../test4/linusfactory.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../test4/main.cpp ../test4/bullet.cpp ../test4/enemy.cpp ../test4/rectfac.cpp ../test4/game.cpp ../test4/box.cpp ../test4/boxfactory.cpp ../test4/figur.cpp ../test4/ground.cpp ../test4/groundfactory.cpp ../test4/linus.cpp ../test4/linusfactory.cpp $(DISTDIR)/
 
 
 clean:compiler_clean 
@@ -609,6 +625,7 @@ qrc_res.cpp: ../test4/res.qrc \
 		../test4/mario1.png \
 		../test4/mariowalkleft.png \
 		../test4/mariowalkleft2.png \
+		../test4/Linus.png \
 		../test4/TUXNY.png \
 		../test4/marioleft.png \
 		../test4/BOKS.png \
@@ -754,6 +771,8 @@ game.o: ../test4/game.cpp ../test4/game.h \
 		../test4/rectfac.h \
 		../test4/boxfactory.h \
 		../test4/abstractfac.h \
+		../test4/groundfactory.h \
+		../test4/linusfactory.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/QBrush \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/qbrush.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/QImage \
@@ -800,6 +819,44 @@ figur.o: ../test4/figur.cpp ../test4/figur.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QList \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qlist.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o figur.o ../test4/figur.cpp
+
+ground.o: ../test4/ground.cpp ../test4/ground.h \
+		../test4/object.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QObject \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qobject.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ground.o ../test4/ground.cpp
+
+groundfactory.o: ../test4/groundfactory.cpp ../test4/groundfactory.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsRectItem \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
+		../test4/abstractfac.h \
+		../test4/ground.h \
+		../test4/object.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QObject \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qobject.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o groundfactory.o ../test4/groundfactory.cpp
+
+linus.o: ../test4/linus.cpp ../test4/linus.h \
+		../test4/object.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QObject \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qobject.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o linus.o ../test4/linus.cpp
+
+linusfactory.o: ../test4/linusfactory.cpp ../test4/linusfactory.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsRectItem \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
+		../test4/abstractfac.h \
+		../test4/linus.h \
+		../test4/object.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QObject \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qobject.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o linusfactory.o ../test4/linusfactory.cpp
 
 qrc_res.o: qrc_res.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_res.o qrc_res.cpp

@@ -26,6 +26,7 @@ private:
     int velocity;
     int walked;
     int timer;
+    int superspeed;
     QTimer * timer_for_jump;
     QTimer * timer_for_walk;
 
