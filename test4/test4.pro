@@ -19,7 +19,9 @@ SOURCES += main.cpp \
     game.cpp \
     box.cpp \
     boxfactory.cpp \
-    figur.cpp
+    figur.cpp \
+    ground.cpp \
+    groundfactory.cpp
 
 HEADERS  += \
     bullet.h \
@@ -30,7 +32,9 @@ HEADERS  += \
     box.h \
     object.h \
     boxfactory.h \
-    figur.h
+    figur.h \
+    ground.h \
+    groundfactory.h
 
 RESOURCES += \
     res.qrc
