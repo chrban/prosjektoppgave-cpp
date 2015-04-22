@@ -18,6 +18,14 @@ public:
 
 public slots:
     void setUp();
+<<<<<<< HEAD
+    void pickedUpLinus();
+    void showMainMenu();
+
+private:
+    int linusCount;
+=======
+>>>>>>> origin/master
 
 };
 

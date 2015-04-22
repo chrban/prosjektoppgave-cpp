@@ -19,7 +19,9 @@ int main(int argc, char *argv[])
     srand ( time(NULL) );
 
     g = new game();
-    g->showMainMenu();
+    g->show();
+
+
 
     /*
     QGraphicsScene * scene = new QGraphicsScene();

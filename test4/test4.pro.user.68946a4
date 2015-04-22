@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<!-- Written by QtCreator 3.3.2, 2015-04-21T16:45:23. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
+  <value type="QByteArray">{68946a4d-68af-461b-a888-c17378edb92e}</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -254,6 +256,7 @@
  </data>
  <data>
   <variable>ProjectExplorer.Project.TargetCount</variable>
+  <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.FileVersion</variable>

@@ -59,8 +59,6 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
 
 
     if(event->key()==Qt::Key_Up){ // her er du , fortsett her
-        qDebug()<<"Slapp HOPP";
-
     }
 
     if(event->key()==Qt::Key_Space){
