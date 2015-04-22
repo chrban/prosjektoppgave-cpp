@@ -220,6 +220,15 @@ void Figur::jump()
             else{
                 //figuren stopper opp der den lander, stopper timer, resetter tellere.
                 qDebug()<<"Linje 220: Landet på noe";
+                for(int i = 0, n= colliding_items.size();i<n;i++){
+                    if(typeid(*(colliding_items[i]))==typeid(Linus)){
+                               scene()->removeItem(colliding_items[i]);
+                               delete colliding_items[i];
+                               return;
+                           }
+                }
+
+
                 setPos(x(),y());
                 falling = false;
                 jumping = false;
