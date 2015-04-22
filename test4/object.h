@@ -1,9 +1,9 @@
 #ifndef OBJECT
 #define OBJECT
 #include <QGraphicsPixmapItem>
-#include <QObject>
 
-class Object : public QGraphicsPixmapItem{
+class Object : public QObject, public QGraphicsPixmapItem{
+    Q_OBJECT
 public:
   //  Object();
 };
