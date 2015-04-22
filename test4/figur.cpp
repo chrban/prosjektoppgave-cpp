@@ -210,12 +210,28 @@ void Figur::jump()
             // krasjer han i siden på noe på vei ned?
             if(colliding_items.back()->y() < y()+26){
                //på høyresiden av tingen
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
                if(colliding_items.back()->x()>x())
                    setPos(x()-2,y());
                //på venstresiden
                else
                    setPos(x()+2,y());
 
+<<<<<<< HEAD
+=======
+
+               if(colliding_items.back()->x()>x()){
+                    setPos(x()-2,y());
+               }
+               //på venstresiden
+               else{
+                   setPos(x()+2,y());
+                }
+
+>>>>>>> origin/master
                //uansett side, flyttes figuren litt vekk fra den. Da fjernes det den
                //krasjet i fra collidingitems og figuren fortsetter å falle
             }
@@ -274,10 +290,18 @@ void Figur::jump()
         if(!colliding_items.isEmpty() && velocity<28){
             qDebug()<<"krasjer på vei opp";
             // Treffer noe på siden
+<<<<<<< HEAD
             if(y()+27>colliding_items[0]->y()){
 <<<<<<< HEAD
 >>>>>>> origin/master
 =======
+>>>>>>> origin/master
+=======
+
+
+
+            if(y()+27>colliding_items[0]->y()){
+
 >>>>>>> origin/master
                 setPos(x(),y()+3);
                 //treffer noe på høyresiden

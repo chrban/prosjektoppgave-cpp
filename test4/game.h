@@ -27,6 +27,13 @@ private:
 =======
 >>>>>>> origin/master
 
+    void pickedUpLinus();
+    void showMainMenu();
+
+private:
+    int linusCount;
+
+
 };
 
 #endif // GAME_H

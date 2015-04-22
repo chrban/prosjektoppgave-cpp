@@ -52,11 +52,14 @@ void game::showMainMenu(){
 
     Button* quit = new Button(QString("Quit game"));
     int qxPos = this->width()/2 - play->boundingRect().width()/2;
-    int qyPos = 350;
+    int qyPos = 400;
     quit->setPos(qxPos, qyPos);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 =======
 >>>>>>> origin/master
@@ -117,10 +120,21 @@ void game::setUp(){
     //delete hinderFabrikk;
     //delete hinderFabrikk2;
 
+<<<<<<< HEAD
     //background music
     //FUNKER IKKEEE
     QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/sounds/Uglehull.mp3"));
     music->play();
+=======
+
+
+    show();
+}
+
+void game::pickedUpLinus()
+{
+
+>>>>>>> origin/master
 
 }

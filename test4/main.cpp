@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 
 
 
+
     /*
     QGraphicsScene * scene = new QGraphicsScene();
     myrect* tux = new myrect();
