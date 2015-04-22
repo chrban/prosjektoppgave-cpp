@@ -40,23 +40,23 @@ void game::showMainMenu(){
     QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
     QFont titleFont("Helvetica",40);
     title->setFont(titleFont);
-    int txPos = this->width/2 - titleText->boundingRect().width()/2;
+    int txPos = this->width()/2-title->boundingRect().width()/2;
     int tyPos = 150;
-    titleText(txPos,tyPos);
-    scene->addItem(titleText);
+    title->setPos(txPos,tyPos);
+    scene->addItem(title);
 
     Button* play = new Button(QString("Play game"));
-    int bxPos = this->width/2 - play->boundingRect().width()/2;
+    int bxPos = this->width()/2-play->boundingRect().width()/2;
     int byPos = 275;
     play->setPos(bxPos, byPos);
-    connect(play,SIGNAL(clicked()),this,SLOT(setUp()));
+    connect(play, SIGNAL(clicked()), this, SLOT(setUp()));
     scene->addItem(play);
 
     Button* quit = new Button(QString("Quit game"));
-    int qxPos = this->width/2 - play->boundingRect().width()/2;
+    int qxPos = this->width()/2 - play->boundingRect().width()/2;
     int qyPos = 350;
     quit->setPos(qxPos, qyPos);
-    connect(quit,SIGNAL(clicked()),this,SLOT(close()));
+    connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
 }
 

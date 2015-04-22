@@ -5,6 +5,7 @@
 #include <QGraphicsSceneMouseEvent>
 
 class Button: public QGraphicsRectItem{
+    Q_OBJECT
 public:
     Button(QString name, QGraphicsItem* parent = NULL);
 

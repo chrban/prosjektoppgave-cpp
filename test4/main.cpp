@@ -1,5 +1,5 @@
 #include <QGraphicsScene>
-#include "myrect.h"
+#include "figur.h"
 #include <QGraphicsView>
 #include <QGraphicsRectItem>
 #include <QApplication>
