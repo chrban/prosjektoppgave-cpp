@@ -13,7 +13,12 @@
 #include <QImage>
 #include <QMediaPlayer>
 
-game::game(QWidget * parent){
+
+
+
+game::game(QWidget *parent) : linusCount(0){
+
+
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
@@ -83,4 +88,9 @@ void game::setUp(){
 
     //delete hinderFabrikk;
     //delete hinderFabrikk2;
+}
+
+void game::pickedUpLinus()
+{
+
 }
