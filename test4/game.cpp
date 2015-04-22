@@ -19,9 +19,7 @@ game::game(QWidget *parent){
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
 
-    QMediaPlayer * background_music = new QMediaPlayer();
-    background_music->setMedia(":/new/sounds/Uglehull.mp3");
-    background_music->play();
+
 
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
