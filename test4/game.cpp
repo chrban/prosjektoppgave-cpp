@@ -55,7 +55,7 @@ void game::showMainMenu(){
 
     Button* quit = new Button(QString("Quit game"));
     int qxPos = this->width()/2 - play->boundingRect().width()/2;
-    int qyPos = 350;
+    int qyPos = 400;
     quit->setPos(qxPos, qyPos);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
