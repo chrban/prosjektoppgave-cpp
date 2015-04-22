@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <rectfac.h>
 #include <game.h>
+#include <time.h>
 
 
 

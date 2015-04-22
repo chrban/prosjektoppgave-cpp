@@ -95,6 +95,10 @@ void game::setUp(){
    // scene->addItem(bakke);
     scene->addItem(tux);
 
+    //lager score
+    score = new Score();
+    scene->addItem(score);
+
     //lager enemy
      enemy * fiende = new enemy();
      scene->addItem(fiende);
@@ -112,10 +116,30 @@ void game::setUp(){
     //delete hinderFabrikk;
     //delete hinderFabrikk2;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    //background music
+    //FUNKER IKKEEE
+    QMediaPlayer * music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/sounds/Uglehull.mp3"));
+    music->play();
+=======
+=======
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
     show();
 }
 
 void game::pickedUpLinus()
 {
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
 
 }
