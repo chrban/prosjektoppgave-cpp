@@ -55,8 +55,8 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
     }
 
     if(event->key()==Qt::Key_Up){//slipper hoppknappen
-//        falling=true;
-//        jumping=false;
+//       falling=true;
+        jumping=false;
     }
 
     if(event->key()==Qt::Key_Space){
@@ -207,9 +207,11 @@ void Figur::jump()
 
                if(colliding_items.back()->x()>x()){
                     setPos(x()-2,y());
+                    qDebug()<<"lillebror";
                }
                //på venstresiden
                else{
+                   qDebug()<<"lillebror";
                    setPos(x()+2,y());
                 }
 
@@ -274,24 +276,33 @@ void Figur::jump()
             qDebug()<<"krasjer på vei opp";
             // Treffer noe på siden
 
-            if(y()+27>colliding_items[0]->y()){
-                setPos(x(),y()+3);
+            if(y()>colliding_items[0]->y()+14){
+                qDebug()<< "strengt under";
+                setPos(x(),y()+6);
+
+            }
+            else if(y()+27>colliding_items[0]->y()){
+                setPos(x(),y()-5);
+                qDebug()<< "strengt over";
+
                 //treffer noe på høyresiden
                 if(x() < colliding_items[0]->x()){
-                    setPos(x(),y());
+                    //setPos(x(),y());
                     setPos(x()-5,y());
+
                 }
                 // treffer noe på venstresiden
                 else
-                    setPos(x(),y());
                     setPos(x()+5,y());
+
+                return;
             }
 
             // Slutter å hoppe og begynner å falle
             falling = true;
             jumping =false;
             updateImg();
-            velocity = 30;
+            velocity = 0;
             timer = 11;// burde denne være noe annet?
             return;
         }
@@ -384,7 +395,10 @@ void Figur::walk()
        // Treffer en dings
        QList<QGraphicsItem *> colliding_items = collidingItems();
        if(!colliding_items.isEmpty() && colliding_items.back()->y() < y()+26 && colliding_items.back()->y()!=0){
-               setPos(x()+2,y());//spretter litt tilbake? øke denne?
+              /* if(superspeed ==10)
+                    setPos(x()+14,y());//spretter litt tilbake? øke denne?
+               else*/
+                    setPos(x()+4,y());
                setPixmap(QPixmap(":/new/img/marioleft.png"));// gjør det i updateImg
                walked=0;
                walking = false;
@@ -444,7 +458,12 @@ void Figur::walk()
    }
    // treffer en dings
    if(!colliding_items.isEmpty() && colliding_items.back()->y() < y()+26 && colliding_items.back()->y() !=0){
-           setPos(x()-2,y());
+           /*if(superspeed ==10){
+                setPos(x()-16,y());//spretter litt tilbake? øke denne?
+                superspeed=0;
+           }
+           else*/
+                setPos(x()-4,y());
            setPixmap(QPixmap(":/new/img/mario1.png"));
            walked=0;
            walking=false;

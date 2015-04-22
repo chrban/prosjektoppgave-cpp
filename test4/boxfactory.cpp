@@ -10,7 +10,7 @@ using namespace std;
 QGraphicsItem *boxFactory::mekk()
 {
     int random_x = rand()%700;
-    int random_y = (rand()%20) + 480;
+    int random_y = 480;//(rand()%20) + 480;
     Box * box= new Box(random_x,random_y);
     return box;
 }
