@@ -1,10 +1,10 @@
 #include "Game.h"
+#include "enemy.h"
 #include <QTimer>
 #include <QGraphicsTextItem>
 #include <QGraphicsRectItem>
 #include <QFont>
 #include <QDebug>
-#include "Enemy.h"
 #include "rectfac.h"
 #include "boxfactory.h"
 #include "groundfactory.h"
@@ -14,14 +14,16 @@
 #include <QMediaPlayer>
 #include "button.h"
 
-game::game(QWidget *parent){
+
+
+
+game::game(QWidget *parent) : linusCount(0){
+
+
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
-
-
-
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
@@ -80,8 +82,6 @@ void game::setUp(){
         scene->addItem(linusFabrikk->mekk());
     }
 
-
-
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
     tux = new Figur();
     connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
@@ -92,6 +92,12 @@ void game::setUp(){
 
    // scene->addItem(bakke);
     scene->addItem(tux);
+
+    //lager enemy
+     enemy * fiende = new enemy();
+     scene->addItem(fiende);
+     fiende->setPos(10,520);
+
 
     qDebug()<<"prefac";
     /*rectFac * hinderFabrikk = new rectFac();
@@ -105,4 +111,9 @@ void game::setUp(){
     //delete hinderFabrikk2;
 
     show();
+}
+
+void game::pickedUpLinus()
+{
+
 }

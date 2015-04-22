@@ -37,33 +37,27 @@ Figur::Figur(){
 void Figur::keyReleaseEvent(QKeyEvent *event)
 {
     if(event->key()==Qt::Key_Left){
-        qDebug()<<"Slapp venstre tast";
-        left=false;
+        //left=false;
         walking = false;
         timer_for_walk->stop();
+        setPixmap(QPixmap(":/new/img/marioleft.png"));
     }
 
     if(event->key()==Qt::Key_Right){
-        qDebug()<<"Slapp høyre tast";
-        right=false;
+        //right=false;
+        setPixmap(QPixmap(":/new/img/mario1.png"));
         walking = false;
         timer_for_walk->stop();
     }
 
 
     if(event->key()==Qt::Key_Up){ // her er du , fortsett her
-        qDebug()<<"Slapp HOPP";
-
+                jumping = false;
     }
 
     if(event->key()==Qt::Key_Space){
         superspeed=0;
     }
-
-
-
-
-
 }
 
 
@@ -71,7 +65,6 @@ void Figur::keyPressEvent(QKeyEvent *event)
 {
     // VENSTRE
     if(event->key()==Qt::Key_Left){
-        qDebug()<<"Trykker venstre tast";
         //setter states
         left=true;
         right=false;
@@ -114,14 +107,13 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
     } // HØYRE
     else if(event->key()==Qt::Key_Right){
-        qDebug()<<"Trykket høyre tast";
         //setter states
         left=false;
         right=true;
         walking = true;
 
         // Hvis man går ut av brettet på høyre side, skal et nytt brett lages.
-        if(x()>800){
+        if(x()>780){
             emit nyttBrett();// sender signal til slot i game som lager nytt brett
             return;
         }
@@ -162,8 +154,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
     } // HOPPER
     else if(event->key()==Qt::Key_Up){
-        //ikke hopp hvis du faller!t
-        qDebug()<<"Trykket HOPP";
+        //ikke hopp hvis du faller!
         if(!falling)
         {
             jumping = true;
@@ -186,7 +177,6 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
 void Figur::jump()
 {
-    qDebug()<<"------";
     updateImg();//trengs denne?
 
     //Figur faller
@@ -209,12 +199,13 @@ void Figur::jump()
             // krasjer han i siden på noe på vei ned?
             if(colliding_items.back()->y() < y()+26){
                //på høyresiden av tingen
-               if(colliding_items.back()->x()>x())
-                   setPos(x()-2,y());
+               if(colliding_items.back()->x()>x()){
+                    setPos(x()+1,y()-1);
+               }
                //på venstresiden
-               else
-                   setPos(x()+2,y());
-
+               else{
+                   setPos(x()+1,y());
+                }
                //uansett side, flyttes figuren litt vekk fra den. Da fjernes det den
                //krasjet i fra collidingitems og figuren fortsetter å falle
             }
@@ -222,7 +213,16 @@ void Figur::jump()
             //Figuren har landet på toppen av noe
             else{
                 //figuren stopper opp der den lander, stopper timer, resetter tellere.
-                qDebug()<<"Linje 220: Landet på noe";
+                for(int i = 0, n= colliding_items.size();i<n;i++){
+                    if(typeid(*(colliding_items[i]))==typeid(Linus)){
+                               scene()->removeItem(colliding_items[i]);
+                               delete colliding_items[i];
+                               emit pickedUpALinus();
+                               return;
+                           }
+                }
+
+
                 setPos(x(),y());
                 falling = false;
                 jumping = false;
@@ -255,22 +255,22 @@ void Figur::jump()
        falling = true;
     }
     // Hopper oppover
-    else{
+    else{ // (!falling)
         // Krasjer figuren i noe på vei opp?
         QList<QGraphicsItem *> colliding_items = collidingItems();
         //krasjer i noe
         if(!colliding_items.isEmpty() && velocity<28){
             qDebug()<<"krasjer på vei opp";
             // Treffer noe på siden
-            if(y()+30>colliding_items[0]->y()){
-                setPos(x(),y()+3);
+            if(y()+27>colliding_items[0]->y()){
+                setPos(x(),y()-1);
                 //treffer noe på høyresiden
                 if(x() < colliding_items[0]->x()){
-                    setPos(x()-5,y());
+                    setPos(x(),y());
                 }
                 // treffer noe på venstresiden
                 else
-                    setPos(x()+5,y());
+                    setPos(x(),y());
             }
 
             // Slutter å hoppe og begynner å falle
@@ -309,7 +309,7 @@ void Figur::walk()
 //       }
        // Flytter seg til venstre
        if(left){
-           setPos(x()-2-superspeed,y());
+           setPos(x()-4-superspeed,y());
 
            //Treffer noe på siden
            QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -323,7 +323,7 @@ void Figur::walk()
        }
 
        //Flytter seg til høyre
-       setPos(x()+2+superspeed,y());
+       setPos(x()+4+superspeed,y());
 
        // Treffer noe på siden
        QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -353,7 +353,7 @@ void Figur::walk()
        }
 
        //flytter venstre
-       setPos(x()-2-superspeed,y());
+       setPos(x()-4-superspeed,y());
 
        // Faller utenfor et stup!
        QList<QGraphicsItem *> colliding_items1 = collidingItems();
@@ -369,6 +369,7 @@ void Figur::walk()
            if(typeid(*(colliding_items1[i]))==typeid(Linus)){
                        scene()->removeItem(colliding_items1[i]);
                        delete colliding_items1[i];
+                       emit pickedUpALinus();
                        return;
                    }
        }
@@ -415,7 +416,7 @@ void Figur::walk()
    }
 
    //flytter høyre
-   setPos(x()+2+superspeed,y());
+   setPos(x()+4+superspeed,y());
 
 
    // FAller utfor et stup!
@@ -432,6 +433,7 @@ void Figur::walk()
         if(typeid(*(colliding_items[i]))==typeid(Linus)){
                    scene()->removeItem(colliding_items[i]);
                    delete colliding_items[i];
+                   emit pickedUpALinus();
                    return;
                }
    }
