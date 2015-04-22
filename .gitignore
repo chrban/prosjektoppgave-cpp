@@ -16,3 +16,13 @@ test4/test4.pro.user.c493dce
 build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/Makefile
 
 build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/Makefile
+
+build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/test4.app/Contents/MacOS/test4
+
+build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/test4.app/Contents/MacOS/test4
+
+*.o
+
+build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/test4.app/Contents/MacOS/test4
+
+build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/figur.o

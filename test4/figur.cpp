@@ -42,7 +42,6 @@ Figur::Figur(){
 void Figur::keyReleaseEvent(QKeyEvent *event)
 {
     if(event->key()==Qt::Key_Left){
-        qDebug()<<"Slapp venstre tast";
         //left=false;
         walking = false;
         timer_for_walk->stop();
@@ -50,15 +49,14 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
     }
 
     if(event->key()==Qt::Key_Right){
-        qDebug()<<"Slapp høyre tast";
-        //right=false;
         setPixmap(QPixmap(":/new/img/mario1.png"));
         walking = false;
         timer_for_walk->stop();
     }
 
-
-    if(event->key()==Qt::Key_Up){ // her er du , fortsett her
+    if(event->key()==Qt::Key_Up){//slipper hoppknappen
+//        falling=true;
+//        jumping=false;
     }
 
     if(event->key()==Qt::Key_Space){
@@ -71,7 +69,6 @@ void Figur::keyPressEvent(QKeyEvent *event)
 {
     // VENSTRE
     if(event->key()==Qt::Key_Left){
-        qDebug()<<"Trykker venstre tast";
         //setter states
         left=true;
         right=false;
@@ -114,7 +111,6 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
     } // HØYRE
     else if(event->key()==Qt::Key_Right){
-        qDebug()<<"Trykket høyre tast";
         //setter states
         left=false;
         right=true;
@@ -164,7 +160,6 @@ void Figur::keyPressEvent(QKeyEvent *event)
     else if(event->key()==Qt::Key_Up){
         //ikke hopp hvis du faller!
         //ikke hopp hvis du faller!t
-        qDebug()<<"Trykket HOPP";
         if(!falling)
         {
             jumping = true;
@@ -187,7 +182,6 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
 void Figur::jump()
 {
-    qDebug()<<"------";
     updateImg();//trengs denne?
 
     //Figur faller
@@ -240,7 +234,6 @@ void Figur::jump()
 
 
 
-                qDebug()<<"Linje 220: Landet på noe";
                 setPos(x(),y());
                 falling = false;
                 jumping = false;
@@ -322,12 +315,6 @@ void Figur::walk()
        walked++;
        updateImg();// trengs denne?
 
-       // flyttet seg nok
-//       if(walked>20){
-//           walked = 0;
-//           timer_for_walk->stop();
-//           return;
-//       }
        // Flytter seg til venstre
        if(left){
            setPos(x()-4-superspeed,y());
@@ -336,7 +323,6 @@ void Figur::walk()
            QList<QGraphicsItem *> colliding_items = collidingItems();
            if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-30){
                    setPos(x()+2,y());
-//                   timer_for_walk->stop();
            }
            updateImg();
 
@@ -350,7 +336,6 @@ void Figur::walk()
        QList<QGraphicsItem *> colliding_items = collidingItems();
        if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-30){
                setPos(x()-2,y());
-//               timer_for_walk->stop();
        }
        return;
    }
@@ -382,7 +367,6 @@ void Figur::walk()
            falling = true;
            walked =0;
            velocity=0;
-//           timer_for_walk->stop();
            timer_for_jump->start(9);
            return;
        }
@@ -392,7 +376,6 @@ void Figur::walk()
                        scene()->removeItem(colliding_items1[i]);
                        //increase score
                        delete colliding_items1[i];
-//                       emit pickedUpALinus();
                        g->score->increase();
                        return;
                    }
@@ -405,7 +388,6 @@ void Figur::walk()
                setPixmap(QPixmap(":/new/img/marioleft.png"));// gjør det i updateImg
                walked=0;
                walking = false;
-//               timer_for_walk->stop();
                return;
        }
 
@@ -415,7 +397,6 @@ void Figur::walk()
            setPixmap(QPixmap(":/new/img/marioleft.png"));
            walked =0;
 
-//           timer_for_walk->stop();  // denne må bort
            return;
        }
        return;
@@ -457,7 +438,6 @@ void Figur::walk()
         if(typeid(*(colliding_items[i]))==typeid(Linus)){
                    scene()->removeItem(colliding_items[i]);
                    delete colliding_items[i];
-//                   emit pickedUpALinus();
                    g->score->increase();
                    return;
                }
@@ -468,7 +448,6 @@ void Figur::walk()
            setPixmap(QPixmap(":/new/img/mario1.png"));
            walked=0;
            walking=false;
-//           timer_for_walk->stop();
            return;
    }
 
@@ -478,7 +457,6 @@ void Figur::walk()
    if(walked == 10){
        setPixmap(QPixmap(":/new/img/mario1.png"));
        walked=0;
-//       timer_for_walk->stop();
        return;
    }
 }
