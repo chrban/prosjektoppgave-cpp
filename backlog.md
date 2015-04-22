@@ -3,7 +3,7 @@
 
 * gjøre hopping smuuth - chrbng
 
-* lage startmeny - trymz
+* ~~lage startmeny - trymz~~
 
 * brettsetup! -chrbng 
 
