@@ -14,10 +14,14 @@
 #include <QMediaPlayer>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 game::game(QWidget * parent){
 =======
 game::game(QWidget *parent) : linusCount(0){
 >>>>>>> 928a4f0a39d9880f4424d9e2840ff7a9fcefe627
+=======
+game::game(QWidget *parent) : linusCount(0){
+>>>>>>> origin/master
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
