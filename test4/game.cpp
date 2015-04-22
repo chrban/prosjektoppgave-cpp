@@ -27,7 +27,7 @@ game::game(QWidget * parent){
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
     //tux = new myrect();
-
+     score = new Score();
 
    // connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
 
@@ -56,10 +56,12 @@ void game::showMainMenu(){
     quit->setPos(qxPos, qyPos);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
+
     show();
 }
 
 void game::setUp(){
+
 
     scene->clear();
     qDebug()<<"post";
