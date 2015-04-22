@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     ground.cpp \
     groundfactory.cpp \
     linus.cpp \
-    linusfactory.cpp
+    linusfactory.cpp \
+    button.cpp
 
 HEADERS  += \
     bullet.h \
@@ -39,7 +40,8 @@ HEADERS  += \
     ground.h \
     groundfactory.h \
     linus.h \
-    linusfactory.h
+    linusfactory.h \
+    button.h
 
 RESOURCES += \
     res.qrc

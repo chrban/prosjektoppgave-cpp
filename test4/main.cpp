@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     g = new game();
     g->showMainMenu();
 
+
     /*
     QGraphicsScene * scene = new QGraphicsScene();
     myrect* tux = new myrect();

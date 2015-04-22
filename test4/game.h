@@ -17,6 +17,7 @@ public:
 public slots:
     void setUp();
     void pickedUpLinus();
+    void showMainMenu();
 
 private:
     int linusCount;

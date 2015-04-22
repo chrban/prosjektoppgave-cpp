@@ -1,5 +1,5 @@
-#include <QGraphicsTextItem>
 #include "button.h"
+#include <QGraphicsTextItem>
 #include <QBrush>
 
 Button::Button(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
@@ -10,8 +10,8 @@ Button::Button(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
     setBrush(brush);
 
     text = new QGraphicsTextItem(name, this);
-    int xPos = rect().width()/2 - text->boundingRect().width/2;
-    int yPos = rect().height()/2 - text->boundingRect().height/2;
+    int xPos = rect().width()/2 - text->boundingRect().width()/2;
+    int yPos = rect().height()/2 - text->boundingRect().height()/2;
     text->setPos(xPos, yPos);
 
     setAcceptHoverEvents(true);

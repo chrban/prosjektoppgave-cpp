@@ -4,7 +4,7 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 
-class Button: public QGraphicsRectItem{
+class Button: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
     Button(QString name, QGraphicsItem* parent = NULL);
@@ -15,7 +15,7 @@ public:
 signals:
     void clicked();
 private:
-    QString text;
+    QGraphicsTextItem* text;
 };
 
 #endif // BUTTON
