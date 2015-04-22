@@ -116,6 +116,7 @@ void game::setUp(){
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     //background music
     //FUNKER IKKEEE
     QMediaPlayer * music = new QMediaPlayer();
@@ -124,12 +125,17 @@ void game::setUp(){
 =======
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> origin/master
     show();
 }
 
 void game::pickedUpLinus()
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 =======
 >>>>>>> origin/master

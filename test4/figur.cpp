@@ -279,6 +279,9 @@ void Figur::jump()
 =======
             if(y()+27>colliding_items[0]->y()){
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 =======
 >>>>>>> origin/master
