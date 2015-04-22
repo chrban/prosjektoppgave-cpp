@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -mmacosx-version-min=10.7 -Wall -W -fPIE $(DEFINES)
 CXXFLAGS      = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -mmacosx-version-min=10.7 -Wall -W -fPIE $(DEFINES)
-INCPATH       = -I../test4 -I. -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -F/Users/Christer/Qt/5.4/clang_64/lib
+INCPATH       = -I../test4 -I. -I/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/Versions/5/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtNetwork.framework/Versions/5/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -F/Users/Christer/Qt/5.4/clang_64/lib
 QMAKE         = /Users/Christer/Qt/5.4/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = test41.0.0
 DISTDIR = /Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4/.tmp/test41.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -headerpad_max_install_names -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -mmacosx-version-min=10.7 -Wl,-rpath,/Users/Christer/Qt/5.4/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/Christer/Qt/5.4/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/Users/Christer/Qt/5.4/clang_64/lib -framework QtMultimedia -framework QtNetwork -framework QtCore -framework DiskArbitration -framework IOKit -framework QtGui -framework QtWidgets -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -416,9 +416,11 @@ Makefile: ../test4/test4.pro /Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang/
 		/Users/Christer/Qt/5.4/clang_64/mkspecs/features/lex.prf \
 		../test4/test4.pro \
 		../test4/res.qrc \
-		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtNetwork.framework/QtNetwork.prl \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/QtCore.prl \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/QtGui.prl \
-		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/QtCore.prl
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/QtWidgets.prl
 	$(QMAKE) -spec macx-clang CONFIG+=debug CONFIG+=x86_64 -o Makefile ../test4/test4.pro
 /Users/Christer/Qt/5.4/clang_64/mkspecs/features/spec_pre.prf:
 /Users/Christer/Qt/5.4/clang_64/mkspecs/qdevice.pri:
@@ -556,9 +558,11 @@ Makefile: ../test4/test4.pro /Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang/
 /Users/Christer/Qt/5.4/clang_64/mkspecs/features/lex.prf:
 ../test4/test4.pro:
 ../test4/res.qrc:
-/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
-/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/QtGui.prl:
+/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl:
+/Users/Christer/Qt/5.4/clang_64/lib/QtNetwork.framework/QtNetwork.prl:
 /Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/QtCore.prl:
+/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/QtGui.prl:
+/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 qmake: FORCE
 	@$(QMAKE) -spec macx-clang CONFIG+=debug CONFIG+=x86_64 -o Makefile ../test4/test4.pro
 
@@ -618,6 +622,7 @@ compiler_rcc_make_all: qrc_res.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_res.cpp
 qrc_res.cpp: ../test4/res.qrc \
+		../test4/Uglehull.mp3 \
 		../test4/mariowalkleft3.png \
 		../test4/mariohopp.png \
 		../test4/mariowalkright2.png \
@@ -645,14 +650,14 @@ moc_bullet.cpp: /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QObject \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qobject.h \
 		../test4/bullet.h
-	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/bullet.h -o moc_bullet.cpp
+	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtNetwork.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/bullet.h -o moc_bullet.cpp
 
 moc_enemy.cpp: /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsRectItem \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QObject \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qobject.h \
 		../test4/enemy.h
-	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/enemy.h -o moc_enemy.cpp
+	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtNetwork.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/enemy.h -o moc_enemy.cpp
 
 moc_game.cpp: /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsView \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsview.h \
@@ -668,7 +673,7 @@ moc_game.cpp: /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QTimer \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qtimer.h \
 		../test4/game.h
-	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/game.h -o moc_game.cpp
+	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtNetwork.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/game.h -o moc_game.cpp
 
 moc_figur.cpp: /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
@@ -677,7 +682,7 @@ moc_figur.cpp: /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QTimer \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qtimer.h \
 		../test4/figur.h
-	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/figur.h -o moc_figur.cpp
+	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtNetwork.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/figur.h -o moc_figur.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -776,7 +781,9 @@ game.o: ../test4/game.cpp ../test4/game.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/QBrush \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/qbrush.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/QImage \
-		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/qimage.h
+		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/qimage.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/Versions/5/Headers/QMediaPlayer \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/Versions/5/Headers/qmediaplayer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o game.o ../test4/game.cpp
 
 box.o: ../test4/box.cpp /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
@@ -817,7 +824,9 @@ figur.o: ../test4/figur.cpp ../test4/figur.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsscene.h \
 		../test4/enemy.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QList \
-		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qlist.h
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qlist.h \
+		../test4/linus.h \
+		../test4/object.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o figur.o ../test4/figur.cpp
 
 ground.o: ../test4/ground.cpp ../test4/ground.h \

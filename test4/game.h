@@ -16,6 +16,10 @@ public:
 
 public slots:
     void setUp();
+    void pickedUpLinus();
+
+private:
+    int linusCount;
 
 };
 

@@ -5,7 +5,7 @@
 
 QGraphicsItem *LinusFactory::mekk()
 {
-    int random = rand()%800;
-    Linus * linus = new Linus(random, 500);
+    int random = rand()%700;
+    Linus * linus = new Linus(random, 512);
     return linus;
 }

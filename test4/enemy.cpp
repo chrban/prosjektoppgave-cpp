@@ -1,29 +1,42 @@
-
 #include "enemy.h"
+#include <QPixmap>
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
+#include <QPoint>
+#include <QObject>
+#include <qmath.h>
 
-enemy::enemy()
-{
-    int random_number= rand()%700;
-    setPos(random_number,0);
-    setRect(0,0,100,100);
+    enemy::enemy(QGraphicsItem * parent){
+    // set graphics
+    setPixmap(QPixmap(":/new/img/mario1.png"));
 
+    //points - nedover-høyre så høyre
+    points << QPointF(200,200) << QPointF(400,200);
+    point_index = 0;
+    destination = points[0];
+
+    //timer to move_forward
     QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(move_forward()));
+    timer->start(150); //millisekunder
 
-    timer->start(50);
+}
+
+void enemy::rotateToPoint(QPointF p) {
+    QLineF ln(pos(),p);
+    setRotation(-1 * ln.angle());
+}
+
+void enemy::move_forward() {
+    int STEP_SIZE = 5;
+    double theta = rotation(); //grader
+
+    double dy = STEP_SIZE * qSin(qDegreesToRadians(theta));
+    double dx = STEP_SIZE * qCos(qDegreesToRadians(theta));
+
+    setPos(x()+dx, y() + dy);
 
 }
 
-void enemy::move()
-{
-    setPos(x(),y()+5);
-    if(pos().y() + rect().height() < 0){
-        scene()->removeItem(this);
-        delete this;
-    }
-
-}

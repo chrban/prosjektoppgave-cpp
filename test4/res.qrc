@@ -17,6 +17,7 @@
         <file>mariowalkright3.png</file>
         <file>mariowalkleft2.png</file>
         <file>Linus.png</file>
+        <file>linus-torvalds.png</file>
     </qresource>
     <qresource prefix="/new/sounds">
         <file>Uglehull.mp3</file>
