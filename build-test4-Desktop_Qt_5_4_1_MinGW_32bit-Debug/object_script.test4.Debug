@@ -11,7 +11,7 @@ INPUT(
 ./debug\groundfactory.o
 ./debug\linus.o
 ./debug\linusfactory.o
-./debug\button.o
+./debug\score.o
 ./debug\qrc_res.o
 ./debug\moc_bullet.o
 ./debug\moc_enemy.o
@@ -19,5 +19,4 @@ INPUT(
 ./debug\moc_object.o
 ./debug\moc_figur.o
 ./debug\moc_linus.o
-./debug\moc_button.o
 );

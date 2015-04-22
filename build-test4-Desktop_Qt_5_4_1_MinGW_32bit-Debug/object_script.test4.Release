@@ -11,7 +11,7 @@ INPUT(
 ./release\groundfactory.o
 ./release\linus.o
 ./release\linusfactory.o
-./release\button.o
+./release\score.o
 ./release\qrc_res.o
 ./release\moc_bullet.o
 ./release\moc_enemy.o
@@ -19,5 +19,4 @@ INPUT(
 ./release\moc_object.o
 ./release\moc_figur.o
 ./release\moc_linus.o
-./release\moc_button.o
 );
