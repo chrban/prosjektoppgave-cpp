@@ -117,7 +117,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
         walking = true;
 
         // Hvis man går ut av brettet på høyre side, skal et nytt brett lages.
-        if(x()>780){
+        if(x()>770){
             emit nyttBrett();// sender signal til slot i game som lager nytt brett
             return;
         }
@@ -278,7 +278,7 @@ void Figur::jump()
 
             if(y()>colliding_items[0]->y()+14){
                 qDebug()<< "strengt under";
-                setPos(x(),y()+6);
+                setPos(x(),y()+4);
 
             }
             else if(y()+27>colliding_items[0]->y()){
