@@ -224,6 +224,7 @@ void Figur::jump()
                     if(typeid(*(colliding_items[i]))==typeid(Linus)){
                                scene()->removeItem(colliding_items[i]);
                                delete colliding_items[i];
+                               emit pickedUpALinus();
                                return;
                            }
                 }
@@ -375,6 +376,7 @@ void Figur::walk()
            if(typeid(*(colliding_items1[i]))==typeid(Linus)){
                        scene()->removeItem(colliding_items1[i]);
                        delete colliding_items1[i];
+                       emit pickedUpALinus();
                        return;
                    }
        }
@@ -438,6 +440,7 @@ void Figur::walk()
         if(typeid(*(colliding_items[i]))==typeid(Linus)){
                    scene()->removeItem(colliding_items[i]);
                    delete colliding_items[i];
+                   emit pickedUpALinus();
                    return;
                }
    }
