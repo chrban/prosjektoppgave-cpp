@@ -213,6 +213,8 @@ void Figur::jump()
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
+=======
 >>>>>>> origin/master
                if(colliding_items.back()->x()>x())
                    setPos(x()-2,y());
@@ -222,6 +224,7 @@ void Figur::jump()
 
 <<<<<<< HEAD
 =======
+>>>>>>> origin/master
 
                if(colliding_items.back()->x()>x()){
                     setPos(x()-2,y());
@@ -239,6 +242,18 @@ void Figur::jump()
             //Figuren har landet på toppen av noe
             else{
                 //figuren stopper opp der den lander, stopper timer, resetter tellere.
+<<<<<<< HEAD
+
+                for(int i = 0, n= colliding_items.size();i<n;i++){
+                     if(typeid(*(colliding_items[i]))==typeid(Linus)){
+                                scene()->removeItem(colliding_items[i]);
+                                delete colliding_items[i];
+                                g->score->increase();
+                                return;
+                            }
+                }
+
+=======
                 for(int i = 0, n= colliding_items.size();i<n;i++){
                     if(typeid(*(colliding_items[i]))==typeid(Linus)){
                                scene()->removeItem(colliding_items[i]);
@@ -249,6 +264,7 @@ void Figur::jump()
                 }
 
 
+>>>>>>> origin/master
                 qDebug()<<"Linje 220: Landet på noe";
                 setPos(x(),y());
                 falling = false;
