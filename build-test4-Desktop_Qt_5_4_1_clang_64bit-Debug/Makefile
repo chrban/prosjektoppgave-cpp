@@ -623,23 +623,24 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_res.cpp
 qrc_res.cpp: ../test4/res.qrc \
 		../test4/Uglehull.mp3 \
-		../test4/mariowalkleft3.png \
-		../test4/mariohopp.png \
-		../test4/mariowalkright2.png \
-		../test4/Stdbackground.png \
 		../test4/mario1.png \
 		../test4/mariowalkleft.png \
-		../test4/mariowalkleft2.png \
-		../test4/Linus.png \
-		../test4/TUXNY.png \
-		../test4/marioleft.png \
-		../test4/BOKS.png \
-		../test4/mariowalkright.png \
-		../test4/mariowalkright4.png \
 		../test4/mariohoppleft.png \
+		../test4/linus-torvalds.png \
+		../test4/mariohopp.png \
+		../test4/TUXNY.png \
+		../test4/Stdbackground.png \
+		../test4/mariowalkleft2.png \
+		../test4/mariowalkleft3.png \
+		../test4/marioleft.png \
+		../test4/Linus.png \
 		../test4/mariowalkleft4.png \
-		../test4/TUX3MINI.png \
-		../test4/mariowalkright3.png
+		../test4/mariowalkright2.png \
+		../test4/mariowalkright3.png \
+		../test4/mariowalkright4.png \
+		../test4/mariowalkright.png \
+		../test4/BOKS.png \
+		../test4/TUX3MINI.png
 	/Users/Christer/Qt/5.4/clang_64/bin/rcc -name res ../test4/res.qrc -o qrc_res.cpp
 
 compiler_moc_header_make_all: moc_bullet.cpp moc_enemy.cpp moc_game.cpp moc_figur.cpp
@@ -652,10 +653,14 @@ moc_bullet.cpp: /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions
 		../test4/bullet.h
 	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtNetwork.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/bullet.h -o moc_bullet.cpp
 
-moc_enemy.cpp: /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsRectItem \
+moc_enemy.cpp: /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QObject \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qobject.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QList \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qlist.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QPointF \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qpoint.h \
 		../test4/enemy.h
 	/Users/Christer/Qt/5.4/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/Christer/Qt/5.4/clang_64/mkspecs/macx-clang -I/Users/Christer/Dropbox/Skole/GITS/prosjektoppgave-cpp/test4 -I/Users/Christer/Qt/5.4/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtNetwork.framework/Headers -I/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Headers -I. -F/Users/Christer/Qt/5.4/clang_64/lib ../test4/enemy.h -o moc_enemy.cpp
 
@@ -731,20 +736,29 @@ bullet.o: ../test4/bullet.cpp ../test4/bullet.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsscene.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QList \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qlist.h \
-		../test4/enemy.h
+		../test4/enemy.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QPointF \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qpoint.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bullet.o ../test4/bullet.cpp
 
 enemy.o: ../test4/enemy.cpp ../test4/enemy.h \
-		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsRectItem \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QObject \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qobject.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QList \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qlist.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QPointF \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qpoint.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/QPixmap \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/qpixmap.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QTimer \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qtimer.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsScene \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsscene.h \
-		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QList \
-		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qlist.h
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QPoint \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qmath.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o enemy.o ../test4/enemy.cpp
 
 rectfac.o: ../test4/rectfac.cpp /Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsRectItem \
@@ -766,13 +780,17 @@ game.o: ../test4/game.cpp ../test4/game.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qobject.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QTimer \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qtimer.h \
+		../test4/enemy.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QList \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qlist.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QPointF \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qpoint.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsTextItem \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsRectItem \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/QFont \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtGui.framework/Versions/5/Headers/qfont.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QDebug \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qdebug.h \
-		../test4/enemy.h \
 		../test4/rectfac.h \
 		../test4/boxfactory.h \
 		../test4/abstractfac.h \
@@ -825,6 +843,8 @@ figur.o: ../test4/figur.cpp ../test4/figur.h \
 		../test4/enemy.h \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QList \
 		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qlist.h \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/QPointF \
+		/Users/Christer/Qt/5.4/clang_64/lib/QtCore.framework/Versions/5/Headers/qpoint.h \
 		../test4/linus.h \
 		../test4/object.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o figur.o ../test4/figur.cpp

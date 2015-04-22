@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Figur_t {
-    QByteArrayData data[6];
-    char stringdata[33];
+    QByteArrayData data[7];
+    char stringdata[48];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,12 +32,14 @@ static const qt_meta_stringdata_Figur_t qt_meta_stringdata_Figur = {
 QT_MOC_LITERAL(0, 0, 5), // "Figur"
 QT_MOC_LITERAL(1, 6, 9), // "nyttBrett"
 QT_MOC_LITERAL(2, 16, 0), // ""
-QT_MOC_LITERAL(3, 17, 5), // "spawn"
-QT_MOC_LITERAL(4, 23, 4), // "jump"
-QT_MOC_LITERAL(5, 28, 4) // "walk"
+QT_MOC_LITERAL(3, 17, 14), // "pickedUpALinus"
+QT_MOC_LITERAL(4, 32, 5), // "spawn"
+QT_MOC_LITERAL(5, 38, 4), // "jump"
+QT_MOC_LITERAL(6, 43, 4) // "walk"
 
     },
-    "Figur\0nyttBrett\0\0spawn\0jump\0walk"
+    "Figur\0nyttBrett\0\0pickedUpALinus\0spawn\0"
+    "jump\0walk"
 };
 #undef QT_MOC_LITERAL
 
@@ -47,22 +49,24 @@ static const uint qt_meta_data_Figur[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   34,    2, 0x06 /* Public */,
+       1,    0,   39,    2, 0x06 /* Public */,
+       3,    0,   40,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   35,    2, 0x0a /* Public */,
-       4,    0,   36,    2, 0x0a /* Public */,
-       5,    0,   37,    2, 0x0a /* Public */,
+       4,    0,   41,    2, 0x0a /* Public */,
+       5,    0,   42,    2, 0x0a /* Public */,
+       6,    0,   43,    2, 0x0a /* Public */,
 
  // signals: parameters
+    QMetaType::Void,
     QMetaType::Void,
 
  // slots: parameters
@@ -79,9 +83,10 @@ void Figur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         Figur *_t = static_cast<Figur *>(_o);
         switch (_id) {
         case 0: _t->nyttBrett(); break;
-        case 1: _t->spawn(); break;
-        case 2: _t->jump(); break;
-        case 3: _t->walk(); break;
+        case 1: _t->pickedUpALinus(); break;
+        case 2: _t->spawn(); break;
+        case 3: _t->jump(); break;
+        case 4: _t->walk(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -91,6 +96,12 @@ void Figur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
             typedef void (Figur::*_t)();
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Figur::nyttBrett)) {
                 *result = 0;
+            }
+        }
+        {
+            typedef void (Figur::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Figur::pickedUpALinus)) {
+                *result = 1;
             }
         }
     }
@@ -124,13 +135,13 @@ int Figur::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }
@@ -139,5 +150,11 @@ int Figur::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void Figur::nyttBrett()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
+}
+
+// SIGNAL 1
+void Figur::pickedUpALinus()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

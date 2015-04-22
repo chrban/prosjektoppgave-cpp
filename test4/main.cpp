@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <rectfac.h>
 #include <game.h>
+#include <time.h>
 
 
 
@@ -18,7 +19,7 @@ int main(int argc, char *argv[])
     srand ( time(NULL) );
 
     g = new game();
-    g->show();
+    g->showMainMenu();
 
     /*
     QGraphicsScene * scene = new QGraphicsScene();

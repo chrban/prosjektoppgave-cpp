@@ -17,7 +17,6 @@ public slots:
 
 signals:
     void nyttBrett();
-    void pickedUpALinus();
 private:
     bool falling;
     bool jumping;

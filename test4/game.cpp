@@ -12,8 +12,14 @@
 #include <QBrush>
 #include <QImage>
 #include <QMediaPlayer>
+#include "button.h"
 
-game::game(QWidget * parent){
+
+
+
+game::game(QWidget *parent) : linusCount(0){
+
+
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
@@ -28,10 +34,30 @@ game::game(QWidget * parent){
     //tux = new myrect();
 
    // connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
+}
 
-    setUp();
+void game::showMainMenu(){
+    QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
+    QFont titleFont("Helvetica",40);
+    title->setFont(titleFont);
+    int txPos = this->width()/2-title->boundingRect().width()/2;
+    int tyPos = 150;
+    title->setPos(txPos,tyPos);
+    scene->addItem(title);
 
-    show();
+    Button* play = new Button(QString("Play game"));
+    int bxPos = this->width()/2-play->boundingRect().width()/2;
+    int byPos = 275;
+    play->setPos(bxPos, byPos);
+    connect(play, SIGNAL(clicked()), this, SLOT(setUp()));
+    scene->addItem(play);
+
+    Button* quit = new Button(QString("Quit game"));
+    int qxPos = this->width()/2 - play->boundingRect().width()/2;
+    int qyPos = 350;
+    quit->setPos(qxPos, qyPos);
+    connect(quit, SIGNAL(clicked()), this, SLOT(close()));
+    scene->addItem(quit);
 }
 
 void game::setUp(){
@@ -67,6 +93,10 @@ void game::setUp(){
    // scene->addItem(bakke);
     scene->addItem(tux);
 
+    //lager score
+    score = new Score();
+    scene->addItem(score);
+
     //lager enemy
      enemy * fiende = new enemy();
      scene->addItem(fiende);
@@ -83,4 +113,25 @@ void game::setUp(){
 
     //delete hinderFabrikk;
     //delete hinderFabrikk2;
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+    //background music
+    //FUNKER IKKEEE
+    QMediaPlayer * music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/sounds/Uglehull.mp3"));
+    music->play();
+=======
+=======
+>>>>>>> origin/master
+    show();
+}
+
+void game::pickedUpLinus()
+{
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
+
 }
