@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     srand ( time(NULL) );
 
     g = new game();
-    g->show();
+    g->showMainMenu();
 
 
 

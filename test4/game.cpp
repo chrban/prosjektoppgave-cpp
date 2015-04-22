@@ -12,6 +12,7 @@
 #include <QBrush>
 #include <QImage>
 #include <QMediaPlayer>
+#include "button.h"
 
 game::game(QWidget * parent){
     // create the scene
@@ -30,10 +31,9 @@ game::game(QWidget * parent){
 
    // connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
 
-<<<<<<< HEAD
-    setUp();
+//    setUp();
+}
 
-=======
 void game::showMainMenu(){
     QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
     QFont titleFont("Helvetica",40);
@@ -56,13 +56,6 @@ void game::showMainMenu(){
     quit->setPos(qxPos, qyPos);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
     show();
 }
 
@@ -120,13 +113,11 @@ void game::setUp(){
     //delete hinderFabrikk;
     //delete hinderFabrikk2;
 
-<<<<<<< HEAD
     //background music
     //FUNKER IKKEEE
     QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/sounds/Uglehull.mp3"));
     music->play();
-=======
 
 
     show();
@@ -135,6 +126,6 @@ void game::setUp(){
 void game::pickedUpLinus()
 {
 
->>>>>>> origin/master
+
 
 }

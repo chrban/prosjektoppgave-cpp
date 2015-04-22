@@ -4,3 +4,15 @@ build-test4-Desktop_Qt_5_4_1_MinGW_32bit-Debug/*
 build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/*
 prosjektoppgave-cpp/build-test4-Desktop_Qt_5_4_1_MinGW_32bit-Debug/*
 prosjektoppgave-cpp/build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/*
+
+build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/qrc_res.cpp
+
+build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/Makefile
+
+build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/moc_figur.cpp
+
+test4/test4.pro.user.c493dce
+
+build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/Makefile
+
+build-test4-Desktop_Qt_5_4_1_clang_64bit-Debug/Makefile

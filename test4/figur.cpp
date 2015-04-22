@@ -210,21 +210,6 @@ void Figur::jump()
             // krasjer han i siden på noe på vei ned?
             if(colliding_items.back()->y() < y()+26){
                //på høyresiden av tingen
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
-               if(colliding_items.back()->x()>x())
-                   setPos(x()-2,y());
-               //på venstresiden
-               else
-                   setPos(x()+2,y());
-
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
 
                if(colliding_items.back()->x()>x()){
                     setPos(x()-2,y());
@@ -234,7 +219,7 @@ void Figur::jump()
                    setPos(x()+2,y());
                 }
 
->>>>>>> origin/master
+
                //uansett side, flyttes figuren litt vekk fra den. Da fjernes det den
                //krasjet i fra collidingitems og figuren fortsetter å falle
             }
@@ -242,7 +227,7 @@ void Figur::jump()
             //Figuren har landet på toppen av noe
             else{
                 //figuren stopper opp der den lander, stopper timer, resetter tellere.
-<<<<<<< HEAD
+
 
                 for(int i = 0, n= colliding_items.size();i<n;i++){
                      if(typeid(*(colliding_items[i]))==typeid(Linus)){
@@ -253,18 +238,8 @@ void Figur::jump()
                             }
                 }
 
-=======
-                for(int i = 0, n= colliding_items.size();i<n;i++){
-                    if(typeid(*(colliding_items[i]))==typeid(Linus)){
-                               scene()->removeItem(colliding_items[i]);
-                               delete colliding_items[i];
-                               emit pickedUpALinus();
-                               return;
-                           }
-                }
 
 
->>>>>>> origin/master
                 qDebug()<<"Linje 220: Landet på noe";
                 setPos(x(),y());
                 falling = false;
@@ -299,26 +274,14 @@ void Figur::jump()
     }
     // Hopper oppover
     else{ // (!falling)
-    else{
         // Krasjer figuren i noe på vei opp?
         QList<QGraphicsItem *> colliding_items = collidingItems();
         //krasjer i noe
         if(!colliding_items.isEmpty() && velocity<28){
             qDebug()<<"krasjer på vei opp";
             // Treffer noe på siden
-<<<<<<< HEAD
-            if(y()+27>colliding_items[0]->y()){
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
-
-
 
             if(y()+27>colliding_items[0]->y()){
-
->>>>>>> origin/master
                 setPos(x(),y()+3);
                 //treffer noe på høyresiden
                 if(x() < colliding_items[0]->x()){
@@ -368,7 +331,6 @@ void Figur::walk()
        // Flytter seg til venstre
        if(left){
            setPos(x()-4-superspeed,y());
-           setPos(x()-2-superspeed,y());
 
            //Treffer noe på siden
            QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -383,7 +345,6 @@ void Figur::walk()
 
        //Flytter seg til høyre
        setPos(x()+4+superspeed,y());
-       setPos(x()+2+superspeed,y());
 
        // Treffer noe på siden
        QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -414,7 +375,6 @@ void Figur::walk()
 
        //flytter venstre
        setPos(x()-4-superspeed,y());
-       setPos(x()-2-superspeed,y());
 
        // Faller utenfor et stup!
        QList<QGraphicsItem *> colliding_items1 = collidingItems();
@@ -432,7 +392,7 @@ void Figur::walk()
                        scene()->removeItem(colliding_items1[i]);
                        //increase score
                        delete colliding_items1[i];
-                       emit pickedUpALinus();
+//                       emit pickedUpALinus();
                        g->score->increase();
                        return;
                    }
@@ -481,7 +441,6 @@ void Figur::walk()
 
    //flytter høyre
    setPos(x()+4+superspeed,y());
-   setPos(x()+2+superspeed,y());
 
 
    // FAller utfor et stup!
@@ -498,7 +457,7 @@ void Figur::walk()
         if(typeid(*(colliding_items[i]))==typeid(Linus)){
                    scene()->removeItem(colliding_items[i]);
                    delete colliding_items[i];
-                   emit pickedUpALinus();
+//                   emit pickedUpALinus();
                    g->score->increase();
                    return;
                }
