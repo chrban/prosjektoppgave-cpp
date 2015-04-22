@@ -12,14 +12,8 @@
 #include <QBrush>
 #include <QImage>
 #include <QMediaPlayer>
-#include "button.h"
 
-
-
-
-game::game(QWidget *parent) : linusCount(0){
-
-
+game::game(QWidget * parent){
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
@@ -35,8 +29,11 @@ game::game(QWidget *parent) : linusCount(0){
 
 
    // connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
-}
 
+<<<<<<< HEAD
+    setUp();
+
+=======
 void game::showMainMenu(){
     QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
     QFont titleFont("Helvetica",40);
@@ -55,10 +52,17 @@ void game::showMainMenu(){
 
     Button* quit = new Button(QString("Quit game"));
     int qxPos = this->width()/2 - play->boundingRect().width()/2;
-    int qyPos = 350;
+    int qyPos = 400;
     quit->setPos(qxPos, qyPos);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
     show();
 }
 
@@ -116,6 +120,13 @@ void game::setUp(){
     //delete hinderFabrikk;
     //delete hinderFabrikk2;
 
+<<<<<<< HEAD
+    //background music
+    //FUNKER IKKEEE
+    QMediaPlayer * music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/sounds/Uglehull.mp3"));
+    music->play();
+=======
 
 
     show();
@@ -124,5 +135,6 @@ void game::setUp(){
 void game::pickedUpLinus()
 {
 
+>>>>>>> origin/master
 
 }
