@@ -3,7 +3,7 @@
 
 Ground::Ground(int x, int y){
     // trenger et bakkebilde
-    setPixmap(QPixmap(":/new/img/BOKS.png"));
+    setPixmap(QPixmap(":/new/img/ground.png"));
     setPos(x,y);
 }
 

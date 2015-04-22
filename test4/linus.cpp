@@ -10,7 +10,7 @@ Linus::Linus(int x, int y)
     count =0;
     up=true;
     connect(fps,SIGNAL(timeout()),this,SLOT(animate()));
-    fps->start(30);
+    fps->start(35);
 }
 
 void Linus::animate()

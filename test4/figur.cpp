@@ -200,11 +200,11 @@ void Figur::jump()
             if(colliding_items.back()->y() < y()+26){
                //på høyresiden av tingen
                if(colliding_items.back()->x()>x()){
-                    setPos(x()+1,y()-1);
+                    setPos(x()-2,y());
                }
                //på venstresiden
                else{
-                   setPos(x()+1,y());
+                   setPos(x()+2,y());
                 }
                //uansett side, flyttes figuren litt vekk fra den. Da fjernes det den
                //krasjet i fra collidingitems og figuren fortsetter å falle
@@ -263,7 +263,7 @@ void Figur::jump()
             qDebug()<<"krasjer på vei opp";
             // Treffer noe på siden
             if(y()+27>colliding_items[0]->y()){
-                setPos(x(),y()-1);
+                setPos(x(),y()+3);
                 //treffer noe på høyresiden
                 if(x() < colliding_items[0]->x()){
                     setPos(x(),y());
