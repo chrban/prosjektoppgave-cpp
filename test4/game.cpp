@@ -12,6 +12,7 @@
 #include <QBrush>
 #include <QImage>
 #include <QMediaPlayer>
+#include "button.h"
 
 game::game(QWidget *parent){
     // create the scene
@@ -31,10 +32,30 @@ game::game(QWidget *parent){
     //tux = new myrect();
 
    // connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
+}
 
-    setUp();
+void game::showMainMenu(){
+    QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
+    QFont titleFont("Helvetica",40);
+    title->setFont(titleFont);
+    int txPos = this->width/2 - titleText->boundingRect().width()/2;
+    int tyPos = 150;
+    titleText(txPos,tyPos);
+    scene->addItem(titleText);
 
-    show();
+    Button* play = new Button(QString("Play game"));
+    int bxPos = this->width/2 - play->boundingRect().width()/2;
+    int byPos = 275;
+    play->setPos(bxPos, byPos);
+    connect(play,SIGNAL(clicked()),this,SLOT(setUp()));
+    scene->addItem(play);
+
+    Button* quit = new Button(QString("Quit game"));
+    int qxPos = this->width/2 - play->boundingRect().width()/2;
+    int qyPos = 350;
+    quit->setPos(qxPos, qyPos);
+    connect(quit,SIGNAL(clicked()),this,SLOT(close()));
+    scene->addItem(quit);
 }
 
 void game::setUp(){
@@ -82,4 +103,6 @@ void game::setUp(){
 
     //delete hinderFabrikk;
     //delete hinderFabrikk2;
+
+    show();
 }
