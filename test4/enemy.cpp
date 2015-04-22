@@ -29,14 +29,22 @@ void enemy::rotateToPoint(QPointF p) {
     setRotation(-1 * ln.angle());
 }
 
-void enemy::move_forward() {
+void enemy::move_forward(){
+    // if close to dest, rotate to next dest
+    QLineF ln(pos(),destination);
+    if (ln.length() < 5){
+        point_index++;
+        destination = points[point_index];
+        rotateToPoint(destination);
+    }
+
+    // move enemy forward at current angle
     int STEP_SIZE = 5;
-    double theta = rotation(); //grader
+    double theta = rotation(); // degrees
 
     double dy = STEP_SIZE * qSin(qDegreesToRadians(theta));
     double dx = STEP_SIZE * qCos(qDegreesToRadians(theta));
 
-    setPos(x()+dx, y() + dy);
+    setPos(x()+dx, y()+dy);
 
 }
-

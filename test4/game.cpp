@@ -13,15 +13,7 @@
 #include <QImage>
 #include <QMediaPlayer>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 game::game(QWidget * parent){
-=======
-game::game(QWidget *parent) : linusCount(0){
->>>>>>> 928a4f0a39d9880f4424d9e2840ff7a9fcefe627
-=======
-game::game(QWidget *parent) : linusCount(0){
->>>>>>> origin/master
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
@@ -67,7 +59,6 @@ void game::setUp(){
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
     tux = new Figur();
     connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
-    connect(tux,SIGNAL(pickedUpALinus()),this,SLOT(pickedUpLinus()));
     tux->setPos(10,520);
     tux->setFlag(QGraphicsItem::ItemIsFocusable);
     tux->setFocus();
@@ -79,6 +70,7 @@ void game::setUp(){
     //lager enemy
      enemy * fiende = new enemy();
      scene->addItem(fiende);
+     fiende->setPos(10,520);
 
 
     qDebug()<<"prefac";
@@ -91,11 +83,4 @@ void game::setUp(){
 
     //delete hinderFabrikk;
     //delete hinderFabrikk2;
-}
-
-void game::pickedUpLinus()
-{
-    linusCount++;
-    if(linusCount%3==0)
-        qDebug()<<"Plukket opp alle linuser";
 }
