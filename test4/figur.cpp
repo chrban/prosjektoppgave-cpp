@@ -38,14 +38,16 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
 {
     if(event->key()==Qt::Key_Left){
         qDebug()<<"Slapp venstre tast";
-        left=false;
+        //left=false;
         walking = false;
         timer_for_walk->stop();
+        setPixmap(QPixmap(":/new/img/marioleft.png"));
     }
 
     if(event->key()==Qt::Key_Right){
         qDebug()<<"Slapp høyre tast";
-        right=false;
+        //right=false;
+        setPixmap(QPixmap(":/new/img/mario1.png"));
         walking = false;
         timer_for_walk->stop();
     }
@@ -59,11 +61,6 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
     if(event->key()==Qt::Key_Space){
         superspeed=0;
     }
-
-
-
-
-
 }
 
 
@@ -121,7 +118,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
         walking = true;
 
         // Hvis man går ut av brettet på høyre side, skal et nytt brett lages.
-        if(x()>800){
+        if(x()>780){
             emit nyttBrett();// sender signal til slot i game som lager nytt brett
             return;
         }
