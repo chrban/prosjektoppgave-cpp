@@ -13,6 +13,7 @@
 #include <QImage>
 #include <QMediaPlayer>
 
+game::game(QWidget * parent){
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
@@ -26,8 +27,13 @@
     setFixedSize(800,600);
     //tux = new myrect();
 
+
    // connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
 
+<<<<<<< HEAD
+    setUp();
+
+=======
 void game::showMainMenu(){
     QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
     QFont titleFont("Helvetica",40);
@@ -50,6 +56,11 @@ void game::showMainMenu(){
     quit->setPos(qxPos, qyPos);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
+    show();
 }
 
 void game::setUp(){
