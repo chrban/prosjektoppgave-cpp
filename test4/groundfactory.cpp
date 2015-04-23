@@ -4,7 +4,7 @@ QGraphicsItem * GroundFactory::mekk(){
 
 
     int yesno=rand()%10;
-    i+=30;
+    i+=50;
     if(yesno!=1){
         Ground * ground= new Ground(i,550);
 
