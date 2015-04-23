@@ -9,11 +9,13 @@
 #include "boxfactory.h"
 #include "groundfactory.h"
 #include "linusfactory.h"
+#include "cloudfactory.h"
 #include "levelfactory.h"
 #include <QBrush>
 #include <QImage>
 #include <QMediaPlayer>
 #include "button.h"
+#include "sun.h"
 
 game::game(QWidget * parent){
     // create the scene
@@ -67,12 +69,19 @@ void game::setUp(){
     scene->clear();
     qDebug()<<"post";
 
-
+    Sun * sun = new Sun(680,30);
+    scene->addItem(sun);
     // setter opp bokser og bakke
     boxFactory * hinderFabrikk2 = new boxFactory();
     GroundFactory * bakkeFabrikk = new GroundFactory();
+    CloudFactory * cloudFabrikk = new CloudFactory();
     LinusFactory * linusFabrikk = new LinusFactory();
     LevelFactory * levelFabrikk = new LevelFactory();
+
+
+    for(int i = 0; i<10;i++){
+        scene->addItem(cloudFabrikk->mekk());
+    }
 
     for(int i = 0; i<4;i++){
         scene->addItem(hinderFabrikk2->mekk(levelFabrikk->getNextX(),levelFabrikk->getNextY()));
