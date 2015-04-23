@@ -10,6 +10,7 @@
 #include "linus.h"
 #include "score.h"
 #include "game.h"
+#include "hp.h"
 
 extern game * g; //global variable
 
@@ -199,6 +200,7 @@ void Figur::jump()
             timer_for_jump->stop();
             walked=0;
             velocity=30;
+            g->hp->decrease();
             return;
         }
 

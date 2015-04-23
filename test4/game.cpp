@@ -28,12 +28,9 @@ game::game(QWidget * parent){
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
-    //tux = new myrect();
-     score = new Score();
 
-   // connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
-
-//    setUp();
+    hpCount=3;
+    scoreCount=0;
 }
 
 void game::showMainMenu(){
@@ -106,7 +103,14 @@ void game::setUp(){
 
     //lager score
     score = new Score();
+    score->increase(scoreCount);
     scene->addItem(score);
+
+    //lager HP
+    hp = new Hp();
+    hp->setPos(0,20);
+    hp->setHp(hpCount);
+    scene->addItem(hp);
 
     //lager enemy
      enemy * fiende = new enemy();
@@ -127,18 +131,21 @@ void game::setUp(){
 
     //background music
     //FUNKERRRRRRRRRRR HURRA
+<<<<<<< HEAD
     /*
     QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
     music->play();
+=======
+    //QMediaPlayer * music = new QMediaPlayer();
+    //music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
+    //music->play();
+>>>>>>> origin/master
 
 */
     show();
 }
 
-void game::pickedUpLinus()
-{
-
-
+void game::pickedUpLinus(){
 
 }

@@ -1,5 +1,8 @@
 #include "score.h"
+#include "game.h"
 #include <QFont>
+
+extern game * g;
 
 Score::Score(QGraphicsItem * parent): QGraphicsTextItem(parent) {
     //score til 0
@@ -12,10 +15,19 @@ Score::Score(QGraphicsItem * parent): QGraphicsTextItem(parent) {
 
 }
 
+void Score::increase(int inc) {
+    score=score+inc;
+    g->scoreCount=score;
+    //tekst
+    setPlainText(QString("Score: ") + QString::number(score));
+
+}
+
 void Score::increase() {
     score++;
+    g->scoreCount=score;
     //tekst
-    setPlainText(QString("Score: ") + QString::number(score)); //Score: 0
+    setPlainText(QString("Score: ") + QString::number(score));
 
 }
 
