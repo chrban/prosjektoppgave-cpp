@@ -27,5 +27,6 @@
     </qresource>
     <qresource prefix="/new/sounds">
         <file>Uglehull.mp3</file>
+        <file>Super Mario Bros Official Theme Song.mp3</file>
     </qresource>
 </RCC>

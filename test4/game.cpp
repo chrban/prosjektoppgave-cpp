@@ -116,10 +116,10 @@ void game::setUp(){
     //delete hinderFabrikk2;
 
     //background music
-    //FUNKER IKKEEE
-    QMediaPlayer * music = new QMediaPlayer();
-    music->setMedia(QUrl("qrc:/sounds/Uglehull.mp3"));
-    music->play();
+    //FUNKERRRRRRRRRRR HURRA
+    //QMediaPlayer * music = new QMediaPlayer();
+    //music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
+    //music->play();
 
 
     show();

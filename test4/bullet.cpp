@@ -3,7 +3,9 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
+#include <typeinfo>
 #include "enemy.h"
+
 
 bullet::bullet()
 {
