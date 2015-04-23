@@ -14,6 +14,10 @@ QGraphicsItem *boxFactory::mekk()
     Box * box= new Box(random_x,random_y);
     return box;
 }
+QGraphicsItem *boxFactory::mekk(int x,int y){
+    Box * box= new Box(x,y);
+    return box;
+}
 
 // mekker bakke
 QGraphicsItem * boxFactory::makeGround(){
