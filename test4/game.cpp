@@ -79,7 +79,7 @@ void game::setUp(){
         scene->addItem(cloudFabrikk->mekk());
     }
 
-    for(int i = 0; i<4;i++){
+    for(int i = 0; i<17;i++){
         scene->addItem(hinderFabrikk2->mekk(levelFabrikk->getNextX(),levelFabrikk->getNextY()));
 
     }
@@ -87,7 +87,7 @@ void game::setUp(){
        scene->addItem(bakkeFabrikk->mekk());
 
     for(int i = 0;i < 3;i++){
-        scene->addItem(linusFabrikk->mekk());
+        scene->addItem(linusFabrikk->mekk(levelFabrikk->getNextX(),levelFabrikk->getNextY()));
     }
 
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
@@ -131,7 +131,7 @@ void game::setUp(){
 
     //background music
     //FUNKERRRRRRRRRRR HURRA
-<<<<<<< HEAD
+
     /*
     QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
