@@ -16,7 +16,6 @@ public:
 public slots:
     void move_forward();
 
-
 private:
     QList<QPointF> points;
     QPointF destination;

@@ -24,11 +24,7 @@
         <file>linus-torvalds3.png</file>
         <file>linus-torvalds2.png</file>
         <file>ground.png</file>
-        <file>SKY.png</file>
-        <file>small_cloud.png</file>
-        <file>large_cloud.png</file>
-        <file>sun2.png</file>
-        <file>sun1.png</file>
+        <file>boss.png</file>
     </qresource>
     <qresource prefix="/new/sounds">
         <file>Uglehull.mp3</file>

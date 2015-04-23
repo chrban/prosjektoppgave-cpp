@@ -53,6 +53,10 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
         setPixmap(QPixmap(":/new/img/mario1.png"));
         walking = false;
         timer_for_walk->stop();
+        if(x()>770){
+            emit nyttBrett();// sender signal til slot i game som lager nytt brett
+            return;
+        }
     }
 
     if(event->key()==Qt::Key_Up){//slipper hoppknappen

@@ -10,10 +10,10 @@
 
     enemy::enemy(QGraphicsItem * parent){
     // set graphics
-    setPixmap(QPixmap(":/new/img/mario1.png"));
+    setPixmap(QPixmap(":/new/img/boss.png"));
 
     //points - nedover-høyre så høyre
-    points << QPointF(200,200) << QPointF(400,200);
+    points << QPointF(10,520) << QPointF(10,520); //400,200
     point_index = 0;
     destination = points[0];
 

@@ -132,9 +132,9 @@ void game::setUp(){
 
     //background music
     //FUNKERRRRRRRRRRR HURRA
-    //QMediaPlayer * music = new QMediaPlayer();
-    //music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
-    //music->play();
+    QMediaPlayer * music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
+    music->play();
 
 
     show();
