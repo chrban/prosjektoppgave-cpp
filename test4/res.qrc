@@ -24,6 +24,7 @@
         <file>linus-torvalds3.png</file>
         <file>linus-torvalds2.png</file>
         <file>ground.png</file>
+        <file>boss.png</file>
     </qresource>
     <qresource prefix="/new/sounds">
         <file>Uglehull.mp3</file>
