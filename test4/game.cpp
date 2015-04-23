@@ -33,6 +33,7 @@ game::game(QWidget * parent){
 
     hpCount=3;
     scoreCount=0;
+
 }
 
 void game::showMainMenu(){
@@ -44,7 +45,7 @@ void game::showMainMenu(){
     int txPos = this->width()/2-title->boundingRect().width()/2;
     int tyPos = 150;
     title->setPos(txPos,tyPos);
-    scene->addItem(title);*/
+    scene->addItem(title);
 
     setBackgroundBrush(QBrush(QImage("://new/img/tuxvsgit.png")));
 
@@ -176,7 +177,7 @@ void game::showKillScreen(){
 
     // Legg til Main Menu-knapp
     Button* menu = new Button(QString("Main Menu"));
-    menu->setPos(200,400);
+    menu->setPos(300,400);
     connect(menu, SIGNAL(clicked()), this, SLOT(showMainMenu()));
     scene->addItem(menu);
 

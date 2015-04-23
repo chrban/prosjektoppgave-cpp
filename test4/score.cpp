@@ -1,6 +1,7 @@
 #include "score.h"
 #include "game.h"
 #include <QFont>
+#include <QDebug>
 
 extern game * g;
 
@@ -24,9 +25,9 @@ void Score::increase(int inc) {
 
 void Score::increase() {
     score++;
-    g->scoreCount=score;
     //tekst
     setPlainText(QString("Score: ") + QString::number(score));
+    g->scoreCount=score;
 
 }
 
