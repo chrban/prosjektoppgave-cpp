@@ -282,6 +282,14 @@ void Figur::jump()
         if(!colliding_items.isEmpty() && velocity<28){
             qDebug()<<"krasjer på vei opp";
             // Treffer noe på siden
+            for(int i = 0, n= colliding_items.size();i<n;i++){
+                 if(typeid(*(colliding_items[i]))==typeid(Linus)){
+                            scene()->removeItem(colliding_items[i]);
+                            delete colliding_items[i];
+                            g->score->increase();
+                            return;
+                        }
+            }
 
             if(y()>colliding_items[0]->y()+14){
                 qDebug()<< "strengt under";
