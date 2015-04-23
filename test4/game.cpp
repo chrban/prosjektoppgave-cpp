@@ -9,6 +9,7 @@
 #include "boxfactory.h"
 #include "groundfactory.h"
 #include "linusfactory.h"
+#include "levelfactory.h"
 #include <QBrush>
 #include <QImage>
 #include <QMediaPlayer>
@@ -71,9 +72,10 @@ void game::setUp(){
     boxFactory * hinderFabrikk2 = new boxFactory();
     GroundFactory * bakkeFabrikk = new GroundFactory();
     LinusFactory * linusFabrikk = new LinusFactory();
+    LevelFactory * levelFabrikk = new LevelFactory();
 
-    for(int i = 0; i<10;i++){
-        scene->addItem(hinderFabrikk2->mekk());
+    for(int i = 0; i<4;i++){
+        scene->addItem(hinderFabrikk2->mekk(levelFabrikk->getNextX(),levelFabrikk->getNextY()));
 
     }
     for(int i = 0; i < 29;i++)
