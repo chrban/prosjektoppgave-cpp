@@ -13,7 +13,6 @@
 #include "levelfactory.h"
 #include <QBrush>
 #include <QImage>
-#include <QMediaPlayer>
 #include "button.h"
 #include "sun.h"
 
@@ -128,11 +127,12 @@ void game::setUp(){
 
     //background music
     //FUNKERRRRRRRRRRR HURRA
+    /*
     QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
     music->play();
 
-
+*/
     show();
 }
 
