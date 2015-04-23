@@ -34,24 +34,26 @@ game::game(QWidget * parent){
 }
 
 void game::showMainMenu(){
-    QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
+    /*QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
     QFont titleFont("Helvetica",40);
     title->setFont(titleFont);
     int txPos = this->width()/2-title->boundingRect().width()/2;
     int tyPos = 150;
     title->setPos(txPos,tyPos);
-    scene->addItem(title);
+    scene->addItem(title);*/
 
-    Button* play = new Button(QString("Play game"));
+    setBackgroundBrush(QBrush(QImage("://new/img/tuxvsgit.png")));
+
+    Button* play = new Button(QString("PLAY GAME"));
     int bxPos = this->width()/2-play->boundingRect().width()/2;
-    int byPos = 275;
+    int byPos = 425;
     play->setPos(bxPos, byPos);
     connect(play, SIGNAL(clicked()), this, SLOT(setUp()));
     scene->addItem(play);
 
-    Button* quit = new Button(QString("Quit game"));
+    Button* quit = new Button(QString("QUIT GAME"));
     int qxPos = this->width()/2 - play->boundingRect().width()/2;
-    int qyPos = 400;
+    int qyPos = 460;
     quit->setPos(qxPos, qyPos);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
@@ -63,6 +65,7 @@ void game::setUp(){
 
 
     scene->clear();
+    setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
     qDebug()<<"post";
 
     Sun * sun = new Sun(680,30);

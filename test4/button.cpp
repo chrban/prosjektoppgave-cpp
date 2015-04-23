@@ -3,10 +3,10 @@
 #include <QBrush>
 
 Button::Button(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
-    setRect(0,0,400,100);
+    setRect(0,0,200,25);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkGreen);
+    brush.setColor(Qt::white);
     setBrush(brush);
 
     text = new QGraphicsTextItem(name, this);
