@@ -105,11 +105,17 @@ void game::setUp(){
     scene->addItem(tux);
 
     //lager score
+    //int oldScore = score->getScore();
     score = new Score();
+    //if(oldScore>0)
+    //    score->increase(oldScore);
     scene->addItem(score);
 
     //lager HP
+    //int oldHp = hp->getHp();
     hp = new Hp();
+    //if(oldHp>0)
+    //    hp->increase(oldHp);
     hp->setPos(0,20);
     scene->addItem(hp);
 
@@ -132,9 +138,9 @@ void game::setUp(){
 
     //background music
     //FUNKERRRRRRRRRRR HURRA
-    QMediaPlayer * music = new QMediaPlayer();
-    music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
-    music->play();
+    //QMediaPlayer * music = new QMediaPlayer();
+    //music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
+    //music->play();
 
 
     show();
