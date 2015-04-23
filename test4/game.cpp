@@ -30,7 +30,6 @@ game::game(QWidget * parent){
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
     //tux = new myrect();
-     score = new Score();
 
    // connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
 
@@ -108,6 +107,11 @@ void game::setUp(){
     //lager score
     score = new Score();
     scene->addItem(score);
+
+    //lager HP
+    hp = new Hp();
+    hp->setPos(0,20);
+    scene->addItem(hp);
 
     //lager enemy
      enemy * fiende = new enemy();

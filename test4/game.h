@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include "figur.h"
 #include "score.h"
+#include "hp.h"
 
 
 class game: public QGraphicsView{
@@ -15,6 +16,7 @@ public:
     QGraphicsScene * scene;
     Figur * tux;
     Score * score; //legger til score
+    Hp * hp;
 
 public slots:
     void setUp();
