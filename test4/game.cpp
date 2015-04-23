@@ -14,7 +14,6 @@
 #include "levelfactory.h"
 #include <QBrush>
 #include <QImage>
-#include <QMediaPlayer>
 #include "button.h"
 #include "sun.h"
 #include <QPixmap>
@@ -45,18 +44,20 @@ void game::showMainMenu(){
     int txPos = this->width()/2-title->boundingRect().width()/2;
     int tyPos = 150;
     title->setPos(txPos,tyPos);
-    scene->addItem(title);
+    scene->addItem(title);*/
 
-    Button* play = new Button(QString("Play game"));
+    setBackgroundBrush(QBrush(QImage("://new/img/tuxvsgit.png")));
+
+    Button* play = new Button(QString("PLAY GAME"));
     int bxPos = this->width()/2-play->boundingRect().width()/2;
-    int byPos = 275;
+    int byPos = 425;
     play->setPos(bxPos, byPos);
     connect(play, SIGNAL(clicked()), this, SLOT(setUp()));
     scene->addItem(play);
 
-    Button* quit = new Button(QString("Quit game"));
+    Button* quit = new Button(QString("QUIT GAME"));
     int qxPos = this->width()/2 - play->boundingRect().width()/2;
-    int qyPos = 400;
+    int qyPos = 460;
     quit->setPos(qxPos, qyPos);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
@@ -68,6 +69,7 @@ void game::setUp(){
 
 
     scene->clear();
+    setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
     qDebug()<<"post";
 
     Sun * sun = new Sun(680,30);
@@ -84,7 +86,7 @@ void game::setUp(){
         scene->addItem(cloudFabrikk->mekk());
     }
 
-    for(int i = 0; i<4;i++){
+    for(int i = 0; i<17;i++){
         scene->addItem(hinderFabrikk2->mekk(levelFabrikk->getNextX(),levelFabrikk->getNextY()));
 
     }
@@ -92,7 +94,7 @@ void game::setUp(){
        scene->addItem(bakkeFabrikk->mekk());
 
     for(int i = 0;i < 3;i++){
-        scene->addItem(linusFabrikk->mekk());
+        scene->addItem(linusFabrikk->mekk(levelFabrikk->getNextX(),levelFabrikk->getNextY()));
     }
 
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
@@ -137,11 +139,12 @@ void game::setUp(){
 
     //background music
     //FUNKERRRRRRRRRRR HURRA
-    //QMediaPlayer * music = new QMediaPlayer();
-    //music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
-    //music->play();
 
-
+    /*
+    QMediaPlayer * music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
+    music->play();
+*/
     show();
 }
 

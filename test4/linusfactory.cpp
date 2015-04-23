@@ -9,3 +9,10 @@ QGraphicsItem *LinusFactory::mekk()
     Linus * linus = new Linus(random, 512);
     return linus;
 }
+
+QGraphicsItem *LinusFactory::mekk(int x,int y)
+{
+
+    Linus * linus = new Linus(x,y);
+    return linus;
+}

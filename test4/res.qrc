@@ -32,6 +32,7 @@
         <file>sun1.png</file>
         <file>sun2.png</file>
         <file>wasted.png</file>
+        <file>tuxvsgit.png</file>
     </qresource>
     <qresource prefix="/new/sounds">
         <file>Uglehull.mp3</file>

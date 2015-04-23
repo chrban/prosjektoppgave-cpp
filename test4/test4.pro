@@ -4,8 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui \
-        multimedia
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,6 +26,10 @@ SOURCES += main.cpp \
     linusfactory.cpp \
     button.cpp \
     score.cpp \
+    cloud.cpp \
+    sun.cpp \
+    cloudfactory.cpp \
+    levelfactory.cpp
 
 HEADERS  += \
     bullet.h \
@@ -44,6 +47,10 @@ HEADERS  += \
     linusfactory.h \
     button.h \
     score.h \
+    sun.h \
+    cloud.h \
+    cloudfactory.h \
+    levelfactory.h
 
 RESOURCES += \
     res.qrc
