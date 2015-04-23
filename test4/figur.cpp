@@ -192,7 +192,7 @@ void Figur::jump()
     //Figur faller
     if(falling){
 
-        // Figur har falt gjennom gulvet og resettes
+        // Figur har falt gjennom gulvet, resettes, og mister HP
         if(y()>700){
             setPos(10,520);
             falling=false;

@@ -6,7 +6,9 @@
 class Hp: public QGraphicsTextItem {
 public:
     Hp(QGraphicsItem * parent = 0);
+    void increase();
     void decrease();
+    void setHp(int h);
     int getHp();
 
 private:

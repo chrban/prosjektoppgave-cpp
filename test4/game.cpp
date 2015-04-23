@@ -29,11 +29,9 @@ game::game(QWidget * parent){
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
-    //tux = new myrect();
 
-   // connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
-
-//    setUp();
+    hpCount=3;
+    scoreCount=0;
 }
 
 void game::showMainMenu(){
@@ -105,18 +103,14 @@ void game::setUp(){
     scene->addItem(tux);
 
     //lager score
-    //int oldScore = score->getScore();
     score = new Score();
-    //if(oldScore>0)
-    //    score->increase(oldScore);
+    score->increase(scoreCount);
     scene->addItem(score);
 
     //lager HP
-    //int oldHp = hp->getHp();
     hp = new Hp();
-    //if(oldHp>0)
-    //    hp->increase(oldHp);
     hp->setPos(0,20);
+    hp->setHp(hpCount);
     scene->addItem(hp);
 
     //lager enemy
@@ -146,9 +140,6 @@ void game::setUp(){
     show();
 }
 
-void game::pickedUpLinus()
-{
-
-
+void game::pickedUpLinus(){
 
 }

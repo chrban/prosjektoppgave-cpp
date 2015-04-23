@@ -17,6 +17,8 @@ public:
     Figur * tux;
     Score * score; //legger til score
     Hp * hp;
+    int hpCount;
+    int scoreCount;
 
 public slots:
     void setUp();
