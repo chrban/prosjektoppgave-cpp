@@ -5,7 +5,6 @@
 extern game * g;
 
 Score::Score(QGraphicsItem * parent): QGraphicsTextItem(parent) {
-    //score til 0
     score = 0;
 
     //tekst

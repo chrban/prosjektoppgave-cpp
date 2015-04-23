@@ -26,6 +26,8 @@ void Hp::decrease() {
     g->hpCount=hp;
     //tekst
     setPlainText(QString("HP: ") + QString::number(hp));
+    if(hp <= 0)
+        g->gameOver();
 }
 
 void Hp::setHp(int h){
@@ -35,3 +37,4 @@ void Hp::setHp(int h){
 int Hp::getHp() {
     return hp;
 }
+

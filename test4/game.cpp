@@ -3,6 +3,7 @@
 #include <QTimer>
 #include <QGraphicsTextItem>
 #include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QFont>
 #include <QDebug>
 #include "rectfac.h"
@@ -16,6 +17,7 @@
 #include <QMediaPlayer>
 #include "button.h"
 #include "sun.h"
+#include <QPixmap>
 
 game::game(QWidget * parent){
     // create the scene
@@ -35,6 +37,8 @@ game::game(QWidget * parent){
 }
 
 void game::showMainMenu(){
+    scene->clear();
+
     QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
     QFont titleFont("Helvetica",40);
     title->setFont(titleFont);
@@ -112,6 +116,7 @@ void game::setUp(){
     hp->setPos(0,20);
     hp->setHp(hpCount);
     scene->addItem(hp);
+    connect(this,SIGNAL(gameOver()),this,SLOT(showKillScreen()));
 
     //lager enemy
      enemy * fiende = new enemy();
@@ -138,6 +143,48 @@ void game::setUp(){
 
 
     show();
+}
+
+void game::showKillScreen(){
+    // Disable GraphicItems
+    foreach(QGraphicsItem* item, scene->items())
+        item->setEnabled(false);
+
+    // Legg til transparent-panel
+    QGraphicsRectItem* panel = new QGraphicsRectItem(0,0,800,600);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::black);
+    panel->setBrush(brush);
+    panel->setOpacity(0.65);
+    scene->addItem(panel);
+
+    // Wasted :):):)
+    QGraphicsPixmapItem* wasted = scene->addPixmap(QPixmap(":/new/img/wasted.png"));
+    wasted->setPos(250,100);
+
+    // Vis endelig score
+    QGraphicsTextItem* finalScore = new QGraphicsTextItem();
+    finalScore->setPlainText("Final Score: "+QString::number(scoreCount));
+    finalScore->setDefaultTextColor(Qt::yellow);
+    finalScore->setFont(QFont("tahoma",20));
+    finalScore->setPos(330,325);
+    scene->addItem(finalScore);
+
+    // Legg til Main Menu-knapp
+    Button* menu = new Button(QString("Main Menu"));
+    menu->setPos(200,400);
+    connect(menu, SIGNAL(clicked()), this, SLOT(showMainMenu()));
+    scene->addItem(menu);
+
+    show();
+
+    hpCount=3;
+    scoreCount=0;
+}
+
+void gameOver(){
+    emit gameOver();
 }
 
 void game::pickedUpLinus(){

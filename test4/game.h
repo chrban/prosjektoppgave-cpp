@@ -24,6 +24,10 @@ public slots:
     void setUp();
     void pickedUpLinus();
     void showMainMenu();
+    void showKillScreen();
+
+signals:
+    void gameOver();
 
 private:
     int linusCount;
