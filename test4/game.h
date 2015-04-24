@@ -26,9 +26,6 @@ public slots:
     void showMainMenu();
     void showKillScreen();
 
-signals:
-    void gameOver();
-
 private:
     int linusCount;
 

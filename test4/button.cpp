@@ -24,13 +24,13 @@ void Button::mousePressEvent(QGraphicsSceneMouseEvent *event){
 void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event){
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::green);
+    brush.setColor(Qt::lightGray);
     setBrush(brush);
 }
 
 void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event){
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkGreen);
+    brush.setColor(Qt::white);
     setBrush(brush);
 }

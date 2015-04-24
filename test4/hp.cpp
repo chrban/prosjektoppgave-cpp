@@ -27,7 +27,7 @@ void Hp::decrease() {
     //tekst
     setPlainText(QString("HP: ") + QString::number(hp));
     if(hp <= 0)
-        g->gameOver();
+        g->showKillScreen();
 }
 
 void Hp::setHp(int h){

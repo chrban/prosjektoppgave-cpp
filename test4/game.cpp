@@ -68,7 +68,6 @@ void game::showMainMenu(){
 
 void game::setUp(){
 
-
     scene->clear();
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
     qDebug()<<"post";
@@ -119,7 +118,6 @@ void game::setUp(){
     hp->setPos(0,20);
     hp->setHp(hpCount);
     scene->addItem(hp);
-    connect(this,SIGNAL(gameOver()),this,SLOT(showKillScreen()));
 
     //lager enemy
      enemy * fiende = new enemy();
@@ -185,10 +183,6 @@ void game::showKillScreen(){
 
     hpCount=3;
     scoreCount=0;
-}
-
-void gameOver(){
-    emit gameOver();
 }
 
 void game::pickedUpLinus(){
