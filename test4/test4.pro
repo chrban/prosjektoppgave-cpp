@@ -29,7 +29,8 @@ SOURCES += main.cpp \
     cloud.cpp \
     sun.cpp \
     cloudfactory.cpp \
-    levelfactory.cpp
+    levelfactory.cpp \
+    hp.cpp
 
 HEADERS  += \
     bullet.h \
@@ -50,7 +51,8 @@ HEADERS  += \
     sun.h \
     cloud.h \
     cloudfactory.h \
-    levelfactory.h
+    levelfactory.h \
+    hp.h
 
 RESOURCES += \
     res.qrc
