@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <QGraphicsPixmapItem>
 #include <QDebug>
+#include <utility>
+#include <map>
 
 using namespace std;
 
@@ -18,6 +20,12 @@ QGraphicsItem *boxFactory::mekk(int x,int y){
     Box * box= new Box(x,y);
     return box;
 }
+QGraphicsItem *boxFactory::mekkFromPair(std::pair<int,int>p){
+
+    Box * box= new Box(p.first ,p.second);
+    return box;
+}
+
 
 // mekker bakke
 QGraphicsItem * boxFactory::makeGround(){

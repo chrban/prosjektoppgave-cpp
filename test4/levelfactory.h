@@ -1,5 +1,6 @@
 #ifndef LEVELFACTORY
 #define LEVELFACTORY
+#include <utility>
 
 #include <vector>
 
@@ -9,6 +10,9 @@ public:
     LevelFactory();
     int getNextY();
     int getNextX();
+    void fillVect();
+    std::pair<int,int> getCoordinates();
+    void readMap();
 private:
    // std::vector<int> x;
    // std::vector<int> y;

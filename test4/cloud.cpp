@@ -21,7 +21,7 @@ Cloud::Cloud(int x, int y)
 
     int direction = rand()%2;
     left = false;
-    qDebug()<<direction<<"sky";
+
     if(direction==1)
         left=true;
 

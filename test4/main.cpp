@@ -7,6 +7,8 @@
 #include <rectfac.h>
 #include <game.h>
 #include <time.h>
+#include <iostream>
+#include <fstream>
 
 
 
@@ -14,6 +16,18 @@ game * g;
 
 int main(int argc, char *argv[])
 {
+//    std::cout << "Noe kjører" << std::endl;
+//    std::ifstream infile("map.txt");
+
+//    int l, b;
+//    while (infile >> l >> b)
+//    {
+//        std::cout << "Noe leses" << std::endl;
+//    }
+
+
+
+
     QApplication a(argc, argv);
 
     srand ( time(NULL) );

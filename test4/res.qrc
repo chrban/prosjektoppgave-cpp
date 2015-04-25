@@ -33,6 +33,7 @@
         <file>sun2.png</file>
         <file>wasted.png</file>
         <file>tuxvsgit.png</file>
+        <file>map.txt</file>
     </qresource>
     <qresource prefix="/new/sounds">
         <file>Uglehull.mp3</file>

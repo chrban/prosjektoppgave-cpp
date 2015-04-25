@@ -11,6 +11,7 @@ public:
     QGraphicsItem * mekk();
     QGraphicsItem * mekk(int x,int y);
     QGraphicsItem * makeGround();
+    QGraphicsItem *mekkFromPair(std::pair<int,int>);
 private:
     int i;
 };

@@ -72,6 +72,7 @@ void game::setUp(){
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
     qDebug()<<"post";
 
+
     Sun * sun = new Sun(680,30);
     scene->addItem(sun);
     // setter opp bokser og bakke
@@ -86,10 +87,15 @@ void game::setUp(){
         scene->addItem(cloudFabrikk->mekk());
     }
 
-    for(int i = 0; i<17;i++){
-        scene->addItem(hinderFabrikk2->mekk(levelFabrikk->getNextX(),levelFabrikk->getNextY()));
 
-    }
+
+
+
+    levelFabrikk->readMap();
+    for(int i = 0; i<13;i++)
+    scene->addItem( hinderFabrikk2->mekkFromPair( ( levelFabrikk->getCoordinates() )) );
+
+
     for(int i = 0; i < 29;i++)
        scene->addItem(bakkeFabrikk->mekk());
 
@@ -125,7 +131,7 @@ void game::setUp(){
      fiende->setPos(10,520);
 
 
-    qDebug()<<"prefac";
+
     /*rectFac * hinderFabrikk = new rectFac();
 
     for(int i = 0; i<5;i++){
