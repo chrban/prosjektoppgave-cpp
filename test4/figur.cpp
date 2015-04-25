@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <typeinfo>
 #include "enemy.h"
+#include "cloud.h"
 #include <QList>
 #include "linus.h"
 #include "score.h"
@@ -208,6 +209,7 @@ void Figur::jump()
         QList<QGraphicsItem *> colliding_items = collidingItems();
         // Tux har truffet noe på vei ned.
         if(!colliding_items.isEmpty()){
+
             // krasjer han i siden på noe på vei ned?
             if(colliding_items.back()->y() < y()+26){
                //på høyresiden av tingen
@@ -288,7 +290,8 @@ void Figur::jump()
                             delete colliding_items[i];
                             g->score->increase();
                             return;
-                        }
+                 }
+
             }
 
             if(y()>colliding_items[0]->y()+14){
@@ -391,9 +394,10 @@ void Figur::walk()
        QList<QGraphicsItem *> colliding_items1 = collidingItems();
        if(colliding_items1.isEmpty() && !jumping){
            falling = true;
+           qDebug()<<"faller utfor stup!";
            walked =0;
            velocity=0;
-           timer_for_jump->start(9);
+           timer_for_jump->start(11);
            return;
        }
        for(int i = 0, n= colliding_items1.size();i<n;i++){
@@ -460,7 +464,7 @@ void Figur::walk()
        walked=0;
        velocity=0;
 //       timer_for_walk->stop();
-       timer_for_jump->start(9);
+       timer_for_jump->start(11);
        return;
    }
    for(int i = 0, n= colliding_items.size();i<n;i++){
