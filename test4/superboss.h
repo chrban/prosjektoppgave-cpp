@@ -1,16 +1,15 @@
-#ifndef ENEMY
-#define ENEMY
+#ifndef SUPERBOSS
+#define SUPERBOSS
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QList> //liste med elementer
 #include <QPointF>
 
-
-class enemy :  public QObject ,public QGraphicsPixmapItem {
+class superboss :  public QObject ,public QGraphicsPixmapItem {
     Q_OBJECT
 
 public:
-    enemy(QGraphicsItem * parent=0);
+    superboss(QGraphicsItem * parent=0);
     void rotateToPoint(QPointF p);
 
 public slots:
@@ -20,8 +19,7 @@ private:
     QList<QPointF> points;
     QPointF destination;
     int point_index;
-
 };
 
-#endif // ENEMY_H
+#endif // SUPERBOSS
 

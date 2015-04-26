@@ -17,6 +17,7 @@
 #include "button.h"
 #include "sun.h"
 #include <QPixmap>
+#include "superboss.h"
 
 game::game(QWidget * parent){
     // create the scene
@@ -133,6 +134,11 @@ void game::setUp(){
 //     scene->addItem(fiende);
 //     fiende->setPos(10,520);
 
+
+     //superboss
+     superboss * boss = new superboss();
+     scene->addItem(boss);
+     boss->setPos(10,520);
 
 
     /*rectFac * hinderFabrikk = new rectFac();
