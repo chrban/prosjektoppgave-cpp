@@ -87,7 +87,8 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
         //så lenge man ikke er gått ut av bildet på venstre side
         if(x()>0){
-            if(falling){
+             QList<QGraphicsItem *> colliding_items2 = collidingItems(Qt::IntersectsItemShape);
+            if(falling && colliding_items2.isEmpty() && !timer_for_walk->isActive()){
                 updateImg();
                 //starter timer som beveger figur horisontalt mens den er i luften
                 timer_for_walk->start();
@@ -133,7 +134,9 @@ void Figur::keyPressEvent(QKeyEvent *event)
         }
         //hvis man ikke går ut av bildet, gjør man dette:
         else{
-            if(falling){
+            QList<QGraphicsItem *> colliding_items2 = collidingItems(Qt::IntersectsItemShape);
+           if(falling && colliding_items2.isEmpty() && !timer_for_walk->isActive()){
+
                 updateImg();
                 //starter timer som beveger figur horisontalt mens den er i luften
                 timer_for_walk->start();
@@ -215,7 +218,7 @@ void Figur::jump()
         if(!colliding_items.isEmpty()){
 
             // krasjer han i siden på noe på vei ned?
-            if(colliding_items.back()->y() < y()+26){
+            if(colliding_items.back()->y() < y()+23){
                //på høyresiden av tingen
 
                if(colliding_items.back()->x()>x()){
@@ -300,7 +303,7 @@ void Figur::jump()
 
             if(y()>colliding_items[0]->y()+14){
                 qDebug()<< "strengt under";
-                setPos(x(),y()+4);
+                setPos(x(),y()+3);
 
             }
             else if(y()+27>colliding_items[0]->y()){
@@ -391,19 +394,24 @@ void Figur::walk()
         setPixmap(QPixmap(":/new/img/mariowalkleft.png"));
        }
 
+
+
        //flytter venstre
-       setPos(x()-4-superspeed,y());
+
 
        // Faller utenfor et stup!
        QList<QGraphicsItem *> colliding_items1 = collidingItems();
        if(colliding_items1.isEmpty() && !jumping){
            falling = true;
-           qDebug()<<"faller utfor stup!";
+           qDebug()<<"faller utfor stup2!";
            walked =0;
            velocity=0;
            timer_for_jump->start(11);
            return;
        }
+
+       setPos(x()-4-superspeed,y());
+
        for(int i = 0, n= colliding_items1.size();i<n;i++){
            if(typeid(*(colliding_items1[i]))==typeid(Linus)){
 
@@ -464,6 +472,7 @@ void Figur::walk()
    // FAller utfor et stup!
    QList<QGraphicsItem *> colliding_items = collidingItems();
    if(colliding_items.isEmpty() && !jumping){
+       qDebug()<<"faller utfor stup til høyre";
        falling = true;
        walked=0;
        velocity=0;
