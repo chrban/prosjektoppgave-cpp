@@ -13,3 +13,8 @@ superboss::superboss(QGraphicsItem * parent){
 setPixmap(QPixmap(":/new/img/ironcat.png"));
 
 }
+
+void superboss::move_forward()
+{
+
+}

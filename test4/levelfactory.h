@@ -15,8 +15,11 @@ public:
     void readMap();
     std::pair<int,int> frameHandler(std::vector<std::pair<int, std::pair<int, int> > > f);
     int getFrame();
+    void setFrame(int);
     void increaseFrame();
     void decreaseFrame();
+    bool reading;
+    bool framesLeft();
 private:
    // std::vector<int> x;
    // std::vector<int> y;

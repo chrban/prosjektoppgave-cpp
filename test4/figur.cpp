@@ -15,8 +15,7 @@
 #include "levelfactory.h"
 
 extern game * g; //global variable
-
-
+extern LevelFactory * lf;
 
 Figur::Figur(){
     setPixmap(QPixmap(":/new/img/mario1.png"));
@@ -59,7 +58,11 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
         walking = false;
         timer_for_walk->stop();
         if(x()>770){
+
+            qDebug()<<"Har gått ut til høyre (release): ";
+//            lf->setFrame(2);
             emit nyttBrett();// sender signal til slot i game som lager nytt brett
+//            lf->increaseFrame();
             return;
         }
     }
@@ -129,7 +132,10 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
         // Hvis man går ut av brettet på høyre side, skal et nytt brett lages.
         if(x()>770){
+            qDebug()<<"Har gått ut til høyre:";
             emit nyttBrett();// sender signal til slot i game som lager nytt brett
+//            lf->increaseFrame();
+
             return;
         }
         //hvis man ikke går ut av bildet, gjør man dette:
@@ -223,11 +229,11 @@ void Figur::jump()
 
                if(colliding_items.back()->x()>x()){
                     setPos(x()-2,y());
-                    qDebug()<<"lillebror";
+
                }
                //på venstresiden
                else{
-                   qDebug()<<"lillebror";
+
                    setPos(x()+2,y());
                 }
 
@@ -289,7 +295,7 @@ void Figur::jump()
         QList<QGraphicsItem *> colliding_items = collidingItems();
         //krasjer i noe
         if(!colliding_items.isEmpty() && velocity<28){
-            qDebug()<<"krasjer på vei opp";
+//            qDebug()<<"krasjer på vei opp";
             // Treffer noe på siden
             for(int i = 0, n= colliding_items.size();i<n;i++){
                  if(typeid(*(colliding_items[i]))==typeid(Linus)){
@@ -302,13 +308,13 @@ void Figur::jump()
             }
 
             if(y()>colliding_items[0]->y()+14){
-                qDebug()<< "strengt under";
+//                qDebug()<< "strengt under";
                 setPos(x(),y()+3);
 
             }
             else if(y()+27>colliding_items[0]->y()){
                 setPos(x(),y()-5);
-                qDebug()<< "strengt over";
+//                qDebug()<< "strengt over";
 
                 //treffer noe på høyresiden
                 if(x() < colliding_items[0]->x()){
@@ -403,7 +409,7 @@ void Figur::walk()
        QList<QGraphicsItem *> colliding_items1 = collidingItems();
        if(colliding_items1.isEmpty() && !jumping){
            falling = true;
-           qDebug()<<"faller utfor stup2!";
+//           qDebug()<<"faller utfor stup2!";
            walked =0;
            velocity=0;
            timer_for_jump->start(11);

@@ -3,6 +3,7 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QTimer>
+#include "levelfactory.h"
 
 class Figur:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -10,6 +11,7 @@ public:
     Figur();
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent *event);
+        LevelFactory * lf;
 public slots:
     void spawn();
     void jump();

@@ -34,10 +34,13 @@ game::game(QWidget * parent){
 
     hpCount=3;
     scoreCount=0;
+    frameCount = 0;
+
 
 }
 
 void game::showMainMenu(){
+
     scene->clear();
 
     QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
@@ -69,6 +72,7 @@ void game::showMainMenu(){
 
 void game::setUp(){
 
+
     scene->clear();
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
     qDebug()<<"post";
@@ -83,6 +87,7 @@ void game::setUp(){
     LinusFactory * linusFabrikk = new LinusFactory();
     LevelFactory * levelFabrikk = new LevelFactory();
 
+
     //adder skyer
     for(int i = 0; i<10;i++){
         scene->addItem(cloudFabrikk->mekk());
@@ -90,11 +95,12 @@ void game::setUp(){
 
 
     //leser map og adder -> skal endres mye- chrban
-
-    qDebug()<<"inten frame er:"<< levelFabrikk->getFrame();
-
+    qDebug()<<"Frame er GARANTERT "<< levelFabrikk->getFrame();
     levelFabrikk->readMap();
-    for(int i = 0; i<13;i++)
+
+
+//    while(levelFabrikk->framesLeft())
+    for(int i=0;i<10;i++)
     scene->addItem( hinderFabrikk2->mekkFromPair( ( levelFabrikk->getCoordinates() )) );
 
     //adder bakke
@@ -129,6 +135,13 @@ void game::setUp(){
     hp->setHp(hpCount);
     scene->addItem(hp);
 
+
+
+
+
+
+
+
     //lager enemy - orker ikke se på den tingen bevege seg så kommentert ut hehehehehheheheh
 //     enemy * fiende = new enemy();
 //     scene->addItem(fiende);
@@ -136,9 +149,9 @@ void game::setUp(){
 
 
      //superboss
-     superboss * boss = new superboss();
-     scene->addItem(boss);
-     boss->setPos(10,520);
+//     superboss * boss = new superboss();
+//     scene->addItem(boss);
+//     boss->setPos(10,520);
 
 
     /*rectFac * hinderFabrikk = new rectFac();

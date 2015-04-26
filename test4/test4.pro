@@ -30,7 +30,8 @@ SOURCES += main.cpp \
     sun.cpp \
     cloudfactory.cpp \
     levelfactory.cpp \
-    hp.cpp
+    hp.cpp \
+    superboss.cpp \
 
 HEADERS  += \
     bullet.h \
@@ -52,7 +53,8 @@ HEADERS  += \
     cloud.h \
     cloudfactory.h \
     levelfactory.h \
-    hp.h
+    hp.h \
+    superboss.h \
 
 RESOURCES += \
     res.qrc

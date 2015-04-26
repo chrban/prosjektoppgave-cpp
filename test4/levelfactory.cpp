@@ -3,6 +3,8 @@
 #include <QDebug>
 #include <utility>
 #include <map>
+#include "figur.h"
+#include "game.h"
 
 #include <iostream>
 #include <iterator>
@@ -18,12 +20,14 @@ int LevelFactory::y[20]={480,480,480,480,480,480,480,480,480,480,450,380,525,500
 
 std::vector< std::pair<int,int> > parVect;
 std::vector<  std::pair<int, std::pair<int,int>  > > superVect; // tanken er: framenumber, x,y koordinater
-
-
-
+int bokser[50];
+//std::vector<int> bokser;
+//extern game * g;
 
 void LevelFactory::readMap()
 {
+    int frameIndex=0;
+    int antallFrames=0;
     QFile file(":/new/img/map.txt");
     if(!file.open(QIODevice::ReadOnly)) {
         qDebug()<<"noe gikk galt ved lesing av fil";
@@ -39,17 +43,20 @@ void LevelFactory::readMap()
             QString last = line.split(",").takeLast();
 
 
-            superVect.push_back( std::make_pair( frame ,std::make_pair(first.toInt(),last.toInt())));
-//          parVect.push_back(std::make_pair(first.toInt(),last.toInt()));
-            qDebug()<<"first"<<first<<"last"<<last;
+            superVect.push_back( std::make_pair( frameIndex,std::make_pair(first.toInt(),last.toInt())));
+            antallFrames++;
+//            qDebug()<<"first"<<first<<"last"<<last<<"bokser[getFrame()]="<<bokser[0];
 
         }
         else
         {
-            frame++;
 
-            qDebug()<<"trffet - i map.txt, øker frame til"<<frame;
-            break;
+            bokser[frameIndex]=antallFrames;
+
+//            qDebug()<<"trffet - i map.txt, øker frameIndex til "<<frameIndex<<"bokser[getFrame()]="<<bokser[0]<<"antFrames"<<antallFrames;
+            antallFrames=0;
+            frameIndex++;
+
         }
     }
     file.close();
@@ -57,13 +64,29 @@ void LevelFactory::readMap()
 
 
 //denne metoden skal sende ut riktige koordinater til boksene som skal tegnes basert på hvilken frame av banen man er på
-std::pair<int, int> LevelFactory::frameHandler(std::vector<  std::pair<int, std::pair<int,int>  > > f)
+std::pair<int, int> LevelFactory::frameHandler(std::vector<  std::pair<int, std::pair<int,int>  > > f )
 {
 
 
-        return f[count++].second;
+
+        qDebug()<<"getFrame er"<< getFrame()<<"f[bokser[getFrame()]]"<<f[bokser[getFrame()]].first ;
 
 
+//   for(auto i : superVect)  // mhm kan bruke noe i denne duren ja
+//   {
+//       if( i.first == 0)
+//           return i.second;
+//   }
+
+
+    for(int i = bokser[0 /*getFrame() når jeg får det til å fungere...*/ ]; i != 0;i--)
+    {
+        if(f[i].first == 0 )
+        {
+                    return f[bokser[getFrame()]--].second;
+        }
+
+    }
 
 }
 
@@ -72,20 +95,43 @@ int LevelFactory::getFrame()
     return frame;
 }
 
+void LevelFactory::setFrame(int f)
+{
+    frame = f;
+}
+
 void LevelFactory::increaseFrame()
 {
-    frame--;
+    qDebug()<<"------------------FRAME var.."<<frame<<"men getFrame er:"<<getFrame();
+    frame++;
+    qDebug()<<"------------------FRAME ØKES TIL"<<frame;
 }
 
 void LevelFactory::decreaseFrame()
 {
-    frame++;
+    frame--;
+}
+
+bool LevelFactory::framesLeft()
+{
+    if( bokser[getFrame()]==0 )
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+        qDebug()<<"boolen er tydligvis falsk";
+    }
 }
 
 
 
-LevelFactory::LevelFactory() : count(0), frame(0)
+LevelFactory::LevelFactory() : count(0), reading(true)
 {
+    qDebug()<<"FØR  Frame initializes  " << frame;
+    frame = 0;
+    qDebug()<<"Frame initializes til " << frame;
 }
 
 int LevelFactory::getNextY()
@@ -102,10 +148,8 @@ int LevelFactory::getNextX()
 
 std::pair<int,int> LevelFactory::getCoordinates()
 {
+//    qDebug()<<"kaller koordinater"<<getFrame()<<bokser[getFrame()];
     return frameHandler(superVect);
-
-
-//    return parVect[count++];
 
 }
 
