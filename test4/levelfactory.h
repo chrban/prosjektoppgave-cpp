@@ -13,6 +13,10 @@ public:
     void fillVect();
     std::pair<int,int> getCoordinates();
     void readMap();
+    std::pair<int,int> frameHandler(std::vector<std::pair<int, std::pair<int, int> > > f);
+    int getFrame();
+    void increaseFrame();
+    void decreaseFrame();
 private:
    // std::vector<int> x;
    // std::vector<int> y;
@@ -22,6 +26,7 @@ private:
 
    // static  int y[20]{200,200,200,200};
     int count;
+    int frame;
 
 
 };

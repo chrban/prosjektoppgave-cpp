@@ -82,29 +82,32 @@ void game::setUp(){
     LinusFactory * linusFabrikk = new LinusFactory();
     LevelFactory * levelFabrikk = new LevelFactory();
 
-
+    //adder skyer
     for(int i = 0; i<10;i++){
         scene->addItem(cloudFabrikk->mekk());
     }
 
 
+    //leser map og adder -> skal endres mye- chrban
 
-
+    qDebug()<<"inten frame er:"<< levelFabrikk->getFrame();
 
     levelFabrikk->readMap();
     for(int i = 0; i<13;i++)
     scene->addItem( hinderFabrikk2->mekkFromPair( ( levelFabrikk->getCoordinates() )) );
 
-
+    //adder bakke
     for(int i = 0; i < 29;i++)
        scene->addItem(bakkeFabrikk->mekk());
 
+    //adder linus-'coins'
     for(int i = 0;i < 3;i++){
         scene->addItem(linusFabrikk->mekk(levelFabrikk->getNextX(),levelFabrikk->getNextY()));
     }
 
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
     tux = new Figur();
+
     connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
     tux->setPos(10,520);
     tux->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -125,10 +128,10 @@ void game::setUp(){
     hp->setHp(hpCount);
     scene->addItem(hp);
 
-    //lager enemy
-     enemy * fiende = new enemy();
-     scene->addItem(fiende);
-     fiende->setPos(10,520);
+    //lager enemy - orker ikke se på den tingen bevege seg så kommentert ut hehehehehheheheh
+//     enemy * fiende = new enemy();
+//     scene->addItem(fiende);
+//     fiende->setPos(10,520);
 
 
 

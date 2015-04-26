@@ -1,7 +1,7 @@
 
 ## stufs to do
 
-* gjøre hopping smuuth - chrbng
+* ~~gjøre hopping smuuth - chrbng~~
 
 * ~~lage startmeny - trymz~~
 
@@ -19,4 +19,13 @@
 * Plukke opp objekt - kristoffer 
 
 * Lage mål, killscreen - trym?
+
+> Skrive litt tanker jeg skal fullføre - chrban
+> Når man beveger seg utenfor banen til høyre skal 'frame' variabelen øke, til venstre skal den minke.
+> På den måten kan riktig frame tegnes.
+> Banen lagres i en vektor som inneholder 2 par. En frame varibel og x,y koordinater.
+> første parint kan kanskje brukes til å lagre andre objekter som skal tegnes.
+> fiks en global frame
+> legg deg
+> fortsett imorgen
 

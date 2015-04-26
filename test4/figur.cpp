@@ -12,11 +12,15 @@
 #include "score.h"
 #include "game.h"
 #include "hp.h"
+#include "levelfactory.h"
 
 extern game * g; //global variable
 
+
+
 Figur::Figur(){
     setPixmap(QPixmap(":/new/img/mario1.png"));
+
 
     //states
     falling = false;
