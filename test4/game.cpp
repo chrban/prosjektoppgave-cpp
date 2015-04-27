@@ -118,7 +118,7 @@ void game::setUp(){
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
     tux = new Figur();
 
-    connect(tux,SIGNAL(nyttBrett()),this,SLOT(setUp()));
+    connect(tux,SIGNAL(gått_av_banen()),this,SLOT(setUp()));
     tux->setPos(10,520);
     tux->setFlag(QGraphicsItem::ItemIsFocusable);
     tux->setFocus();

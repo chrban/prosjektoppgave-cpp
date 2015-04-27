@@ -18,7 +18,7 @@ public slots:
     void walk();
 
 signals:
-    void nyttBrett();
+    void gått_av_banen();
 private:
     bool falling;
     bool jumping;
