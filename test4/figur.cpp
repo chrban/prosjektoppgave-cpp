@@ -359,10 +359,8 @@ void Figur::jump()
 
 void Figur::walk()
 {
-    qDebug()<<"walking";
    // horisontal bevegelse i luften
    if(falling || jumping){
-       qDebug()<<walked<<"jumpingfalling";
        walked++;
        updateImg();// trengs denne?
 
