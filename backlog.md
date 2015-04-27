@@ -6,13 +6,15 @@
 ##Omstrukturere kode slik:
 
 Struktur:
+```
 -Main
---- Game
--------Levelfactory
--------boxFactoy
--------GroundFactory
--------cloudFactory
--------groundFactory
+	-> Game
+		-> Levelfactory
+		-> boxFactoy
+		-> GroundFactory
+		-> cloudFactory
+		-> groundFactory
+```
 
 
 Utrolig ineffektivt å slette alle objekter hver gang nytt brett skal tegnes.
