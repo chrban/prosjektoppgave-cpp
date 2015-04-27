@@ -58,11 +58,10 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
         walking = false;
         timer_for_walk->stop();
         if(x()>770){
-
             qDebug()<<"Har gått ut til høyre (release): ";
-//            lf->setFrame(2);
-            emit nyttBrett();// sender signal til slot i game som lager nytt brett
+            //HER må frame variabelen økes.
 //            lf->increaseFrame();
+            emit nyttBrett();// sender signal til slot i game som lager nytt brett
             return;
         }
     }
@@ -133,8 +132,10 @@ void Figur::keyPressEvent(QKeyEvent *event)
         // Hvis man går ut av brettet på høyre side, skal et nytt brett lages.
         if(x()>770){
             qDebug()<<"Har gått ut til høyre:";
-            emit nyttBrett();// sender signal til slot i game som lager nytt brett
+            //HER må frame variabelen økes.
 //            lf->increaseFrame();
+            emit nyttBrett();// sender signal til slot i game som lager nytt brett
+
 
             return;
         }

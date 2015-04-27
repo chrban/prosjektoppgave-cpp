@@ -42,7 +42,6 @@ void LevelFactory::readMap()
             QString first = line.split(",").takeFirst();
             QString last = line.split(",").takeLast();
 
-
             superVect.push_back( std::make_pair( frameIndex,std::make_pair(first.toInt(),last.toInt())));
             antallFrames++;
 //            qDebug()<<"first"<<first<<"last"<<last<<"bokser[getFrame()]="<<bokser[0];
@@ -95,10 +94,6 @@ int LevelFactory::getFrame()
     return frame;
 }
 
-void LevelFactory::setFrame(int f)
-{
-    frame = f;
-}
 
 void LevelFactory::increaseFrame()
 {

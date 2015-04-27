@@ -80,11 +80,14 @@ void game::setUp(){
 
     Sun * sun = new Sun(680,30);
     scene->addItem(sun);
+
+    //Dårlig praksis å slette å genrere alle objektene hver gang setup kalles. Omstrukturer.
     // setter opp bokser og bakke
     boxFactory * hinderFabrikk2 = new boxFactory();
     GroundFactory * bakkeFabrikk = new GroundFactory();
     CloudFactory * cloudFabrikk = new CloudFactory();
     LinusFactory * linusFabrikk = new LinusFactory();
+
     LevelFactory * levelFabrikk = new LevelFactory();
 
 
