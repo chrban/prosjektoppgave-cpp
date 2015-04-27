@@ -18,6 +18,7 @@
 #include "sun.h"
 #include <QPixmap>
 #include "superboss.h"
+//#include <QMediaPlayer>
 
 game::game(QWidget * parent){
     // create the scene
@@ -170,12 +171,13 @@ void game::setUp(){
     //background music
     //FUNKERRRRRRRRRRR HURRA
 
-    /*
+/*
     QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
     music->play();
-*/
+
     show();
+*/
 }
 
 void game::showKillScreen(){
