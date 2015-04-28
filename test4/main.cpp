@@ -1,5 +1,4 @@
 #include <QGraphicsScene>
-#include "figur.h"
 #include <QGraphicsView>
 #include <QGraphicsRectItem>
 #include <QApplication>

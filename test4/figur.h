@@ -3,15 +3,16 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QTimer>
-#include "levelfactory.h"
+#include "globalvar.h"
 
 class Figur:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Figur();
+    GlobalVar * GV;
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent *event);
-        LevelFactory * lf;
+//        LevelFactory * lf;
 public slots:
     void spawn();
     void jump();
