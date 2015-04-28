@@ -20,6 +20,9 @@ int LevelFactory::y[20]={480,480,480,480,480,480,480,480,480,480,450,380,525,500
 
 std::vector< std::pair<int,int> > parVect;
 std::vector<  std::pair<int, std::pair<int,int>  > > superVect; // tanken er: framenumber, x,y koordinater
+
+
+
 int bokser[50];
 //std::vector<int> bokser;
 //extern game * g;
@@ -39,12 +42,15 @@ void LevelFactory::readMap()
     while(!in.atEnd()) {
         QString line = in.readLine();
         if(line != "-"){
-            QString first = line.split(",").takeFirst();
-            QString last = line.split(",").takeLast();
+            QStringList listeTest = line.split(",");
 
-            superVect.push_back( std::make_pair( frameIndex,std::make_pair(first.toInt(),last.toInt())));
+//            QString last = line.split(",").takeLast();
+
+//            qDebug()<<"first"<<first<<"last"<<last << "line er: "<<line;
+//            superVect.push_back( std::make_pair( frameIndex,std::make_pair(first.toInt(),last.toInt())));
+            superVect.push_back( std::make_pair( frameIndex ,std::make_pair( listeTest[0].toInt() , listeTest[1].toInt() )));
             antallFrames++;
-//            qDebug()<<"first"<<first<<"last"<<last<<"bokser[getFrame()]="<<bokser[0];
+
 
         }
         else
@@ -68,7 +74,7 @@ std::pair<int, int> LevelFactory::frameHandler(std::vector<  std::pair<int, std:
 
 
 
-        qDebug()<<"getFrame er"<< getFrame()<<"f[bokser[getFrame()]]"<<f[bokser[getFrame()]].first ;
+//        qDebug()<<"getFrame er"<< getFrame()<<"f[bokser[getFrame()]]"<<f[bokser[getFrame()]].first ;
 
 
 //   for(auto i : superVect)  // mhm kan bruke noe i denne duren ja
