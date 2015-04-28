@@ -9,6 +9,7 @@
 #include <qmath.h>
 
     enemy::enemy(QGraphicsItem * parent){
+    Q_UNUSED(parent); //debugger?
     // set graphics
     setPixmap(QPixmap(":/new/img/boss.png"));
 

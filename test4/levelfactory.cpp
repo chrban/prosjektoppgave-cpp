@@ -40,7 +40,7 @@ int frameLokal=0;
             else if(frameLokal == f )
             {
             if(maplist[0]=="box")
-                item = (BF->mekkFromPair(std::make_pair( maplist[1].toInt() , maplist[2].toInt())));
+                item = BF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
             if(maplist[0]=="linus")
                 item = LF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
             if(maplist[0]=="ground")

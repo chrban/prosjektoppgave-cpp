@@ -59,7 +59,7 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
             {
                 qDebug()<<"Har gått ut til venstre release:";
                 g->GV->decreaseFrame();
-                emit gått_av_banen();// sender signal til slot i game som lager nytt brett
+                emit gott_av_banen();// sender signal til slot i game som lager nytt brett
             }
         }
     }
@@ -70,10 +70,8 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
         timer_for_walk->stop();
         if(x()>770){
             qDebug()<<"Har gått ut til høyre (release): ";
-            //HER må frame variabelen økes.
             g->GV->increaseFrame();
-
-            emit gått_av_banen();// sender signal til slot i game som lager nytt brett
+            emit gott_av_banen();// sender signal til slot i game som lager nytt brett
             return;
         }
     }
@@ -120,7 +118,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
             {
                 qDebug()<<"Har gått ut til venstre release:";
                 g->GV->decreaseFrame();
-                emit gått_av_banen();// sender signal til slot i game som lager nytt brett
+                emit gott_av_banen();// sender signal til slot i game som lager nytt brett
             }
         }
         //trengs denne?
@@ -153,9 +151,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
         if(x()>770){
             qDebug()<<"Har gått ut til høyre:";
             g->GV->increaseFrame();
-            emit gått_av_banen();// sender signal til slot i game som lager nytt brett
-
-
+            emit gott_av_banen();// sender signal til slot i game som lager nytt brett
             return;
         }
         //hvis man ikke går ut av bildet, gjør man dette:

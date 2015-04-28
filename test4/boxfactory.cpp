@@ -20,26 +20,4 @@ QGraphicsItem *boxFactory::mekk(int x,int y){
     Box * box= new Box(x,y);
     return box;
 }
-QGraphicsItem *boxFactory::mekkFromPair(std::pair<int,int>p){
 
-    Box * box= new Box(p.first ,p.second);
-    return box;
-}
-
-
-// mekker bakke
-QGraphicsItem * boxFactory::makeGround(){
-    int yesno=rand()%10;
-
-
-    i+=30;
-    if(yesno!=1){
-        Box * box= new Box(i,550);
-
-        return box;
-    }
-    Box * box2= new Box(i,400);
-    box2->setPixmap(QPixmap(":/new/img/BOKSnei.png"));
-    return box2;
-
-}

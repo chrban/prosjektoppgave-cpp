@@ -18,10 +18,12 @@ Button::Button(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
 }
 
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event){
+    Q_UNUSED(event); //debugger?
     emit clicked();
 }
 
 void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event){
+    Q_UNUSED(event); //debugger?
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::lightGray);
@@ -29,6 +31,7 @@ void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event){
 }
 
 void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event){
+    Q_UNUSED(event); //debugger?
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::white);
