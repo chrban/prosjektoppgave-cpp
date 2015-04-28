@@ -14,7 +14,6 @@ setPixmap(QPixmap(":/new/img/ironcat.png"));
 
 }
 
-void superboss::move_forward()
-{
+void superboss::move_forward(){
 
 }

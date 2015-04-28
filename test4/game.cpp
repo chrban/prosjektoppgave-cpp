@@ -151,13 +151,6 @@ void game::setUp(){
 //     scene->addItem(fiende);
 //     fiende->setPos(10,520);
 
-
-     //superboss
-//     superboss * boss = new superboss();
-//     scene->addItem(boss);
-//     boss->setPos(10,520);
-
-
     /*rectFac * hinderFabrikk = new rectFac();
 
     for(int i = 0; i<5;i++){
@@ -178,6 +171,53 @@ void game::setUp(){
 
     show();
 */
+}
+
+void game::showSuperBoss(){
+     scene->clear();
+
+     superboss * boss = new superboss();
+     boxFactory * hinderFabrikk2 = new boxFactory();
+     GroundFactory * bakkeFabrikk = new GroundFactory();
+     CloudFactory * cloudFabrikk = new CloudFactory();
+     LevelFactory * levelFabrikk = new LevelFactory();
+     Sun * sun = new Sun(680,30);
+
+     scene->addItem(sun);
+     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
+
+     scene->addItem(boss);
+     boss->setPos(500,520);
+     tux = new Figur();
+
+     //adder skyer
+     for(int i = 0; i<10;i++)
+         scene->addItem(cloudFabrikk->mekk());
+
+     // while(levelFabrikk->framesLeft())
+     for(int i=0;i<10;i++)
+        scene->addItem( hinderFabrikk2->mekkFromPair( ( levelFabrikk->getCoordinates() )) );
+
+     //adder bakke
+     for(int i = 0; i < 29;i++)
+        scene->addItem(bakkeFabrikk->mekk());
+
+     connect(tux,SIGNAL(gått_av_banen()),this,SLOT(setUp()));
+     tux->setPos(10,520);
+     tux->setFlag(QGraphicsItem::ItemIsFocusable);
+     tux->setFocus();
+     scene->addItem(tux);
+
+     //lager score
+     score = new Score();
+     score->increase(scoreCount);
+     scene->addItem(score);
+
+     //lager HP
+     hp = new Hp();
+     hp->setPos(0,20);
+     hp->setHp(hpCount);
+     scene->addItem(hp);
 }
 
 void game::showKillScreen(){

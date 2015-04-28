@@ -19,6 +19,7 @@ private:
     QList<QPointF> points;
     QPointF destination;
     int point_index;
+    int health;
 };
 
 #endif // SUPERBOSS
