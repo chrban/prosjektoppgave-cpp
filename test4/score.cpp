@@ -6,7 +6,7 @@
 extern game * g;
 
 Score::Score(QGraphicsItem * parent): QGraphicsTextItem(parent) {
-    score = 0;
+    score = 41;
 
     //tekst
     setPlainText(QString("Score: ") + QString::number(score)); //Score: 0

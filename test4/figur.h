@@ -18,7 +18,7 @@ public slots:
     void walk();
 
 signals:
-    void gått_av_banen();
+    void gott_av_banen();
 private:
     bool falling;
     bool jumping;

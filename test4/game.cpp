@@ -22,6 +22,7 @@
 
 game::game(QWidget * parent){
     // create the scene
+    Q_UNUSED(parent); //debugger?
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
@@ -119,7 +120,7 @@ void game::setUp(){
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
     tux = new Figur();
 
-    connect(tux,SIGNAL(gått_av_banen()),this,SLOT(setUp()));
+    connect(tux,SIGNAL(gott_av_banen()),this,SLOT(setUp()));
     tux->setPos(10,520);
     tux->setFlag(QGraphicsItem::ItemIsFocusable);
     tux->setFocus();
@@ -206,7 +207,7 @@ void game::showSuperBoss(){
      for(int i = 0; i < 29;i++)
         scene->addItem(bakkeFabrikk->mekk());
 
-     connect(tux,SIGNAL(gått_av_banen()),this,SLOT(setUp()));
+     connect(tux,SIGNAL(gott_av_banen()),this,SLOT(setUp()));
      tux->setPos(10,520);
      tux->setFlag(QGraphicsItem::ItemIsFocusable);
      tux->setFocus();

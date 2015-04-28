@@ -61,7 +61,7 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
             qDebug()<<"Har gått ut til høyre (release): ";
             //HER må frame variabelen økes.
 //            lf->increaseFrame();
-            emit gått_av_banen();// sender signal til slot i game som lager nytt brett
+            emit gott_av_banen();// sender signal til slot i game som lager nytt brett
             return;
         }
     }
@@ -134,7 +134,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
             qDebug()<<"Har gått ut til høyre:";
             //HER må frame variabelen økes.
 //            lf->increaseFrame();
-            emit gått_av_banen();// sender signal til slot i game som lager nytt brett
+            emit gott_av_banen();// sender signal til slot i game som lager nytt brett
 
 
             return;
