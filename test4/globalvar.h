@@ -1,5 +1,6 @@
 #ifndef GLOBALVAR
 #define GLOBALVAR
+//#include "game.h"
 
 
 class GlobalVar{

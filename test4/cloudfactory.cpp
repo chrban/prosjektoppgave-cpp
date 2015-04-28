@@ -9,3 +9,10 @@ QGraphicsItem * CloudFactory::mekk(){
     Cloud * cloud= new Cloud(random_x,random_y);
     return cloud;
 }
+QGraphicsItem * CloudFactory::mekk(int x, int y){
+
+    Cloud * cloud = new Cloud(x,y);
+    return cloud;
+
+}
+

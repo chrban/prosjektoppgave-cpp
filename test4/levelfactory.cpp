@@ -3,8 +3,7 @@
 #include <QDebug>
 #include <utility>
 #include <map>
-#include "figur.h"
-
+//#include "figur.h"
 #include <iostream>
 #include <iterator>
 #include <fstream>
@@ -35,6 +34,7 @@ int frameLokal=0;
 
             if(maplist[0]=="frame")
             {
+                qDebug()<<"lese"<<maplist[0]<<f;
                 frameLokal = maplist[1].toInt();
             }
             else if(frameLokal == f )

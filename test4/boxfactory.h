@@ -9,9 +9,7 @@ class boxFactory : public abstractFac{
 public:
     boxFactory():i(-33){}
     QGraphicsItem * mekk();
-    QGraphicsItem * mekk(int x,int y);
-    QGraphicsItem * makeGround();
-    QGraphicsItem *mekkFromPair(std::pair<int,int>);
+    QGraphicsItem *mekk(int x,int y);
 private:
     int i;
 };

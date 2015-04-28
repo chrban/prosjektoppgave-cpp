@@ -12,10 +12,10 @@
 #include "score.h"
 #include "game.h"
 #include "hp.h"
-#include "levelfactory.h"
+//#include "levelfactory.h"
 
 extern game * g; //global variable
-extern LevelFactory * lf;
+//extern LevelFactory * lf;
 
 Figur::Figur(){
     setPixmap(QPixmap(":/new/img/mario1.png"));
@@ -51,6 +51,19 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
         walking = false;
         timer_for_walk->stop();
         setPixmap(QPixmap(":/new/img/marioleft.png"));
+
+
+        if(x()<0)//gått til venster
+        {
+            if(g->GV->getFrame() > 0 )
+            {
+                qDebug()<<"Har gått ut til venstre release:";
+                g->GV->decreaseFrame();
+                emit gott_av_banen();// sender signal til slot i game som lager nytt brett
+            }
+        }
+
+
     }
 
     if(event->key()==Qt::Key_Right){
@@ -59,8 +72,7 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
         timer_for_walk->stop();
         if(x()>770){
             qDebug()<<"Har gått ut til høyre (release): ";
-            //HER må frame variabelen økes.
-//            lf->increaseFrame();
+            g->GV->increaseFrame();
             emit gott_av_banen();// sender signal til slot i game som lager nytt brett
             return;
         }
@@ -103,6 +115,16 @@ void Figur::keyPressEvent(QKeyEvent *event)
             // starter timer som får figuren til å gå bortove, med mindre den støter på noe.
             timer_for_walk->start(20);
         }
+        else{
+
+                if(g->GV->getFrame() > 0 )
+                {
+                    qDebug()<<"Har gått ut til venstre release:";
+                    g->GV->decreaseFrame();
+                    emit gott_av_banen();// sender signal til slot i game som lager nytt brett
+                }
+
+        }
         //trengs denne?
         updateImg();
 
@@ -132,8 +154,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
         // Hvis man går ut av brettet på høyre side, skal et nytt brett lages.
         if(x()>770){
             qDebug()<<"Har gått ut til høyre:";
-            //HER må frame variabelen økes.
-//            lf->increaseFrame();
+            g->GV->increaseFrame();
             emit gott_av_banen();// sender signal til slot i game som lager nytt brett
 
 

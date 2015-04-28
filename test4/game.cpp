@@ -18,7 +18,8 @@
 #include "sun.h"
 #include <QPixmap>
 #include "superboss.h"
-//#include <QMediaPlayer>
+#include "globalvar.h"
+
 
 game::game(QWidget * parent){
     // create the scene
@@ -77,56 +78,25 @@ void game::setUp(){
 
     scene->clear();
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
-    qDebug()<<"post";
 
-
-    Sun * sun = new Sun(680,30);
+    Sun * sun = new Sun(680,30);//flyttes - chrban
     scene->addItem(sun);
 
-    //Dårlig praksis å slette å genrere alle objektene hver gang setup kalles. Omstrukturer.
-    // setter opp bokser og bakke
-    boxFactory * hinderFabrikk2 = new boxFactory();
-    GroundFactory * bakkeFabrikk = new GroundFactory();
-    CloudFactory * cloudFabrikk = new CloudFactory();
-    LinusFactory * linusFabrikk = new LinusFactory();
+    //frameNr
+    GV = new GlobalVar();
+    GV-> setFrame(frameCount);
 
-    LevelFactory * levelFabrikk = new LevelFactory();
+    LevelFactory * LF = new LevelFactory;
+    LF->loadMap( scene, frameCount ); // sende med sceneNr og scneptr
 
 
-    //adder skyer
-    for(int i = 0; i<10;i++){
-        scene->addItem(cloudFabrikk->mekk());
-    }
 
-
-    //leser map og adder -> skal endres mye- chrban
-    qDebug()<<"Frame er GARANTERT "<< levelFabrikk->getFrame();
-    levelFabrikk->readMap();
-
-
-//    while(levelFabrikk->framesLeft())
-    for(int i=0;i<10;i++)
-    scene->addItem( hinderFabrikk2->mekkFromPair( ( levelFabrikk->getCoordinates() )) );
-
-    //adder bakke
-    for(int i = 0; i < 29;i++)
-       scene->addItem(bakkeFabrikk->mekk());
-
-    //adder linus-'coins'
-    for(int i = 0;i < 3;i++){
-        scene->addItem(linusFabrikk->mekk(levelFabrikk->getNextX(),levelFabrikk->getNextY()));
-    }
-
-   // QGraphicsRectItem* bakke = new QGraphicsRectItem();
+    //oppretter og tegner TUX  - Flyttes - chrban
     tux = new Figur();
-
     connect(tux,SIGNAL(gott_av_banen()),this,SLOT(setUp()));
     tux->setPos(10,520);
     tux->setFlag(QGraphicsItem::ItemIsFocusable);
     tux->setFocus();
-   // bakke->setRect(-1,height()-50,800,31);
-
-   // scene->addItem(bakke);
     scene->addItem(tux);
 
     //lager score
@@ -140,47 +110,13 @@ void game::setUp(){
     hp->setHp(hpCount);
     scene->addItem(hp);
 
-    //enemy spawn
-    //QTimer * timer = new QTimer();
-    //QObject::connect(timer,SIGNAL(timeout()),figur,SLOT(spawn()));
-    //timer->start(2000);
 
-
-    //lager enemy - orker ikke se på den tingen bevege seg så kommentert ut hehehehehheheheh
-     enemy * fiende = new enemy();
-     scene->addItem(fiende);
-     fiende->setPos(10,520);
-
-    /*rectFac * hinderFabrikk = new rectFac();
-
-    for(int i = 0; i<5;i++){
-        scene->addItem(hinderFabrikk->mekk());
-    }
-*/
-
-    //delete hinderFabrikk;
-    //delete hinderFabrikk2;
-
-    //background music
-    //FUNKERRRRRRRRRRR HURRA
-
-/*
-    QMediaPlayer * music = new QMediaPlayer();
-    music->setMedia(QUrl("qrc:/new/sounds/Super Mario Bros Official Theme Song.mp3"));
-    music->play();
-
-    show();
-*/
 }
 
 void game::showSuperBoss(){
      scene->clear();
 
      superboss * boss = new superboss();
-     boxFactory * hinderFabrikk2 = new boxFactory();
-     GroundFactory * bakkeFabrikk = new GroundFactory();
-     CloudFactory * cloudFabrikk = new CloudFactory();
-     LevelFactory * levelFabrikk = new LevelFactory();
      QGraphicsTextItem* bossText = new QGraphicsTextItem();
      Sun * sun = new Sun(680,30);
 
@@ -191,20 +127,7 @@ void game::showSuperBoss(){
      boss->setPos(500,520);
      tux = new Figur();
 
-     //adder skyer
-     for(int i = 0; i<10;i++)
-         scene->addItem(cloudFabrikk->mekk());
 
-     // Readmap-greia til Christer
-     levelFabrikk->readMap();
-
-     // while(levelFabrikk->framesLeft())
-     for(int i=0;i<10;i++)
-        scene->addItem( hinderFabrikk2->mekkFromPair( ( levelFabrikk->getCoordinates() )) );
-
-     //adder bakke
-     for(int i = 0; i < 29;i++)
-        scene->addItem(bakkeFabrikk->mekk());
 
      connect(tux,SIGNAL(gott_av_banen()),this,SLOT(setUp()));
      tux->setPos(10,520);
