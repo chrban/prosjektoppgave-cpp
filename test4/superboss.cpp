@@ -9,7 +9,6 @@
 #include <qmath.h>
 
 superboss::superboss(QGraphicsItem * parent){
-    Q_UNUSED(parent); //debugger?
 // set graphics
 setPixmap(QPixmap(":/new/img/ironcat.png"));
 

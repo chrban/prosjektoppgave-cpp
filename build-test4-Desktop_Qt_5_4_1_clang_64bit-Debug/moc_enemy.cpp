@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_enemy_t {
     QByteArrayData data[3];
-    char stringdata[12];
+    char stringdata[20];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,11 +30,11 @@ struct qt_meta_stringdata_enemy_t {
 static const qt_meta_stringdata_enemy_t qt_meta_stringdata_enemy = {
     {
 QT_MOC_LITERAL(0, 0, 5), // "enemy"
-QT_MOC_LITERAL(1, 6, 4), // "move"
-QT_MOC_LITERAL(2, 11, 0) // ""
+QT_MOC_LITERAL(1, 6, 12), // "move_forward"
+QT_MOC_LITERAL(2, 19, 0) // ""
 
     },
-    "enemy\0move\0"
+    "enemy\0move_forward\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -65,7 +65,7 @@ void enemy::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
     if (_c == QMetaObject::InvokeMetaMethod) {
         enemy *_t = static_cast<enemy *>(_o);
         switch (_id) {
-        case 0: _t->move(); break;
+        case 0: _t->move_forward(); break;
         default: ;
         }
     }

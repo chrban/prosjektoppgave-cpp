@@ -22,7 +22,6 @@
 
 game::game(QWidget * parent){
     // create the scene
-    Q_UNUSED(parent); //debugger?
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
@@ -120,7 +119,7 @@ void game::setUp(){
    // QGraphicsRectItem* bakke = new QGraphicsRectItem();
     tux = new Figur();
 
-    connect(tux,SIGNAL(gott_av_banen()),this,SLOT(setUp()));
+    connect(tux,SIGNAL(gått_av_banen()),this,SLOT(setUp()));
     tux->setPos(10,520);
     tux->setFlag(QGraphicsItem::ItemIsFocusable);
     tux->setFocus();
@@ -140,16 +139,17 @@ void game::setUp(){
     hp->setHp(hpCount);
     scene->addItem(hp);
 
-    //enemy spawn
-    //QTimer * timer = new QTimer();
-    //QObject::connect(timer,SIGNAL(timeout()),figur,SLOT(spawn()));
-    //timer->start(2000);
+
+
+
+
+
 
 
     //lager enemy - orker ikke se på den tingen bevege seg så kommentert ut hehehehehheheheh
-     enemy * fiende = new enemy();
-     scene->addItem(fiende);
-     fiende->setPos(10,520);
+//     enemy * fiende = new enemy();
+//     scene->addItem(fiende);
+//     fiende->setPos(10,520);
 
     /*rectFac * hinderFabrikk = new rectFac();
 
@@ -206,7 +206,7 @@ void game::showSuperBoss(){
      for(int i = 0; i < 29;i++)
         scene->addItem(bakkeFabrikk->mekk());
 
-     connect(tux,SIGNAL(gott_av_banen()),this,SLOT(setUp()));
+     connect(tux,SIGNAL(gått_av_banen()),this,SLOT(setUp()));
      tux->setPos(10,520);
      tux->setFlag(QGraphicsItem::ItemIsFocusable);
      tux->setFocus();
