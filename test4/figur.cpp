@@ -551,6 +551,6 @@ void Figur::updateImg(){
 // fra youtube
 void Figur::spawn()
 {
-    enemy * enemyen = new enemy();
-    scene()->addItem(enemyen);
+    enemy * fiende = new enemy();
+    scene()->addItem(fiende);
 }

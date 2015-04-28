@@ -140,17 +140,16 @@ void game::setUp(){
     hp->setHp(hpCount);
     scene->addItem(hp);
 
-
-
-
-
-
+    //enemy spawn
+    //QTimer * timer = new QTimer();
+    //QObject::connect(timer,SIGNAL(timeout()),figur,SLOT(spawn()));
+    //timer->start(2000);
 
 
     //lager enemy - orker ikke se på den tingen bevege seg så kommentert ut hehehehehheheheh
-//     enemy * fiende = new enemy();
-//     scene->addItem(fiende);
-//     fiende->setPos(10,520);
+     enemy * fiende = new enemy();
+     scene->addItem(fiende);
+     fiende->setPos(10,520);
 
     /*rectFac * hinderFabrikk = new rectFac();
 
