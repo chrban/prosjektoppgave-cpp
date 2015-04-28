@@ -181,6 +181,7 @@ void game::showSuperBoss(){
      GroundFactory * bakkeFabrikk = new GroundFactory();
      CloudFactory * cloudFabrikk = new CloudFactory();
      LevelFactory * levelFabrikk = new LevelFactory();
+     QGraphicsTextItem* bossText = new QGraphicsTextItem();
      Sun * sun = new Sun(680,30);
 
      scene->addItem(sun);
@@ -193,6 +194,9 @@ void game::showSuperBoss(){
      //adder skyer
      for(int i = 0; i<10;i++)
          scene->addItem(cloudFabrikk->mekk());
+
+     // Readmap-greia til Christer
+     levelFabrikk->readMap();
 
      // while(levelFabrikk->framesLeft())
      for(int i=0;i<10;i++)
@@ -218,6 +222,13 @@ void game::showSuperBoss(){
      hp->setPos(0,20);
      hp->setHp(hpCount);
      scene->addItem(hp);
+
+     //BOSSBATTLE!
+     bossText->setPlainText("Boss Battle!");
+     bossText->setDefaultTextColor(Qt::yellow);
+     bossText->setFont(QFont("tahoma",16));
+     bossText->setPos(300,10);
+     scene->addItem(bossText);
 }
 
 void game::showKillScreen(){
@@ -239,12 +250,12 @@ void game::showKillScreen(){
     wasted->setPos(250,100);
 
     // Vis endelig score
-    QGraphicsTextItem* finalScore = new QGraphicsTextItem();
-    finalScore->setPlainText("Final Score: "+QString::number(scoreCount));
-    finalScore->setDefaultTextColor(Qt::yellow);
-    finalScore->setFont(QFont("tahoma",20));
-    finalScore->setPos(330,325);
-    scene->addItem(finalScore);
+    QGraphicsTextItem* bossText = new QGraphicsTextItem();
+    bossText->setPlainText("Final Score: "+QString::number(scoreCount));
+    bossText->setDefaultTextColor(Qt::yellow);
+    bossText->setFont(QFont("tahoma",20));
+    bossText->setPos(330,325);
+    scene->addItem(bossText);
 
     // Legg til Main Menu-knapp
     Button* menu = new Button(QString("Main Menu"));
