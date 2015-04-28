@@ -32,6 +32,7 @@ SOURCES += main.cpp \
     levelfactory.cpp \
     hp.cpp \
     superboss.cpp \
+    globalvar.cpp
 
 HEADERS  += \
     bullet.h \
@@ -55,6 +56,7 @@ HEADERS  += \
     levelfactory.h \
     hp.h \
     superboss.h \
+    globalvar.h
 
 RESOURCES += \
     res.qrc

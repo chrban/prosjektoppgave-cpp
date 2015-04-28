@@ -8,6 +8,8 @@ extern game * g;
 Score::Score(QGraphicsItem * parent): QGraphicsTextItem(parent) {
     score = 0;
 
+
+
     //tekst
     setPlainText(QString("Score: ") + QString::number(score)); //Score: 0
     setDefaultTextColor(Qt::black); //farge

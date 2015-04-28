@@ -7,7 +7,7 @@
 #include "figur.h"
 #include "score.h"
 #include "hp.h"
-#include "levelfactory.h"
+#include "globalvar.h"
 
 
 class game: public QGraphicsView{
@@ -18,10 +18,11 @@ public:
     Figur * tux;
     Score * score; //legger til score
     Hp * hp;
-//    LevelFactory * lf;
+    GlobalVar * GV;
     int hpCount;
     int scoreCount;
     int frameCount;
+    int sceneNummerCount;
 
 public slots:
     void setUp();
@@ -32,13 +33,6 @@ public slots:
 
 private:
     int linusCount;
-
-//    void pickedUpLinus();
-//    void showMainMenu();
-
-//private:
-//    int linusCount;
-
 
 };
 
