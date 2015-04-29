@@ -28,7 +28,7 @@ int frameLokal=0;
 
     while(!in.atEnd()) {
         QGraphicsItem* item;
-        QString line = in.readLine();
+        QString line = in.readLine(); //seek todo
 
             QStringList maplist = line.split(",");
 
@@ -38,6 +38,7 @@ int frameLokal=0;
             }
             else if(frameLokal == f )
             {
+
             if(maplist[0]=="box")
                 item = BF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
             if(maplist[0]=="linus")

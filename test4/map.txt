@@ -1,9 +1,10 @@
 frame,0
-box,62,475
-box,93,475
-box,124,475
-box,155,475
-box,186,475
+box,0,0
+box,1,1
+box,4,4
+box,6,6
+box,7,7
+box,8,8
 linus,217,475
 ground,0,550
 ground,31,550
