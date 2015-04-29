@@ -3,12 +3,14 @@
 
 #include<QGraphicsRectItem>
 #include <QObject>
+#include "hp.h"
 
 
-class bullet :  public QObject ,public QGraphicsRectItem{
+class bullet :  public QObject ,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     bullet();
+    Hp * hp;
 public slots:
     void move();
 

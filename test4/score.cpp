@@ -20,19 +20,13 @@ void Score::increase(int inc) {
     g->scoreCount=score;
     //tekst
     setPlainText(QString("Score: ") + QString::number(score));
-    if(score >= 42)
-        g->showSuperBoss();
-
 }
 
 void Score::increase() {
     score++;
+    g->scoreCount=score;
     //tekst
     setPlainText(QString("Score: ") + QString::number(score));
-    g->scoreCount=score;
-    if(score >= 42)
-        g->showSuperBoss();
-
 }
 
 int Score::getScore() {

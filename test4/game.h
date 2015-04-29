@@ -31,7 +31,6 @@ public slots:
     void pickedUpLinus();
     void showMainMenu();
     void showKillScreen();
-    void showSuperBoss();
 
 private:
     int linusCount;

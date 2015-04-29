@@ -6,8 +6,7 @@
 #include "linusfactory.h"
 #include "groundfactory.h"
 #include "cloudfactory.h"
-
-
+#include "bossfactory.h"
 
 #include <vector>
 
@@ -19,6 +18,7 @@ public:
     LinusFactory * LF;
     GroundFactory * GF;
     CloudFactory * CF;
+    BossFactory * SBF;
     LevelFactory();
     void loadMap(QGraphicsScene* scene, int f);
 

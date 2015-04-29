@@ -9,17 +9,19 @@ class superboss :  public QObject ,public QGraphicsPixmapItem {
     Q_OBJECT
 
 public:
-    superboss(QGraphicsItem * parent=0);
+    superboss(int x, int y);
     void rotateToPoint(QPointF p);
 
 public slots:
-    void move_forward();
+    void animate();
 
 private:
     QList<QPointF> points;
     QPointF destination;
+    QTimer * fps;
     int point_index;
     int health;
+    int count;
 };
 
 #endif // SUPERBOSS

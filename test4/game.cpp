@@ -46,11 +46,12 @@ void game::showMainMenu(){
 
     scene->clear();
 
-    QGraphicsTextItem* title = new QGraphicsTextItem(QString("C++"));
-    QFont titleFont("Helvetica",40);
+    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Tux goes postal!")); // for teh lulz
+    QFont titleFont("Comic Sans MS",40);
     title->setFont(titleFont);
+    title->setDefaultTextColor(Qt::red);
     int txPos = this->width()/2-title->boundingRect().width()/2;
-    int tyPos = 150;
+    int tyPos = 180;
     title->setPos(txPos,tyPos);
     scene->addItem(title);
 
@@ -75,8 +76,10 @@ void game::showMainMenu(){
 
 void game::setUp(){
 
-
     scene->clear();
+
+
+
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
 
     Sun * sun = new Sun(680,30);//flyttes - chrban
@@ -85,6 +88,16 @@ void game::setUp(){
     //frameNr
     GV = new GlobalVar();
     GV-> setFrame(frameCount);
+
+    if(frameCount == 42){
+        //BOSSBATTLE!
+        QGraphicsTextItem* bossText = new QGraphicsTextItem();
+        bossText->setPlainText("Boss Battle!");
+        bossText->setDefaultTextColor(Qt::yellow);
+        bossText->setFont(QFont("tahoma",16));
+        bossText->setPos(300,10);
+        scene->addItem(bossText);
+    }
 
     LevelFactory * LF = new LevelFactory;
     LF->loadMap( scene, frameCount ); // sende med sceneNr og scneptr
@@ -109,49 +122,6 @@ void game::setUp(){
     hp->setPos(0,20);
     hp->setHp(hpCount);
     scene->addItem(hp);
-
-
-}
-
-void game::showSuperBoss(){
-     scene->clear();
-
-     superboss * boss = new superboss();
-     QGraphicsTextItem* bossText = new QGraphicsTextItem();
-     Sun * sun = new Sun(680,30);
-
-     scene->addItem(sun);
-     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
-
-     scene->addItem(boss);
-     boss->setPos(500,520);
-     tux = new Figur();
-
-
-
-     connect(tux,SIGNAL(gott_av_banen()),this,SLOT(setUp()));
-     tux->setPos(10,520);
-     tux->setFlag(QGraphicsItem::ItemIsFocusable);
-     tux->setFocus();
-     scene->addItem(tux);
-
-     //lager score
-     score = new Score();
-     score->increase(scoreCount);
-     scene->addItem(score);
-
-     //lager HP
-     hp = new Hp();
-     hp->setPos(0,20);
-     hp->setHp(hpCount);
-     scene->addItem(hp);
-
-     //BOSSBATTLE!
-     bossText->setPlainText("Boss Battle!");
-     bossText->setDefaultTextColor(Qt::yellow);
-     bossText->setFont(QFont("tahoma",16));
-     bossText->setPos(300,10);
-     scene->addItem(bossText);
 }
 
 void game::showKillScreen(){

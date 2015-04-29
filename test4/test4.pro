@@ -33,6 +33,7 @@ SOURCES += main.cpp \
     hp.cpp \
     superboss.cpp \
     globalvar.cpp \
+    bossfactory.cpp
 
 HEADERS  += \
     bullet.h \
@@ -57,6 +58,10 @@ HEADERS  += \
     hp.h \
     superboss.h \
     globalvar.h \
+    bossfactory.h
 
 RESOURCES += \
     res.qrc
+
+DISTFILES += \
+    projectile.gif

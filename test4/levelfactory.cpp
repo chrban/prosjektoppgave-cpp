@@ -47,6 +47,8 @@ int frameLokal=0;
                 item = GF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
             if(maplist[0]=="cloud")
                 item = CF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
+            if(maplist[0]=="boss")
+                item = SBF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
 
             scene->addItem(item);
             }
