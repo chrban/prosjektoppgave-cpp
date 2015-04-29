@@ -9,6 +9,7 @@
 #include "hp.h"
 //#include "levelfactory.h"
 #include "globalvar.h"
+#include "coursecreator.h"
 
 
 
@@ -21,6 +22,7 @@ public:
     Score * score;
     Hp * hp;
     GlobalVar * GV;
+    CourseCreator * CC;
 
     int hpCount;
     int scoreCount;
@@ -31,6 +33,7 @@ public slots:
     void pickedUpLinus();
     void showMainMenu();
     void showKillScreen();
+    void showEditorScreen();
 
 private:
     int linusCount;

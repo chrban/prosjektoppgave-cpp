@@ -17,6 +17,11 @@ Button::Button(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
     setAcceptHoverEvents(true);
 }
 
+Button::Button()
+{
+
+}
+
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event){
     Q_UNUSED(event); //debugger?
     emit clicked();

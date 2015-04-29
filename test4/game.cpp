@@ -19,6 +19,7 @@
 #include <QPixmap>
 #include "superboss.h"
 #include "globalvar.h"
+#include "coursecreator.h"
 
 
 game::game(QWidget * parent){
@@ -70,6 +71,15 @@ void game::showMainMenu(){
     quit->setPos(qxPos, qyPos);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
+
+    Button* create = new Button(QString("CREATE MAP"));
+    int cxPos = this->width()/2 - play->boundingRect().width()/2;
+    int cyPos = 495;
+    create->setPos(cxPos, cyPos);
+    connect(create, SIGNAL(clicked()),this,SLOT( showEditorScreen() ));
+//    connect(quit, SIGNAL(clicked()), this, SLOT(close()));
+    scene->addItem(create);
+
 
     show();
 }
@@ -161,6 +171,14 @@ void game::showKillScreen(){
 
     hpCount=3;
     scoreCount=0;
+}
+
+void game::showEditorScreen()
+{
+    setBackgroundBrush(QBrush(Qt::white));
+    CourseCreator * CC = new CourseCreator;
+    CC->drawGrid(scene);
+
 }
 
 void game::pickedUpLinus(){
