@@ -19,6 +19,7 @@ private:
     QList<QPointF> points;
     QPointF destination;
     QTimer * fps;
+    void shoot();
     int point_index;
     int health;
     int count;

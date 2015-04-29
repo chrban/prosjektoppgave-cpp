@@ -24,7 +24,7 @@ void superboss::animate(){
 
 void superboss::shoot(){
     // Ish?
-    bullet * b = new bullet();
-    b->setPos(x,y);
-    scene->addItem(b);
+//    bullet * b = new bullet();
+//    b->setPos(x,y);
+//    scene->addItem(b);
 }

@@ -414,7 +414,7 @@ void Figur::walk()
    // Står på bakken og vil flytte seg til venstre
    if(left){
 
-        qDebug()<<walked;
+
        // velger bilder for animasjonen. Må flytte dette til updateImg
        if(walked>7){
          setPixmap(QPixmap(":/new/img/mariowalkleft4.png"));

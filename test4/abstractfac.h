@@ -5,6 +5,7 @@
 
 
 class abstractFac{
+
 public:
     virtual QGraphicsItem * mekk() = 0;
 

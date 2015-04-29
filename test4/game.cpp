@@ -7,7 +7,7 @@
 #include <QFont>
 #include <QDebug>
 #include "rectfac.h"
-#include "boxfactory.h"
+//#include "boxfactory.h"
 #include "groundfactory.h"
 #include "linusfactory.h"
 #include "cloudfactory.h"
@@ -98,6 +98,7 @@ void game::setUp(){
         bossText->setPos(300,10);
         scene->addItem(bossText);
     }
+
 
     LevelFactory * LF = new LevelFactory;
     LF->loadMap( scene, frameCount ); // sende med sceneNr og scneptr

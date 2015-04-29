@@ -10,6 +10,7 @@ class BossFactory : public abstractFac{
 public:
     BossFactory(){}
     QGraphicsItem * mekk(int x,int y);
+    QGraphicsItem * mekk();
 
 };
 
