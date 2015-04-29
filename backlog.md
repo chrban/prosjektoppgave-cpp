@@ -16,6 +16,8 @@
 * Kaste riktig ecxeption ved feillesing av fil - chrban
 
 * Lage to-tre maps, pr pers - alle
+
+* Hvis man skal kunne gå tilbake, må det gjøres slik at linus ikke tegnes if(allready taken).
 ________________________________________________
 #### Før levering:
 
@@ -54,3 +56,7 @@ ________________________________________________
  ##Known issues:
 
  * Når man går tilbake (til venstre ut av bildet) settes feil posisjopn til TUX.
+
+ * Linuser tegnes på nytt når man går mot venstre.
+
+ 
