@@ -575,3 +575,4 @@ void Figur::spawn()
     enemy * fiende = new enemy();
     scene()->addItem(fiende);
 }
+

@@ -6,12 +6,9 @@
 #include <QDebug>
 #include <stdlib.h> //rand()
 
-    enemy::enemy() : QObject() {
-    //random position
-    int random_number = rand() % 500;
-    setPos(random_number,0);
+    enemy::enemy(int x, int y) {
     // set graphics
-    setPixmap(QPixmap(":/new/img/boss.png"));
+    setPixmap(QPixmap(":/new/img/javaenemy.png"));
 
     //connect
     //QTimer * timer = new QTimer(this);
@@ -23,5 +20,10 @@
 
 void enemy::move() {
     setPos(x(),y()+5);
+
+}
+
+void enemy::animate()
+{
 
 }

@@ -36,6 +36,7 @@
         <file>map.txt</file>
         <file>ironcat.png</file>
         <file>projectile.gif</file>
+        <file>javaenemy.png</file>
     </qresource>
     <qresource prefix="/new/sounds">
         <file>Uglehull.mp3</file>
