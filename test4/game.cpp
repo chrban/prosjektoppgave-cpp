@@ -65,20 +65,20 @@ void game::showMainMenu(){
     connect(play, SIGNAL(clicked()), this, SLOT(setUp()));
     scene->addItem(play);
 
-    Button* quit = new Button(QString("QUIT GAME"));
-    int qxPos = this->width()/2 - play->boundingRect().width()/2;
-    int qyPos = 460;
-    quit->setPos(qxPos, qyPos);
-    connect(quit, SIGNAL(clicked()), this, SLOT(close()));
-    scene->addItem(quit);
-
     Button* create = new Button(QString("CREATE MAP"));
     int cxPos = this->width()/2 - play->boundingRect().width()/2;
-    int cyPos = 495;
+    int cyPos = 460;
     create->setPos(cxPos, cyPos);
     connect(create, SIGNAL(clicked()),this,SLOT( showEditorScreen() ));
 //    connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(create);
+
+    Button* quit = new Button(QString("QUIT GAME"));
+    int qxPos = this->width()/2 - play->boundingRect().width()/2;
+    int qyPos = 495;
+    quit->setPos(qxPos, qyPos);
+    connect(quit, SIGNAL(clicked()), this, SLOT(close()));
+    scene->addItem(quit);
 
 
     show();

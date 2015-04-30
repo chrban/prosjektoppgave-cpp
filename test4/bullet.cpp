@@ -15,8 +15,7 @@ bullet::bullet(){
 
 }
 
-void bullet::move()
-{
+void bullet::move(){
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0, n= colliding_items.size();i<n;i++){
         if(typeid(*(colliding_items[i]))==typeid(Figur)){

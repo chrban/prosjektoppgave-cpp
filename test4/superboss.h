@@ -2,25 +2,27 @@
 #define SUPERBOSS
 #include <QGraphicsPixmapItem>
 #include <QObject>
-#include <QList> //liste med elementer
-#include <QPointF>
+#include <QList>
+#include <QGraphicsRotation>
+#include <QGraphicsTransform>
+#include <QPropertyAnimation>
 
 class superboss :  public QObject ,public QGraphicsPixmapItem {
     Q_OBJECT
 
 public:
     superboss(int x, int y);
-    void rotateToPoint(QPointF p);
 
 public slots:
-    void animate();
+    void move();
+    void upLeft();
+    void upRight();
+    void down();
 
 private:
-    QList<QPointF> points;
-    QPointF destination;
-    QTimer * fps;
+    QTimer * m;
+    QTimer * s;
     void shoot();
-    int point_index;
     int health;
     int count;
 };

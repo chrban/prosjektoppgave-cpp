@@ -1,7 +1,8 @@
 #ifndef BULLET
 #define BULLET
 
-#include<QGraphicsRectItem>
+#include<QGraphicsItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 #include "hp.h"
 
