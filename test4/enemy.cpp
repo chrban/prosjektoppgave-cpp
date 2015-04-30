@@ -11,7 +11,7 @@
     int random_number = rand() % 500;
     setPos(random_number,0);
     // set graphics
-    setPixmap(QPixmap(":/new/img/boss.png"));
+    setPixmap(QPixmap(":/new/img/javaenemy.png"));
 
     //connect
     //QTimer * timer = new QTimer(this);
