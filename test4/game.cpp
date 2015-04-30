@@ -96,13 +96,20 @@ void game::setUp(){
     Sun * sun = new Sun(680,30);//flyttes - chrban
     scene->addItem(sun);
 
+    //lager score
+    score = new Score();
+    score->increase(scoreCount);
+    scene->addItem(score);
+
     //frameNr
     GV = new GlobalVar();
     GV-> setFrame(frameCount);
     GV->setRequiredScore(requiredScoreCount);
 
 
-    if(frameCount == 42){
+    if(scoreCount >= GV->getRequiredScore() ){ //aktiverer bossbattle som neste frame
+        setBackgroundBrush(QBrush(Qt::red));
+        frameCount = 1337;
         //BOSSBATTLE!
         QGraphicsTextItem* bossText = new QGraphicsTextItem();
         bossText->setPlainText("Boss Battle!");
@@ -125,10 +132,7 @@ void game::setUp(){
     tux->setFocus();
     scene->addItem(tux);
 
-    //lager score
-    score = new Score();
-    score->increase(scoreCount);
-    scene->addItem(score);
+
 
     //lager HP
     hp = new Hp();

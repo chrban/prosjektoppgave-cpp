@@ -24,8 +24,7 @@ void GlobalVar::decreaseFrame(){
     g->frameCount=frame;
 }
 
-<<<<<<< Updated upstream
-=======
+
 GlobalVar::GlobalVar()
 {
     requiredScore = 40;
@@ -42,7 +41,6 @@ void GlobalVar::setRequiredScore(int r)
     requiredScore = r;
 }
 
->>>>>>> Stashed changes
 
 
 

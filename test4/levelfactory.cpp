@@ -34,10 +34,6 @@ int frameLokal=0;
 
             QStringList maplist = line.split(",");
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
             if(maplist[0]=="frame")
             {
                 frameLokal = maplist[1].toInt();
@@ -67,11 +63,6 @@ int frameLokal=0;
             }
             else if(maplist[0]=="mapdefine"){ //mapdefine, mapname, reqScore
                 g->GV->setRequiredScore( maplist[2].toInt() );
-
-<<<<<<< Updated upstream
-            scene->addItem(item);
-=======
->>>>>>> Stashed changes
             }
             else
                 qDebug()<<"Undefined object / Error reading from file";

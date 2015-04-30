@@ -7,6 +7,7 @@
 #include "groundfactory.h"
 #include "cloudfactory.h"
 #include "bossfactory.h"
+#include "globalvar.h"
 
 #include <vector>
 

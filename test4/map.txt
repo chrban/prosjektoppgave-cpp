@@ -1,15 +1,16 @@
-<<<<<<< Updated upstream
-=======
 mapdefine,map.txt,5
->>>>>>> Stashed changes
 frame,0
-box,0,0
+box,9,9
 box,1,1
 box,4,4
 box,6,6
 box,7,7
 box,8,8
 linus,217,475
+linus,317,475
+linus,417,475
+linus,517,475
+linus,617,475
 ground,0,550
 ground,31,550
 ground,62,550
