@@ -36,7 +36,7 @@ SOURCES += main.cpp \
     superboss.cpp \
     globalvar.cpp \
     bossfactory.cpp \
-    coursecreator.cpp
+    coursecreator.cpp \
 
 HEADERS  += \
     bullet.h \
@@ -62,7 +62,7 @@ HEADERS  += \
     superboss.h \
     globalvar.h \
     bossfactory.h \
-    coursecreator.h
+    coursecreator.h \
 
 RESOURCES += \
     res.qrc

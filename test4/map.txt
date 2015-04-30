@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+mapdefine,map.txt,5
+>>>>>>> Stashed changes
 frame,0
 box,0,0
 box,1,1

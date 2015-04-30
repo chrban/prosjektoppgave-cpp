@@ -39,6 +39,7 @@ game::game(QWidget * parent){
     hpCount=3;
     scoreCount=0;
     frameCount = 0;
+    requiredScoreCount=40;
 
 
 }
@@ -98,6 +99,8 @@ void game::setUp(){
     //frameNr
     GV = new GlobalVar();
     GV-> setFrame(frameCount);
+    GV->setRequiredScore(requiredScoreCount);
+
 
     if(frameCount == 42){
         //BOSSBATTLE!
@@ -108,7 +111,6 @@ void game::setUp(){
         bossText->setPos(300,10);
         scene->addItem(bossText);
     }
-
 
     LevelFactory * LF = new LevelFactory;
     LF->loadMap( scene, frameCount ); // sende med sceneNr og scneptr

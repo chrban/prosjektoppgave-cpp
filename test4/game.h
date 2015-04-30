@@ -27,7 +27,7 @@ public:
     int hpCount;
     int scoreCount;
     int frameCount;
-
+    int requiredScoreCount;
 public slots:
     void setUp();
     void pickedUpLinus();
