@@ -1,7 +1,7 @@
 
 ## To do
 
-
+* Win screen 
 
 * kode en fiende og kollisjon med denne - betty
 
@@ -18,6 +18,12 @@
 * Lage to-tre maps, pr pers - alle
 
 * Hvis man skal kunne gå tilbake, må det gjøres slik at linus ikke tegnes if(allready taken).
+
+> Effektivisering av lesing av map.
+> Hvordan lese hele filen for så å lage indekspoints å gå til?
+> Slik at frame blir indeks til neste frame.
+
+> Hvordang lagre buttons i coursecreator
 ________________________________________________
 #### Før levering:
 
@@ -59,4 +65,4 @@ ________________________________________________
 
  * Linuser tegnes på nytt når man går mot venstre.
 
- 
+

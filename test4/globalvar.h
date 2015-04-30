@@ -5,12 +5,20 @@
 
 class GlobalVar{
 public:
+    //framenumber
     int getFrame();
     void setFrame(int f);
     void increaseFrame();
     void decreaseFrame();
+    GlobalVar();
+
+    //requiredScore to reach boss-level
+    int getRequiredScore();
+    void setRequiredScore(int r);
+
 private:
     int frame;
+    int requiredScore;
 
 };
 

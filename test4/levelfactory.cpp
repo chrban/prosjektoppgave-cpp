@@ -32,7 +32,12 @@ int frameLokal=0;
 
             QStringList maplist = line.split(",");
 
-            if(maplist[0]=="frame")
+            if(maplist[0]=="map")
+            {
+                qDebug()<<"seter"<< maplist[1].toInt();
+//                GV->setRequiredScore( 5 ); //hvorfor går ikke dette?
+                qDebug()<<"satt";
+            }else if(maplist[0]=="frame")
             {
                 frameLokal = maplist[1].toInt();
             }
@@ -49,6 +54,7 @@ int frameLokal=0;
                 item = CF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
             if(maplist[0]=="boss")
                 item = SBF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
+
 
             scene->addItem(item);
             }

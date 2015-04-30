@@ -3,6 +3,8 @@
 
 
 extern game * g;
+
+
 int GlobalVar::getFrame()
 {
     return frame;
@@ -22,6 +24,21 @@ void GlobalVar::increaseFrame(){
 void GlobalVar::decreaseFrame(){
     frame--;
     g->frameCount=frame;
+}
+
+GlobalVar::GlobalVar()
+{
+    requiredScore = 0;
+}
+
+int GlobalVar::getRequiredScore()
+{
+    return requiredScore;
+}
+
+void GlobalVar::setRequiredScore(int r)
+{
+    requiredScore = r;
 }
 
 

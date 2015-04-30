@@ -88,6 +88,11 @@ void game::setUp(){
 
     scene->clear();
 
+    //lager score
+    score = new Score();
+    score->increase(scoreCount);
+    scene->addItem(score);
+
 
 
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
@@ -99,8 +104,10 @@ void game::setUp(){
     GV = new GlobalVar();
     GV-> setFrame(frameCount);
 
-    if(frameCount == 42){
+    if(scoreCount >= GV->getRequiredScore() ){ //aktiverer bossbattle som neste frame
+        setBackgroundBrush(QBrush(Qt::red));
         //BOSSBATTLE!
+        frameCount = 1337;
         QGraphicsTextItem* bossText = new QGraphicsTextItem();
         bossText->setPlainText("Boss Battle!");
         bossText->setDefaultTextColor(Qt::yellow);
@@ -123,10 +130,6 @@ void game::setUp(){
     tux->setFocus();
     scene->addItem(tux);
 
-    //lager score
-    score = new Score();
-    score->increase(scoreCount);
-    scene->addItem(score);
 
     //lager HP
     hp = new Hp();
