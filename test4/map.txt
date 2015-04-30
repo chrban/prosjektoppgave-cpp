@@ -6,7 +6,6 @@ box,6,6
 box,7,7
 box,8,8
 linus,217,475
-enemy,700,500
 ground,0,550
 ground,31,550
 ground,62,550

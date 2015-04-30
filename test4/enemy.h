@@ -8,11 +8,10 @@ class enemy :  public QObject ,public QGraphicsPixmapItem {
     Q_OBJECT
 
 public:
-    enemy(int x, int y);
+    enemy();
 
 public slots:
     void move();
-    void animate();
 
 
 };
