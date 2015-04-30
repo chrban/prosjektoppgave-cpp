@@ -5,23 +5,34 @@
 #include <QList>
 #include <QDebug>
 #include <stdlib.h> //rand()
+#include <QObject>
+#include <qmath.h>
 
-    enemy::enemy() : QObject() {
-    //random position
-    int random_number = rand() % 500;
-    setPos(random_number,0);
+    enemy::enemy(int x, int y) {
     // set graphics
     setPixmap(QPixmap(":/new/img/javaenemy.png"));
+    setPos(x,y);
+    m = new QTimer();
+    s = new QTimer();
+    connect(m,SIGNAL(timeout()),this,SLOT(move()));
+    m->start(1000);
+}
+    void enemy::move() {
+        count++;
+        s->start(50);
+        if(count == 1)
+            connect(s,SIGNAL(timeout()),this,SLOT(left()));
+        if(count == 2)
+            connect(s,SIGNAL(timeout()),this,SLOT(right()));
+        count = 0;
+    }
 
-    //connect
-    //QTimer * timer = new QTimer(this);
-    //connect(timer,SIGNAL(timeout()).this,SLOT(move()));
 
-    //timer->start(50);
-
+void enemy::left(){
+    setPos(x()-1,y()+1);
 }
 
-void enemy::move() {
-    setPos(x(),y()+5);
-
+void enemy::right(){
+    setPos(x()+1,y()+1);
 }
+
