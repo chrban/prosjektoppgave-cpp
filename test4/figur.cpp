@@ -219,7 +219,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
     }
 
     // dette er bare tull
-    else if(event->key()==Qt::Key_Space){
+        else if(event->key()==Qt::Key_Space){
 //        bullet * bullet1 = new bullet();
 //        bullet1->setPos(x(),y()+50);
 //        scene()->addItem(bullet1);
@@ -285,7 +285,15 @@ void Figur::jump()
                             }
                 }
 
+                for(int i = 0, n= colliding_items.size();i<n;i++){
+                                     if(typeid(*(colliding_items[i]))==typeid(enemy)){
+                                                scene()->removeItem(colliding_items[i]);
+                                                delete colliding_items[i];
+                                                g->score->increase();
+                                                return;
+                                            }
 
+                                }
 
                 setPos(x(),y());
                 falling = false;

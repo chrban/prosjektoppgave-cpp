@@ -19,24 +19,19 @@ extern game * g;
     s = new QTimer();
     movements = true;
     count = 0;
-    //connect(m,SIGNAL(timeout()),this,SLOT(move()));
-    //m->start(1000);
+    connect(m,SIGNAL(timeout()),this,SLOT(move()));
+    m->start(1000);
 }
     void enemy::move() {
-        /*count++;
-        s->start(50);
-        if(count == 1)
-            connect(s,SIGNAL(timeout()),this,SLOT(left()));
-        if(count == 2)
-            connect(s,SIGNAL(timeout()),this,SLOT(right()));
-        count = 0;
-    }
-    */
+        //*count++;
+        s->start(100);
 
-    if(count ==7){
+    if(count ==20){
+        connect(s,SIGNAL(timeout()),this,SLOT(move()));
         movements=false;
     }
     else if(count ==0){
+        connect(s,SIGNAL(timeout()),this,SLOT(move()));
         movements=true;
     }
 
