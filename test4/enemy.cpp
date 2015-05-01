@@ -26,7 +26,7 @@ extern game * g;
         //*count++;
         s->start(100);
 
-    if(count ==20){
+    if(count ==10){
         connect(s,SIGNAL(timeout()),this,SLOT(move()));
         movements=false;
     }
