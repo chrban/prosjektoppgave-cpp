@@ -12,7 +12,7 @@ public:
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent *event);
 public slots:
-    void spawn();
+    //void spawn();
     void jump();
     void walk();
 

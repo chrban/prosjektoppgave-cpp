@@ -49,6 +49,10 @@ int frameLokal=0;
                 item = LF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
                 scene->addItem(item);
             }
+            else if(maplist[0]=="enemy"){
+                item = EF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
+                scene->addItem(item);
+            }
             else if(maplist[0]=="ground"){
                 item = GF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
                 scene->addItem(item);
