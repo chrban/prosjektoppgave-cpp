@@ -16,13 +16,14 @@ public:
 
 public slots:
     void move();
-    void left();
-    void right();
+    //void left();
+    //void right();
 
 private:
     QTimer * m;
     QTimer * s;
     int count;
+    bool movements;
 
 
 };

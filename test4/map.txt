@@ -6,7 +6,7 @@ box,4,4
 box,6,6
 box,7,7
 box,8,8
-enemy,100,500
+enemy,100,510
 linus,217,475
 linus,317,475
 linus,417,475

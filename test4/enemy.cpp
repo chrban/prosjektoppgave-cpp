@@ -17,11 +17,13 @@ extern game * g;
     setPos(x,y);
     m = new QTimer();
     s = new QTimer();
-    connect(m,SIGNAL(timeout()),this,SLOT(move()));
-    m->start(1000);
+    movements = true;
+    count = 0;
+    //connect(m,SIGNAL(timeout()),this,SLOT(move()));
+    //m->start(1000);
 }
     void enemy::move() {
-        count++;
+        /*count++;
         s->start(50);
         if(count == 1)
             connect(s,SIGNAL(timeout()),this,SLOT(left()));
@@ -29,13 +31,31 @@ extern game * g;
             connect(s,SIGNAL(timeout()),this,SLOT(right()));
         count = 0;
     }
+    */
 
+    if(count ==7){
+        movements=false;
+    }
+    else if(count ==0){
+        movements=true;
+    }
 
-void enemy::left(){
-    setPos(x()-1,y()+1);
+    if(movements){
+        setPos(x()-5,y());
+        count++;
+    }
+    else{
+        setPos(x()+5,y());
+        count--;
+        }
+    }
+
+/*void enemy::left(){
+    setPos(x()-1,y());
 }
 
 void enemy::right(){
-    setPos(x()+1,y()+1);
+    setPos(x()+5,y());
 }
 
+*/
