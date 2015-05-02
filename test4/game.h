@@ -39,6 +39,7 @@ public slots:
     void showKillScreen();
     void showWinScreen();
     void showEditorScreen();
+    void pause();
 
 private:
 

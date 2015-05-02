@@ -71,6 +71,10 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
     if(event->key()==Qt::Key_Space){
         superspeed=0;
     }
+
+
+    //connect(menu, SIGNAL(clicked()), this, SLOT(showMainMenu()));
+
 }
 
 
@@ -169,8 +173,13 @@ void Figur::keyPressEvent(QKeyEvent *event)
         timer_for_jump->start(0);
         }
     } 
-        else if(event->key()==Qt::Key_Space){
-        superspeed=10;
+    else if(event->key()==Qt::Key_Space){
+    superspeed=10;
+    }
+    else if(event->key()==Qt::Key_P )
+    {
+        qDebug()<<"p trykket";
+        g->pause();
     }
 }
 
@@ -466,7 +475,6 @@ void Figur::walk()
 
    //flytter høyre
    setPos(x()+4+superspeed,y());
-
 
 
 

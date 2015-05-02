@@ -20,6 +20,8 @@ public slots:
 signals:
     void gott_av_banen();
     void startScan();
+    void pauseSignal();
+
 private:
     bool falling;
     bool jumping;
@@ -34,7 +36,6 @@ private:
     QTimer * timer_for_walk;
     QTimer * timer_scanner;
 
-
     void updateImg();
 
 
@@ -43,4 +44,3 @@ private:
 
 
 #endif // MYRECT
-

@@ -134,6 +134,8 @@ void game::setUp(){
     scene->addItem(hp);    
 }
 
+
+
 void game::showKillScreen(){
     // Disable GraphicItems
     foreach(QGraphicsItem* item, scene->items())
@@ -215,5 +217,28 @@ void game::showEditorScreen()
     setBackgroundBrush(QBrush(Qt::white));
     CourseCreator * CC = new CourseCreator;
     CC->drawGrid(scene);
+
+}
+
+void game::pause()
+{
+
+    QGraphicsRectItem* panel = new QGraphicsRectItem(0,0,800,600);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::black);
+    panel->setBrush(brush);
+    panel->setOpacity(0.65);
+    scene->addItem(panel);
+
+
+    QGraphicsTextItem* pause = new QGraphicsTextItem();
+    pause->setPlainText("PAUSE"+QString::number(scoreCount));
+    pause->setDefaultTextColor(Qt::blue);
+    pause->setFont(QFont("tahoma",20));
+    pause->setPos(330,325);
+    scene->addItem(pause);
+
+
 
 }
