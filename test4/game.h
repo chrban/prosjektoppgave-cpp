@@ -24,12 +24,15 @@ public:
     Hp * hp;
     GlobalVar * GV;
     CourseCreator * CC;
-    superboss * sb;
+    superboss * SB;
+
 
     int hpCount;
     int scoreCount;
     int frameCount;
     int requiredScoreCount;
+    int bossHpCount;
+
 public slots:
     void setUp();
     void pickedUpLinus();

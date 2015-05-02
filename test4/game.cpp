@@ -1,4 +1,3 @@
-#include "Game.h"
 #include "enemy.h"
 #include <QTimer>
 #include <QGraphicsTextItem>
@@ -20,6 +19,7 @@
 #include "superboss.h"
 #include "globalvar.h"
 #include "coursecreator.h"
+#include "game.h"
 
 
 game::game(QWidget * parent){
@@ -40,6 +40,7 @@ game::game(QWidget * parent){
     scoreCount=0;
     frameCount = 0;
     requiredScoreCount=40;
+    bossHpCount=3;
 
 
 }
@@ -109,6 +110,14 @@ void game::setUp(){
 
     if(scoreCount >= GV->getRequiredScore() ){ //aktiverer bossbattle som neste frame
         setBackgroundBrush(QBrush(Qt::red));
+
+
+
+//        superboss * boss = new superboss(700,450);
+        SB = new superboss(700,450);
+        scene->addItem( SB );
+        SB->setHealth(  bossHpCount );
+
         frameCount = 1337;
         //BOSSBATTLE!
         QGraphicsTextItem* bossText = new QGraphicsTextItem();
@@ -122,6 +131,7 @@ void game::setUp(){
     LevelFactory * LF = new LevelFactory;
     LF->loadMap( scene, frameCount ); // sende med sceneNr og scneptr
 
+    qDebug()<<bossHpCount;
 
 
     //oppretter og tegner TUX  - Flyttes - chrban

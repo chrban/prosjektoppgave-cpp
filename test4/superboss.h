@@ -14,6 +14,7 @@ public:
     superboss(int x, int y);
     void decrease();
     void setHealth(int h);
+    int getHealth();
 
 public slots:
     void move();

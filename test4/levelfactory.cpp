@@ -65,8 +65,8 @@ int frameLokal=0;
                 scene->addItem(item);
             }
             else if(maplist[0]=="boss"){
-                item = SBF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
-                scene->addItem(item);
+//                item = SBF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
+//                scene->addItem(item);
             }
             else if(maplist[0]=="mapdefine"){ //mapdefine, mapname, reqScore
                 g->GV->setRequiredScore( maplist[2].toInt() );

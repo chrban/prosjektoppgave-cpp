@@ -137,8 +137,6 @@ void Figur::keyPressEvent(QKeyEvent *event)
                             return;
                 }
             }
-            if(colliding_items2.isEmpty())qDebug()<<"kolliderer ikke med noe!";
-
 
             // ikke start timer på nytt hvis den allerede kjører
             if(timer_for_walk->isActive())
@@ -232,9 +230,21 @@ void Figur::jump()
                                 return;
                             }
                      if(typeid(*(colliding_items[i]))==typeid(superboss)){
-                                g->sb->decrease();
-                                return;
-                            }
+                         if(g->SB->getHealth() <=3 )
+                         {
+                                g->SB->decrease();
+                                qDebug()<<"truffet boss på hodet senker HP:"<< g->SB->getHealth();
+                                setPos(x(),y()+10);
+
+                         }
+                         else if( g->SB->getHealth() <= 0 )
+                         {
+                             delete colliding_items[i];
+                             qDebug()<<"truffet boss på hodet, ikke mer HP SLETTER HAN:"<< g->SB->getHealth();
+                             return;
+                         }
+
+                    }
                 }
 
                 for(int i = 0, n= colliding_items.size();i<n;i++){
