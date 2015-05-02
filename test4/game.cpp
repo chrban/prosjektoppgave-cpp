@@ -27,7 +27,7 @@ game::game(QWidget * parent){
     Q_UNUSED(parent);
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
-    setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
+    setBackgroundBrush(QBrush(QImage(":/new/img/rorStdbackground.png")));
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -83,7 +83,7 @@ void game::showMainMenu(){
 void game::setUp(){
 
     scene->clear();
-    setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
+    setBackgroundBrush(QBrush(QImage(":/new/img/rorStdbackground.png")));
 
     //create sun
     Sun * sun = new Sun(680,30);
