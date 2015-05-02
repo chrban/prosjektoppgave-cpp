@@ -19,13 +19,19 @@ public:
 public slots:
     void move();
     void shoot();
+    void jump();
+    void jumper();
 
 private:
     QTimer * m;
     QTimer * s;
+    QTimer * j;
+    QTimer * jmpr;
     int health;
     int count;
-    bool movements;
+    int jump_count;
+    bool direction;
+    bool horizontal_direction;
 };
 
 #endif // SUPERBOSS

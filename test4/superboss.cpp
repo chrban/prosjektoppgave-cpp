@@ -16,34 +16,54 @@ superboss::superboss(int x, int y){
     setPos(x,y);
     m = new QTimer();
     s = new QTimer();
+    j = new QTimer();
+    jmpr = new QTimer();
     count = 0;
+    jump_count = 1;
     health = 3;
-    movements = true;
+    direction = true;
+    horizontal_direction = true;
     connect(m,SIGNAL(timeout()),this,SLOT(move()));
     connect(s,SIGNAL(timeout()),this,SLOT(shoot()));
-    m->start(3000);
+    connect(j,SIGNAL(timeout()),this,SLOT(jump()));
+    connect(jmpr,SIGNAL(timeout()),this,SLOT(jumper()));
+
+    m->start(20);
     s->start(2000);
+    j->start(2000);
 }
 
 void superboss::move(){
-    count++;
+
     if(count == 1){
-        connect(m,SIGNAL(timeout()),this,SLOT(move()));
-        movements=false;
+        direction =true;
+        //connect(m,SIGNAL(timeout()),this,SLOT(move()));
         //for(int i=0;i<50;i++)
-            setPos(x()-1,y()-1);
+
     }
-    if(count == 2){
-        connect(m,SIGNAL(timeout()),this,SLOT(move()));
-        movements=true;
+    else if(count == 2){
+       // connect(m,SIGNAL(timeout()),this,SLOT(move()));
+
         //for(int i=0;i<50;i++)
-            setPos(x(),y()+20);
+
     }
-    if(count == 3){
+    else if(count == 30){
         //for(int i=0;i<50;i++)
-            setPos(x(),y()+30);
-        count=0;
+
+       // count=0;
+        direction =false;
     }
+
+    if(direction){
+        count++;
+        setPos(x()-2,y());
+    }
+    else{
+        count--;
+        setPos(x()+2,y());
+    }
+
+
 }
 
 void superboss::shoot(){
@@ -51,6 +71,30 @@ void superboss::shoot(){
     b->setPos(x()-50,y());
     scene()->addItem(b);
 }
+void superboss::jump(){
+    jump_count = 1;
+    jmpr->start(5);
+}
+void superboss::jumper(){
+
+    if(jump_count==0){
+        jmpr->stop();
+        return;
+    }
+
+    if(jump_count ==30)
+        horizontal_direction = false;
+
+    if(horizontal_direction){
+        jump_count++;
+        setPos(x(),y()-2);
+    }
+    else{
+        jump_count--;
+        setPos(x(),y()+2);
+    }
+}
+
 
 void superboss::setHealth(int h){
     health=h;
