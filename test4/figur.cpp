@@ -522,7 +522,6 @@ void Figur::scanner()
     }
 
 
-
 }
 
 // Må bruke denne mer? God ide å basere alt på states og tellere?

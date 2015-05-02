@@ -13,8 +13,6 @@
 
 * Levelprogress screen - trym
 
-* Kaste riktig ecxeption ved feillesing av fil - chrban
-
 * Lage to-tre maps, pr pers - alle
 
 
@@ -36,6 +34,8 @@ ________________________________________________
 			-> cloudFactory
 			-> linusFactory
 ```
+* ~~Kaste riktig ecxeption ved feillesing av fil - chrban~~
+
 * ~~gjøre hopping smuuth - chrbang~~
 
 * ~~lage startmeny - trymz~~

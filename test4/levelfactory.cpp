@@ -21,10 +21,13 @@ void LevelFactory::loadMap( QGraphicsScene* scene, int f  )
 {
 int frameLokal=0;
 
+
+
+
     QFile file(":/new/img/map.txt");
     if(!file.open(QIODevice::ReadOnly)) {
-        qDebug()<<"noe gikk galt ved lesing av fil";
-        //TODO: Hva skal throwes?
+        std::cout<<"Error reading from file";
+
     }
     QTextStream in(&file);
 
@@ -69,7 +72,7 @@ int frameLokal=0;
                 g->GV->setRequiredScore( maplist[2].toInt() );
             }
             else
-                qDebug()<<"Undefined object / Error reading from file";
+                std::cout<<"Undefined object / Error reading from file. (Tip: Check mapfile for syntax error)";
 
         }
     }
