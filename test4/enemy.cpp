@@ -11,36 +11,47 @@
 
 extern game * g;
 
-    enemy::enemy(int x, int y) {
+enemy::enemy(int x, int y) {
     // set graphics
-    setPixmap(QPixmap(":/new/img/javaenemy.png"));
+    setPixmap(QPixmap(":/new/img/java1.png"));
     setPos(x,y);
     m = new QTimer();
-    s = new QTimer();
-    movements = true;
+   // s = new QTimer();
+    direction = true;
     count = 0;
     connect(m,SIGNAL(timeout()),this,SLOT(move()));
-    m->start(3000);
+    m->start(40);
 }
-    void enemy::move() {
-        //*count++;
-        s->start(1000);
-
-    if(count ==5){
-        connect(s,SIGNAL(timeout()),this,SLOT(move()));
-        movements=false;
+void enemy::move() {
+    if(count==10){
+        setPixmap(QPixmap(":/new/img/java1.png"));
+        direction=false;
     }
+    else if(count == 7){
+        setPixmap(QPixmap(":/new/img/java2.png"));
+        setPos(x(),y()-2);
+    }
+    else if(count == 4){
+        setPixmap(QPixmap(":/new/img/java3.png"));
+        setPos(x(),y()+4);
+    }
+    else if(count == 2){
+        setPixmap(QPixmap(":/new/img/java2.png"));
+        setPos(x(),y()-2);
+    }
+
     else if(count ==0){
-        connect(s,SIGNAL(timeout()),this,SLOT(move()));
-        movements=true;
+        setPixmap(QPixmap(":/new/img/java1.png"));
+
+        direction=true;
     }
 
-    if(movements){
-        setPos(x()-5,y());
+    if(direction){
+        setPos(x()-2,y());
         count++;
     }
     else{
-        setPos(x()+5,y());
+        setPos(x()+2,y());
         count--;
         }
-    }
+}

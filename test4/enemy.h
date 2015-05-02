@@ -21,7 +21,7 @@ private:
     QTimer * m;
     QTimer * s;
     int count;
-    bool movements;
+    bool direction;
 
 
 };
