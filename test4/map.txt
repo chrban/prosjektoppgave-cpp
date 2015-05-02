@@ -103,6 +103,12 @@ ground,775,550
 ground,800,550
 cloud,100,110
 cloud,400,300
+linus,20,360
+linus,300,280
+linus,720,180
+linus,250,510
+linus,700,380
+enemy,280,60
 frame,1
 ground,0,550
 ground,62,550
@@ -214,4 +220,3 @@ cloud,400,300
 cloud,600,250
 cloud,700,50
 cloud,200,150
-boss,700,500
