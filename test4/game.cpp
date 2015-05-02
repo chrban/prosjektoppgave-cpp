@@ -23,33 +23,27 @@
 
 
 game::game(QWidget * parent){
-    // create the scene
-    Q_UNUSED(parent); //debugger?
+    // create scene
+    Q_UNUSED(parent);
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
+    scene->setSceneRect(0,0,800,600);
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
-
-    // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
-    // it can be used to visualize scenes)
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
-
+    //local var
     hpCount=3;
     scoreCount=0;
     frameCount = 0;
     requiredScoreCount=40;
     bossHpCount=3;
-
-
 }
 
 void game::showMainMenu(){
 
     scene->clear();
-
-    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Tux goes postal!")); // for teh lulz
+    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Tux goes postal!"));
     QFont titleFont("Comic Sans MS",40);
     title->setFont(titleFont);
     title->setDefaultTextColor(Qt::red);
@@ -89,12 +83,10 @@ void game::showMainMenu(){
 void game::setUp(){
 
     scene->clear();
-
-
-
     setBackgroundBrush(QBrush(QImage("://new/img/Stdbackground.png")));
 
-    Sun * sun = new Sun(680,30);//flyttes - chrban
+    //create sun
+    Sun * sun = new Sun(680,30);
     scene->addItem(sun);
 
     //lager score
@@ -107,14 +99,13 @@ void game::setUp(){
     GV-> setFrame(frameCount);
     GV->setRequiredScore(requiredScoreCount);
 
-
-    if(scoreCount >= GV->getRequiredScore() ){ //aktiverer bossbattle som neste frame
+    //Activate bossbattle
+    if(scoreCount >= GV->getRequiredScore() ){
         setBackgroundBrush(QBrush(Qt::red));
         SB = new superboss(700,450);
         scene->addItem( SB );
         SB->setHealth(  bossHpCount );
         frameCount = 1337;
-        //BOSSBATTLE!
         QGraphicsTextItem* bossText = new QGraphicsTextItem();
         bossText->setPlainText("Boss Battle!");
         bossText->setDefaultTextColor(Qt::yellow);
@@ -123,13 +114,12 @@ void game::setUp(){
         scene->addItem(bossText);
     }
 
+    //Create Level
     LevelFactory * LF = new LevelFactory;
-    LF->loadMap( scene, frameCount ); // sende med sceneNr og scneptr
-
-    qDebug()<<bossHpCount;
+    LF->loadMap( scene, frameCount );
 
 
-    //oppretter og tegner TUX  - Flyttes - chrban
+    //Create figure, add to scene
     tux = new Figur();
     connect(tux,SIGNAL(gott_av_banen()),this,SLOT(setUp()));
     tux->setPos(10,520);
@@ -137,9 +127,7 @@ void game::setUp(){
     tux->setFocus();
     scene->addItem(tux);
 
-
-    qDebug()<<"før HP";
-    //lager HP
+    //HP
     hp = new Hp();
     hp->setPos(0,20);
     hp->setHp(hpCount);
@@ -179,7 +167,6 @@ void game::showKillScreen(){
     scene->addItem(menu);
 
     show();
-
     hpCount=3;
     scoreCount=0;
     frameCount=0;
@@ -228,9 +215,5 @@ void game::showEditorScreen()
     setBackgroundBrush(QBrush(Qt::white));
     CourseCreator * CC = new CourseCreator;
     CC->drawGrid(scene);
-
-}
-
-void game::pickedUpLinus(){
 
 }
