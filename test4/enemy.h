@@ -16,8 +16,6 @@ public:
 
 public slots:
     void move();
-    //void left();
-    //void right();
 
 private:
     QTimer * m;
