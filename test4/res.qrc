@@ -37,6 +37,9 @@
         <file>ironcat.png</file>
         <file>projectile.gif</file>
         <file>javaenemy.png</file>
+        <file>java3.png</file>
+        <file>java2.png</file>
+        <file>java1.png</file>
     </qresource>
     <qresource prefix="/new/sounds">
         <file>Uglehull.mp3</file>
