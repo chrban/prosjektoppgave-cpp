@@ -18,25 +18,30 @@ superboss::superboss(int x, int y){
     s = new QTimer();
     count = 0;
     health = 3;
+    movements = true;
     connect(m,SIGNAL(timeout()),this,SLOT(move()));
     connect(s,SIGNAL(timeout()),this,SLOT(shoot()));
-    m->start(5000);
-    s->start(1200);
+    m->start(3000);
+    s->start(2000);
 }
 
 void superboss::move(){
     count++;
     if(count == 1){
-        for(int i=0;i<50;i++)
+        connect(m,SIGNAL(timeout()),this,SLOT(move()));
+        movements=false;
+        //for(int i=0;i<50;i++)
             setPos(x()-1,y()-1);
     }
     if(count == 2){
-        for(int i=0;i<50;i++)
-            setPos(x()+1,y()-1);
+        connect(m,SIGNAL(timeout()),this,SLOT(move()));
+        movements=true;
+        //for(int i=0;i<50;i++)
+            setPos(x(),y()+20);
     }
     if(count == 3){
-        for(int i=0;i<50;i++)
-            setPos(x(),y()+2);
+        //for(int i=0;i<50;i++)
+            setPos(x(),y()+30);
         count=0;
     }
 }
