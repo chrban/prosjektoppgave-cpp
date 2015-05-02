@@ -20,13 +20,13 @@ extern game * g;
     movements = true;
     count = 0;
     connect(m,SIGNAL(timeout()),this,SLOT(move()));
-    m->start(1000);
+    m->start(3000);
 }
     void enemy::move() {
         //*count++;
-        s->start(100);
+        s->start(1000);
 
-    if(count ==10){
+    if(count ==5){
         connect(s,SIGNAL(timeout()),this,SLOT(move()));
         movements=false;
     }
@@ -44,13 +44,3 @@ extern game * g;
         count--;
         }
     }
-
-/*void enemy::left(){
-    setPos(x()-1,y());
-}
-
-void enemy::right(){
-    setPos(x()+5,y());
-}
-
-*/

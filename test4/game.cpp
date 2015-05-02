@@ -134,13 +134,12 @@ void game::setUp(){
     scene->addItem(tux);
 
 
-
+    qDebug()<<"før HP";
     //lager HP
     hp = new Hp();
     hp->setPos(0,20);
     hp->setHp(hpCount);
-    scene->addItem(hp);
-    sb->setHealth(bossHp);
+    scene->addItem(hp);    
 }
 
 void game::showKillScreen(){

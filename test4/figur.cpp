@@ -34,13 +34,15 @@ Figur::Figur(){
     //tellere
     timer = 5;
     walked = 0;
-    velocity = 50;
+    velocity = 30;
 
     //timers
     timer_for_jump = new QTimer();
     timer_for_walk = new QTimer();
+    timer_scanner = new QTimer();
     connect(timer_for_jump,SIGNAL(timeout()),this,SLOT(jump()));
     connect(timer_for_walk,SIGNAL(timeout()),this,SLOT(walk()));
+    connect(timer_scanner,SIGNAL(timeout()),this,SLOT(scanner()));
 
 }
 
@@ -52,35 +54,17 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
         walking = false;
         timer_for_walk->stop();
         setPixmap(QPixmap(":/new/img/marioleft.png"));
-
-
-        if(x()<0)//gått til venster
-        {
-            if(g->GV->getFrame() > 0 )
-            {
-                qDebug()<<"Har gått ut til venstre release:";
-                g->GV->decreaseFrame();
-                emit gott_av_banen();// sender signal til slot i game som lager nytt brett
-            }
-        }
-
-
+        timer_scanner->stop();
     }
 
     if(event->key()==Qt::Key_Right){
         setPixmap(QPixmap(":/new/img/mario1.png"));
         walking = false;
         timer_for_walk->stop();
-        if(x()>770){
-            qDebug()<<"Har gått ut til høyre (release): ";
-            g->GV->increaseFrame();
-            emit gott_av_banen();// sender signal til slot i game som lager nytt brett
-            return;
-        }
+        timer_scanner->stop();
     }
 
     if(event->key()==Qt::Key_Up){//slipper hoppknappen
-//       falling=true;
         jumping=false;
     }
 
@@ -98,10 +82,8 @@ void Figur::keyPressEvent(QKeyEvent *event)
         left=true;
         right=false;
         walking = true;
+        timer_scanner->start();
 
-
-        //så lenge man ikke er gått ut av bildet på venstre side
-        if(x()>0){
              QList<QGraphicsItem *> colliding_items2 = collidingItems(Qt::IntersectsItemShape);
              QList<QGraphicsItem *> colliding_items = collidingItems();
              for(int i = 0, n= colliding_items.size();i<n;i++){
@@ -124,17 +106,8 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
             // starter timer som får figuren til å gå bortove, med mindre den støter på noe.
             timer_for_walk->start(20);
-        }
-        else{
 
-                if(g->GV->getFrame() > 0 )
-                {
-                    qDebug()<<"Har gått ut til venstre release:";
-                    g->GV->decreaseFrame();
-                    emit gott_av_banen();// sender signal til slot i game som lager nytt brett
-                }
 
-        }
         //trengs denne?
         updateImg();
 
@@ -142,14 +115,6 @@ void Figur::keyPressEvent(QKeyEvent *event)
         // dette er kode som sjekker om figuren går utenfor noe og skal falle ned
         // vil egentlig sjekke for dette i walk-slotten, som er
         // bedre, for der kan man sjekke oftere.
-
-/*        QList<QGraphicsItem *> colliding_items = collidingItems();
-        if(colliding_items.isEmpty() && !jumping){
-            falling = true;
-            updateImg();
-            velocity=0;
-            timer_for_jump->start(9);
-        }*/
 
         walking =false;
         updateImg();
@@ -160,22 +125,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
         left=false;
         right=true;
         walking = true;
-
-        // Hvis man går ut av brettet på høyre side, skal et nytt brett lages.
-        if(x()>770){
-            qDebug()<<"Har gått ut til høyre:";
-            g->GV->increaseFrame();
-            emit gott_av_banen();// sender signal til slot i game som lager nytt brett
-
-
-            return;
-        }
-        //hvis man ikke går ut av bildet, gjør man dette:
-        else{
-            if(timer_for_walk->isActive())qDebug()<<"timer er ikke aktiv!";
-
-            if(falling) qDebug()<<"falling!";
-
+        timer_scanner->start();
 
             QList<QGraphicsItem *> colliding_items2 = collidingItems(Qt::IntersectsItemShape);
             QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -190,21 +140,13 @@ void Figur::keyPressEvent(QKeyEvent *event)
             if(colliding_items2.isEmpty())qDebug()<<"kolliderer ikke med noe!";
 
 
-           if(falling && colliding_items2.isEmpty() /*&& !timer_for_walk->isActive()*/){
-
-                updateImg();
-                //starter timer som beveger figur horisontalt mens den er i luften
-                timer_for_walk->start();
-                return;
-            }
-
             // ikke start timer på nytt hvis den allerede kjører
             if(timer_for_walk->isActive())
                 return;
 
              // starter timer som får figuren til å gå bortove, med mindre den støter på noe.
             timer_for_walk->start(20);
-        }
+
 
         updateImg();
 
@@ -212,21 +154,14 @@ void Figur::keyPressEvent(QKeyEvent *event)
         // dette er kode som sjekker om figuren går utenfor noe og skal falle ned
         // vil egentlig sjekke for dette i walk-slotten, som er
         // bedre, for der kan man sjekke oftere.
-/*
-        QList<QGraphicsItem *> colliding_items = collidingItems();
-        if(colliding_items.isEmpty() && !jumping){
-            falling = true;
-            updateImg();
-            velocity=0;
-            timer_for_jump->start(9);
-        }*/
+
         walking = false;
         updateImg();
 
-    } // HOPPER
+     // HOPPER
+    }
     else if(event->key()==Qt::Key_Up){
         //ikke hopp hvis du faller!
-        //ikke hopp hvis du faller!t
         if(!falling)
         {
             jumping = true;
@@ -235,13 +170,8 @@ void Figur::keyPressEvent(QKeyEvent *event)
         //start hoppetimeren
         timer_for_jump->start(0);
         }
-    }
-
-    // dette er bare tull
+    } 
         else if(event->key()==Qt::Key_Space){
-//        bullet * bullet1 = new bullet();
-//        bullet1->setPos(x(),y()+50);
-//        scene()->addItem(bullet1);
         superspeed=10;
     }
 }
@@ -254,7 +184,6 @@ void Figur::jump()
     //Figur faller
     if(falling){
 
-        // Figur har falt gjennom gulvet og resettes
         // Figur har falt gjennom gulvet, resettes, og mister HP
         if(y()>700){
             setPos(10,520);
@@ -303,7 +232,7 @@ void Figur::jump()
                                 return;
                             }
                      if(typeid(*(colliding_items[i]))==typeid(superboss)){
-                                //g->sb->decrease();
+                                g->sb->decrease();
                                 return;
                             }
                 }
@@ -567,6 +496,27 @@ void Figur::walk()
        walked=0;
        return;
    }
+}
+
+void Figur::scanner()
+{
+    // Hvis man går ut av brettet på høyre side, skal et nytt brett lages.
+    if(x()>770){
+        g->GV->increaseFrame();
+        emit gott_av_banen();// sender signal til slot i game som lager nytt brett
+        return;
+    }else if(x()<0)//gått til venster
+    {
+       if(g->GV->getFrame() > 0 )
+            {
+                g->GV->decreaseFrame();
+                emit gott_av_banen();// sender signal til slot i game som lager nytt brett
+            }
+
+    }
+
+
+
 }
 
 // Må bruke denne mer? God ide å basere alt på states og tellere?
