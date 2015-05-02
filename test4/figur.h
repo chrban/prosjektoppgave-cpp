@@ -15,9 +15,11 @@ public slots:
     //void spawn();
     void jump();
     void walk();
+    void scanner();
 
 signals:
     void gott_av_banen();
+    void startScan();
 private:
     bool falling;
     bool jumping;
@@ -30,6 +32,8 @@ private:
     int superspeed;
     QTimer * timer_for_jump;
     QTimer * timer_for_walk;
+    QTimer * timer_scanner;
+
 
     void updateImg();
 
