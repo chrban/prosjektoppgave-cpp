@@ -25,6 +25,8 @@ Cloud::Cloud(int x, int y)
     if(direction==1)
         left=true;
 
+    setZValue(-1);
+
     animate->start(r);
 }
 
