@@ -110,14 +110,9 @@ void game::setUp(){
 
     if(scoreCount >= GV->getRequiredScore() ){ //aktiverer bossbattle som neste frame
         setBackgroundBrush(QBrush(Qt::red));
-
-
-
-//        superboss * boss = new superboss(700,450);
         SB = new superboss(700,450);
         scene->addItem( SB );
         SB->setHealth(  bossHpCount );
-
         frameCount = 1337;
         //BOSSBATTLE!
         QGraphicsTextItem* bossText = new QGraphicsTextItem();

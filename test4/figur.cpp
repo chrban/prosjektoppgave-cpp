@@ -230,15 +230,15 @@ void Figur::jump()
                                 return;
                             }
                      if(typeid(*(colliding_items[i]))==typeid(superboss)){
-                         if(g->SB->getHealth() <=3 )
-                         {
+
+
                                 g->SB->decrease();
                                 qDebug()<<"truffet boss på hodet senker HP:"<< g->SB->getHealth();
                                 setPos(x(),y()+10);
 
-                         }
-                         else if( g->SB->getHealth() <= 0 )
+                         if( g->SB->getHealth() <= 0 )
                          {
+                             g->showWinScreen();
                              delete colliding_items[i];
                              qDebug()<<"truffet boss på hodet, ikke mer HP SLETTER HAN:"<< g->SB->getHealth();
                              return;
