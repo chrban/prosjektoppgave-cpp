@@ -103,7 +103,16 @@ void Figur::keyPressEvent(QKeyEvent *event)
         //så lenge man ikke er gått ut av bildet på venstre side
         if(x()>0){
              QList<QGraphicsItem *> colliding_items2 = collidingItems(Qt::IntersectsItemShape);
-            if(falling && colliding_items2.isEmpty() /*&& !timer_for_walk->isActive()*/){
+             QList<QGraphicsItem *> colliding_items = collidingItems();
+             for(int i = 0, n= colliding_items.size();i<n;i++){
+                  if(typeid(*(colliding_items[i]))==typeid(enemy)){
+                             scene()->removeItem(colliding_items[i]);
+                             delete colliding_items[i];
+                             g->hp->decrease();
+                             return;
+                }
+             }
+             if(falling && colliding_items2.isEmpty() /*&& !timer_for_walk->isActive()*/){
                 updateImg();
                 //starter timer som beveger figur horisontalt mens den er i luften
                 timer_for_walk->start();
@@ -169,6 +178,15 @@ void Figur::keyPressEvent(QKeyEvent *event)
 
 
             QList<QGraphicsItem *> colliding_items2 = collidingItems(Qt::IntersectsItemShape);
+            QList<QGraphicsItem *> colliding_items = collidingItems();
+            for(int i = 0, n= colliding_items.size();i<n;i++){
+                 if(typeid(*(colliding_items[i]))==typeid(enemy)){
+                            scene()->removeItem(colliding_items[i]);
+                            delete colliding_items[i];
+                            g->hp->decrease();
+                            return;
+                }
+            }
             if(colliding_items2.isEmpty())qDebug()<<"kolliderer ikke med noe!";
 
 
@@ -285,7 +303,7 @@ void Figur::jump()
                                 return;
                             }
                      if(typeid(*(colliding_items[i]))==typeid(superboss)){
-                                g->sb->decrease();
+                                //g->sb->decrease();
                                 return;
                             }
                 }
