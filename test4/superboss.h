@@ -24,6 +24,7 @@ private:
     QTimer * s;
     int health;
     int count;
+    bool movements;
 };
 
 #endif // SUPERBOSS
