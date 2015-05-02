@@ -214,7 +214,7 @@ void Figur::jump()
                                 return;
                             }
                      if(typeid(*(colliding_items[i]))==typeid(superboss)){
-                                g->sb->decrease();
+//                                g->sb->decrease();
                                 return;
                             }
                 }
