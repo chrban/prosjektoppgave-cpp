@@ -17,7 +17,7 @@
 
 * Lage to-tre maps, pr pers - alle
 
-* Hvis man skal kunne gå tilbake, må det gjøres slik at linus ikke tegnes if(allready taken).
+
 ________________________________________________
 #### Før levering:
 
@@ -50,13 +50,15 @@ ________________________________________________
 
 * ~~Lage mål, killscreen - trym?~~
 
+* ~~Hvis man skal kunne gå tilbake, må det gjøres slik at linus ikke tegnes if(allready taken).~~~ chrban
+
 
 
 
  ##Known issues:
 
- * Når man går tilbake (til venstre ut av bildet) settes feil posisjopn til TUX.
+ SOLVED: ~~* Når man går tilbake (til venstre ut av bildet) settes feil posisjopn til TUX.~~
 
- * Linuser tegnes på nytt når man går mot venstre.
+ SOLVED: ~~* Linuser tegnes på nytt når man går mot venstre.~~
 
  
