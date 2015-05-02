@@ -58,7 +58,6 @@ void superboss::setHealth(int h){
 
 void superboss::decrease(){
     health--;
-    g->bossHp=health;
     if(health <= 0){
         g->showWinScreen();
         scene()->removeItem(this);

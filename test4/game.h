@@ -27,7 +27,6 @@ public:
     superboss * sb;
 
     int hpCount;
-    int bossHp;
     int scoreCount;
     int frameCount;
     int requiredScoreCount;

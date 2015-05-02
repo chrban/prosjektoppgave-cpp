@@ -37,7 +37,6 @@ game::game(QWidget * parent){
     setFixedSize(800,600);
 
     hpCount=3;
-    bossHp=3;
     scoreCount=0;
     frameCount = 0;
     requiredScoreCount=40;
