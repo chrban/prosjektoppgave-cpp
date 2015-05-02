@@ -12,17 +12,16 @@ class superboss :  public QObject ,public QGraphicsPixmapItem {
 
 public:
     superboss(int x, int y);
+    void decrease();
+    void setHealth(int h);
 
 public slots:
     void move();
-    void upLeft();
-    void upRight();
-    void down();
+    void shoot();
 
 private:
     QTimer * m;
     QTimer * s;
-    void shoot();
     int health;
     int count;
 };

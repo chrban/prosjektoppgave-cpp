@@ -37,6 +37,7 @@ game::game(QWidget * parent){
     setFixedSize(800,600);
 
     hpCount=3;
+    bossHp=3;
     scoreCount=0;
     frameCount = 0;
     requiredScoreCount=40;
@@ -114,8 +115,8 @@ void game::setUp(){
         QGraphicsTextItem* bossText = new QGraphicsTextItem();
         bossText->setPlainText("Boss Battle!");
         bossText->setDefaultTextColor(Qt::yellow);
-        bossText->setFont(QFont("tahoma",16));
-        bossText->setPos(300,10);
+        bossText->setFont(QFont("tahoma",20));
+        bossText->setPos(350,10);
         scene->addItem(bossText);
     }
 
@@ -139,6 +140,7 @@ void game::setUp(){
     hp->setPos(0,20);
     hp->setHp(hpCount);
     scene->addItem(hp);
+    sb->setHealth(bossHp);
 }
 
 void game::showKillScreen(){
@@ -177,7 +179,46 @@ void game::showKillScreen(){
 
     hpCount=3;
     scoreCount=0;
+    frameCount=0;
+    GV->setFrame(frameCount);
 }
+
+void game::showWinScreen(){
+    // Disable GraphicItems
+    foreach(QGraphicsItem* item, scene->items())
+        item->setEnabled(false);
+
+    // Legg til transparent-panel
+    QGraphicsRectItem* panel = new QGraphicsRectItem(0,0,800,600);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::black);
+    panel->setBrush(brush);
+    panel->setOpacity(0.65);
+    scene->addItem(panel);
+
+    // You Win!
+    QGraphicsTextItem* winText = new QGraphicsTextItem();
+    winText->setPlainText("You Win!"+QString::number(scoreCount));
+    winText->setDefaultTextColor(Qt::yellow);
+    winText->setFont(QFont("tahoma",20));
+    winText->setPos(330,325);
+    scene->addItem(winText);
+
+    // Legg til Main Menu-knapp
+    Button* menu = new Button(QString("Main Menu"));
+    menu->setPos(300,400);
+    connect(menu, SIGNAL(clicked()), this, SLOT(showMainMenu()));
+    scene->addItem(menu);
+
+    show();
+
+    hpCount=3;
+    scoreCount=0;
+    frameCount=0;
+    GV->setFrame(frameCount);
+}
+
 
 void game::showEditorScreen()
 {

@@ -12,6 +12,7 @@
 #include "score.h"
 #include "game.h"
 #include "hp.h"
+#include "superboss.h"
 //#include "levelfactory.h"
 
 extern game * g; //global variable
@@ -281,6 +282,10 @@ void Figur::jump()
                                 scene()->removeItem(colliding_items[i]);
                                 delete colliding_items[i];
                                 g->score->increase();
+                                return;
+                            }
+                     if(typeid(*(colliding_items[i]))==typeid(superboss)){
+                                g->sb->decrease();
                                 return;
                             }
                 }

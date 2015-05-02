@@ -4,7 +4,9 @@
 #include <QList>
 #include <typeinfo>
 #include "figur.h"
+#include "game.h"
 
+extern game * g;
 
 bullet::bullet(){
     setPixmap(QPixmap(":/new/img/projectile.gif"));
@@ -19,7 +21,7 @@ void bullet::move(){
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0, n= colliding_items.size();i<n;i++){
         if(typeid(*(colliding_items[i]))==typeid(Figur)){
-            hp->decrease();
+            g->hp->decrease();
             scene()->removeItem(this);
             delete this;
             return;

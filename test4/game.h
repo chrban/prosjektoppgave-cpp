@@ -10,6 +10,7 @@
 //#include "levelfactory.h"
 #include "globalvar.h"
 #include "coursecreator.h"
+#include "superboss.h"
 
 
 
@@ -23,8 +24,10 @@ public:
     Hp * hp;
     GlobalVar * GV;
     CourseCreator * CC;
+    superboss * sb;
 
     int hpCount;
+    int bossHp;
     int scoreCount;
     int frameCount;
     int requiredScoreCount;
@@ -33,6 +36,7 @@ public slots:
     void pickedUpLinus();
     void showMainMenu();
     void showKillScreen();
+    void showWinScreen();
     void showEditorScreen();
 
 private:
