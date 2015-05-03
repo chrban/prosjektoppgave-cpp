@@ -44,41 +44,23 @@ void game::showMainMenu(){
 
     scene->clear();
     QGraphicsTextItem* title = new QGraphicsTextItem(QString("Mario in the flesh!"));
-    QFont titleFont("Comic Sans MS",40);
+    QFont titleFont("Comic Sans MS",37);
     title->setFont(titleFont);
     title->setDefaultTextColor(Qt::red);
-    int txPos = this->width()/2-title->boundingRect().width()/2;
-    int tyPos = 180;
-    title->setPos(txPos,tyPos);
+    title->setPos(4,550);
     scene->addItem(title);
-
-
-
 
     setBackgroundBrush(QBrush(QImage(":images/paper-mario.png")));
 
-    Button* play = new Button(QString("PLAY GAME"));
-    int bxPos = this->width()/2-play->boundingRect().width()/2;
-    int byPos = 425;
-    play->setPos(bxPos, byPos);
+    Button* play = new Button(QString("PLAY GAME"));    
+    play->setPos(50,475);
     connect(play, SIGNAL(clicked()), this, SLOT(setUp()));
     scene->addItem(play);
 
-    Button* create = new Button(QString("CREATE MAP"));
-    int cxPos = this->width()/2 - play->boundingRect().width()/2;
-    int cyPos = 460;
-    create->setPos(cxPos, cyPos);
-    connect(create, SIGNAL(clicked()),this,SLOT( showEditorScreen() ));
-//    connect(quit, SIGNAL(clicked()), this, SLOT(close()));
-    scene->addItem(create);
-
     Button* quit = new Button(QString("QUIT GAME"));
-    int qxPos = this->width()/2 - play->boundingRect().width()/2;
-    int qyPos = 495;
-    quit->setPos(qxPos, qyPos);
+    quit->setPos(50,510);
     connect(quit, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quit);
-
 
     show();
 }
@@ -224,13 +206,7 @@ void game::showWinScreen(){
 }
 
 
-void game::showEditorScreen()
-{
-    setBackgroundBrush(QBrush(Qt::white));
-    CourseCreator * CC = new CourseCreator;
-    CC->drawGrid(scene);
 
-}
 
 void game::pause()
 {
