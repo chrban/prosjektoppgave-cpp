@@ -101,7 +101,7 @@ void game::setUp(){
 
     //Activate bossbattle
     if(scoreCount >= GV->getRequiredScore() ){
-        setBackgroundBrush(QBrush(Qt::red));
+        setBackgroundBrush(QBrush(QImage(":/new/img/bossback.jpg")));
         SB = new superboss(700,450);
         scene->addItem( SB );
         SB->setHealth(  bossHpCount );
