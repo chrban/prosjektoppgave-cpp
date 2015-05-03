@@ -519,12 +519,13 @@ void Figur::walk()
 void Figur::scanner()
 {
     // Hvis man går ut av brettet på høyre side, skal et nytt brett lages.
-    if(x()>770 && y()<500)
+    if(x()>770 && y()<520)
     {
         setPos( x()-2 ,y() );
         qDebug()<<"boom";
-    }else if( x()>770 && y()>550 )
+    }else if( x()>770 && y()>520 )
     {
+           qDebug()<<"venstre";
         g->GV->increaseFrame();
         emit gott_av_banen();// sender signal til slot i game som lager nytt brett
         return;
