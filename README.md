@@ -10,6 +10,7 @@ Elisabeth Kongshavn - s194524
 
 How to Install:
 
+Programmet kjøres i Qt Creator.
 Prosjektet lar seg importere i Qt Creator på Windows og OS X uten problemer.
 På Linux er det nødvendig å innstallere libgl-dev ved hjelp av følgende kommando:
 
