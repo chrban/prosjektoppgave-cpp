@@ -1,6 +1,5 @@
 #include "figur.h"
 #include "bullet.h"
-#include <QDebug>
 #include <QKeyEvent>
 #include <QGraphicsScene>
 #include <QTimer>
@@ -178,7 +177,6 @@ void Figur::keyPressEvent(QKeyEvent *event)
     }
     else if(event->key()==Qt::Key_P )
     {
-        qDebug()<<"p trykket";
         g->pause();
     }
 }
@@ -240,7 +238,6 @@ void Figur::jump()
                             }
                      if(typeid(*(colliding_items[i]))==typeid(superboss)){
                          g->SB->decrease();
-                         qDebug()<<"truffet boss på hodet senker HP:"<< g->SB->getHealth();
                          falling =false;
                          jumping = true;
                          velocity=15;
@@ -252,7 +249,6 @@ void Figur::jump()
                              g->showWinScreen();
                              g->bossHpCount = 3;
                              delete colliding_items[i];
-                             qDebug()<<"truffet boss på hodet, ikke mer HP SLETTER HAN:"<< g->SB->getHealth();
                              return;
                          }
                          return;
@@ -306,7 +302,6 @@ void Figur::jump()
         QList<QGraphicsItem *> colliding_items = collidingItems();
         //krasjer i noe
         if(!colliding_items.isEmpty() && velocity<28){
-//            qDebug()<<"krasjer på vei opp";
             // Treffer noe på siden
             for(int i = 0, n= colliding_items.size();i<n;i++){
                  if(typeid(*(colliding_items[i]))==typeid(Linus)){
@@ -319,13 +314,11 @@ void Figur::jump()
             }
 
             if(y()>colliding_items[0]->y()+14){
-//                qDebug()<< "strengt under";
                 setPos(x(),y()+3);
 
             }
             else if(y()+27>colliding_items[0]->y()){
                 setPos(x(),y()-5);
-//                qDebug()<< "strengt over";
 
                 //treffer noe på høyresiden
                 if(x() < colliding_items[0]->x()){
@@ -362,7 +355,6 @@ void Figur::jump()
 
 void Figur::walk()
 {
-    qDebug()<<"fire";
    // horisontal bevegelse i luften
    if(falling || jumping){
        walked++;
@@ -375,7 +367,6 @@ void Figur::walk()
            //Treffer noe på siden
            QList<QGraphicsItem *> colliding_items = collidingItems();
            if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-28){
-               qDebug()<<"noe på siden i fall jump";
                    setPos(x()+2,y());
            }
            updateImg();
@@ -389,7 +380,6 @@ void Figur::walk()
        // Treffer noe på siden
        QList<QGraphicsItem *> colliding_items = collidingItems();
        if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-28){
-           qDebug()<<"noe på siden i fall jump";
                setPos(x()-2,y());
        }
        return;
@@ -533,10 +523,8 @@ void Figur::scanner()
     if(x()>770 && y()<520)
     {
         setPos( x()-2 ,y() );
-        qDebug()<<"boom";
     }else if( x()>770 && y()>520 )
     {
-           qDebug()<<"venstre";
         g->GV->increaseFrame();
         emit gott_av_banen();// sender signal til slot i game som lager nytt brett
         return;
@@ -585,12 +573,3 @@ void Figur::updateImg(){
          setPixmap(QPixmap(":/images/mario1.png"));
     }
 }
-
-
-
-// fra youtube
-//void Figur::spawn()
-//{
-//    enemy * fiende = new enemy();
-//    scene()->addItem(fiende);
-//}

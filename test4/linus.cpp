@@ -1,6 +1,5 @@
 #include "linus.h"
 #include <QTimer>
-#include <QDebug>
 
 Linus::Linus(int x, int y)
 {
@@ -31,22 +30,4 @@ void Linus::animate()
         setPos(x(),y()+1);
         count--;
     }
-    /*
-    qDebug()<<"linussnu";
-    if(count == 5)
-        count = 0;
-
-    switch(count){
-    case 0 : setPixmap(QPixmap(":/images/linus-torvalds.png"));
-        break;
-    case 1 : setPixmap(QPixmap(":/images/linus-torvalds2.png"));
-        break;
-    case 2 : setPixmap(QPixmap(":/images/linus-torvalds3.png"));
-        break;
-    case 3 : setPixmap(QPixmap(":/images/linus-torvalds4.png"));
-
-    default : setPixmap(QPixmap(":/images/linus-torvalds4.png"));
-    }
-    count++;
-    */
 }

@@ -1,7 +1,6 @@
 #include "cloud.h"
 #include <QTimer>
 #include <stdlib.h>
-#include <QDebug>
 
 
 using namespace std;

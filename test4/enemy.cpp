@@ -3,7 +3,6 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
-#include <QDebug>
 #include <stdlib.h> //rand()
 #include <QObject>
 #include <qmath.h>
