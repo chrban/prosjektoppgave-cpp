@@ -9,6 +9,7 @@
 #include "bossfactory.h"
 #include "globalvar.h"
 #include "enemyfactory.h"
+#include "murfactory.h"
 
 #include <vector>
 
@@ -22,6 +23,7 @@ public:
     CloudFactory * CF;
     BossFactory * SBF;
     EnemyFactory * EF;
+    MurFactory * MF;
     LevelFactory();
     void loadMap(QGraphicsScene* scene, int f);
 

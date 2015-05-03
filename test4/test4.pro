@@ -37,7 +37,9 @@ SOURCES += main.cpp \
     globalvar.cpp \
     bossfactory.cpp \
     coursecreator.cpp \
-    enemyfactory.cpp
+    enemyfactory.cpp \
+    mur.cpp \
+    murfactory.cpp
 
 HEADERS  += \
     bullet.h \
@@ -64,7 +66,9 @@ HEADERS  += \
     globalvar.h \
     bossfactory.h \
     coursecreator.h \
-    enemyfactory.h
+    enemyfactory.h \
+    mur.h \
+    murfactory.h
 
 RESOURCES += \
     res.qrc

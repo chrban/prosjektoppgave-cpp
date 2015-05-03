@@ -6,7 +6,7 @@ using namespace std;
 
 Mur::Mur(int x, int y)
 {
-    setPixmap(QPixmap(":/new/img/mur.png"));
+    setPixmap(QPixmap(":/images/mur.png"));
     setPos(x,y);
 }
 
