@@ -4,6 +4,7 @@
 #
 #-------------------------------------------------
 
+
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -13,6 +14,7 @@ TEMPLATE = app
 
 CONFIG +=c++11
 
+ICON = test4.icns
 
 SOURCES += main.cpp \
     bullet.cpp \
