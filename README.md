@@ -27,7 +27,8 @@ Spillet går ut på at man styrer karakteren Mario (det ble dessverre ikke Tux) 
 Vi ville ha et skalerbart og utvidbart program og vi har derfor benyttet oss av design-patternet “abstract factory” for å få god objektorientering, og der av   
 muligheten til å utvide spillet med flere brett, temaer, hindere, karakterer og lignende, samt mye gjenbrukbare kode. 
 
-Vi bruker funksjonalitet fra QT-biblioteket for å animere objektene i spillet. Vi bruker QTimer for å styre intervallene i animasjonen. For eksempel blir mario-figuren flyttet med en QTimer som går et gitt antall ganger, avhengig av hvilken animasjon som skal gjøres (går, hopper, osv). 
+Vi bruker funksjonalitet fra QT-biblioteket for å animere objektene i spillet. Vi bruker QTimer for å styre intervallene i animasjonen. For eksempel blir mario-figuren flyttet med en QTimer som går et gitt antall ganger, avhengig av hvilken animasjon som skal gjøres (går, hopper, osv). QTimer fungerer forsjellig på forsjellige operativsystemer, beskrevet i dokumentasjonen: http://doc.qt.io/qt-4.8/qtimer.html
+All animasjon i spillet er laget på en mac. Animasjonen ser anderledes ut på kurs-VMen
 
 Vi bruker en tekstfil for å lese inn banen. Her er det lagret hvilke objekter som skal tegnes hvor, samt hvilken frame de skal tegnes på. Sånn det er nå lesees hele filen hver gang en frame skal tegnes. Dette var det meningen å effektivisere, f.eks ved å indeksere filen i frames, for å kunne lese kun det vi treger for aktuell frame. Dessverre rakk vi ikke å implementere dete. Det er Lagt til rette for at vi kan ha flere map-filer, slik at spiller lett kan utvides.
 
