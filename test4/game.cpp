@@ -82,6 +82,7 @@ void game::showMainMenu(){
 
 void game::setUp(){
 
+
     scene->clear();
     setBackgroundBrush(QBrush(QImage(":/new/img/rorStdbackground.png")));
 
@@ -111,7 +112,7 @@ void game::setUp(){
         setBackgroundBrush(QBrush(QImage(":/new/img/bossback.jpg")));
         score->setDefaultTextColor(Qt::white);
         hp->setDefaultTextColor(Qt::white);
-        SB = new superboss(700,450);
+        SB = new superboss(700,490);
         scene->addItem( SB );
         SB->setHealth(  bossHpCount );
         scene->removeItem(sun);

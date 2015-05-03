@@ -239,20 +239,23 @@ void Figur::jump()
                                 return;
                             }
                      if(typeid(*(colliding_items[i]))==typeid(superboss)){
-
-
-                                g->SB->decrease();
-                                qDebug()<<"truffet boss på hodet senker HP:"<< g->SB->getHealth();
-                                setPos(x(),y()+10);
+                         g->SB->decrease();
+                         qDebug()<<"truffet boss på hodet senker HP:"<< g->SB->getHealth();
+                         falling =false;
+                         jumping = true;
+                         velocity=15;
+                         timer=5;
+                         timer_for_walk->start(20);
 
                          if( g->SB->getHealth() <= 0 )
                          {
                              g->showWinScreen();
+                             g->bossHpCount = 3;
                              delete colliding_items[i];
                              qDebug()<<"truffet boss på hodet, ikke mer HP SLETTER HAN:"<< g->SB->getHealth();
                              return;
                          }
-
+                         return;
                     }
                 }
 
