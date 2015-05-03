@@ -9,7 +9,6 @@
 #include "hp.h"
 //#include "levelfactory.h"
 #include "globalvar.h"
-#include "coursecreator.h"
 #include "superboss.h"
 
 
