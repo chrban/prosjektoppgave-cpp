@@ -4,7 +4,6 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsPixmapItem>
 #include <QFont>
-#include "rectfac.h"
 //#include "boxfactory.h"
 #include "groundfactory.h"
 #include "linusfactory.h"
@@ -61,6 +60,10 @@ void game::showMainMenu(){
     scene->addItem(quit);
 
     show();
+
+    delete title;
+    delete play;
+    delete quit;
 }
 
 void game::setUp(){
@@ -136,9 +139,8 @@ void game::setUp(){
     tux->setFocus();
     scene->addItem(tux);
 
-
-
-
+    delete LF;
+    delete sun;
 }
 
 
@@ -180,6 +182,11 @@ void game::showKillScreen(){
     scoreCount=0;
     frameCount=0;
     GV->setFrame(frameCount);
+
+    delete panel;
+    delete menu;
+    delete bossText;
+
 }
 
 void game::showWinScreen(){
@@ -216,6 +223,10 @@ void game::showWinScreen(){
     scoreCount=0;
     frameCount=0;
     GV->setFrame(frameCount);
+
+    delete panel;
+    delete menu;
+    delete winText;
 }
 
 
@@ -250,20 +261,11 @@ void game::pause()
 
 game::~game(){
     delete scene;
-    delete title;
-    delete play;
-    delete quit;
-    delete sun;
     delete score;
     delete hp;
     delete GV;
     delete SB;
-    delete LF;
     delete tux;
-    delete panel;
-    delete menu;
-    delete bossText;
-    delete winText;
     delete pausePanel;
     delete pauseText;
 }

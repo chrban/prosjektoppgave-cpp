@@ -15,7 +15,5 @@ QGraphicsItem * CloudFactory::mekk(int x, int y){
     return cloud;
 }
 
-CloudFactory::~CloudFactory(){
-    delete cloud;
-}
+CloudFactory::~CloudFactory(){}
 

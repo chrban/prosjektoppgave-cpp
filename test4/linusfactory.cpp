@@ -17,6 +17,4 @@ QGraphicsItem *LinusFactory::mekk(int x,int y)
     return linus;
 }
 
-LinusFactory::~LinusFactory(){
-    delete linus;
-}
+LinusFactory::~LinusFactory(){}
