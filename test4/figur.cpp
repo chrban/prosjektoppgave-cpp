@@ -1,17 +1,5 @@
 #include "figur.h"
-#include "bullet.h"
-#include <QKeyEvent>
-#include <QGraphicsScene>
-#include <QTimer>
-#include <typeinfo>
-#include "enemy.h"
-#include "cloud.h"
-#include <QList>
-#include "linus.h"
-#include "score.h"
 #include "game.h"
-#include "hp.h"
-#include "superboss.h"
 
 
 extern game * g; //global variable

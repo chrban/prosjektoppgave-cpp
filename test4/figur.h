@@ -1,10 +1,19 @@
-#ifndef MYRECT
-#define MYRECT
+#ifndef FIGUR_H
+#define FIGUR_H
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QTimer>
+#include <QList>
 #include "globalvar.h"
-#include "object.h"
+#include <QKeyEvent>
+#include <QGraphicsScene>
+#include <QTimer>
+#include "enemy.h" //trenger for typeId
+#include "linus.h" //trenger for typeId
+
+
+
+
 
 class Figur:public Object{
     Q_OBJECT
@@ -44,4 +53,4 @@ private:
 };
 
 
-#endif // MYRECT
+#endif // FIGUR_H

@@ -4,6 +4,8 @@
 #include<QGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QObject>
+#include <QTimer>
+#include "game.h"
 #include "hp.h"
 
 

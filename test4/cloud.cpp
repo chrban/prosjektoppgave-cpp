@@ -1,10 +1,6 @@
 #include "cloud.h"
-#include <QTimer>
-#include <stdlib.h>
-
 
 using namespace std;
-
 
 Cloud::Cloud(int x, int y)
 {

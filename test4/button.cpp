@@ -1,6 +1,4 @@
 #include "button.h"
-#include <QGraphicsTextItem>
-#include <QBrush>
 
 Button::Button(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
     setRect(0,0,200,25);
@@ -17,10 +15,7 @@ Button::Button(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
     setAcceptHoverEvents(true);
 }
 
-Button::Button()
-{
-
-}
+Button::Button(){}
 
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event){
     Q_UNUSED(event); //debugger?

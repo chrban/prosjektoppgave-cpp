@@ -1,6 +1,6 @@
 #ifndef SCORE
 #define SCORE
-
+#include <QFont>
 #include <QGraphicsTextItem>
 #include "globalvar.h"
 

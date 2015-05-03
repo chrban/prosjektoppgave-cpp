@@ -1,8 +1,8 @@
 #include "globalvar.h"
 #include "game.h"
 
-
 extern game * g;
+
 int GlobalVar::getFrame()
 {
     return frame;

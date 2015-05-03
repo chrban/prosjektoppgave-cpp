@@ -2,10 +2,10 @@
 #define ENEMY
 #include "object.h"
 #include <QList>
-#include <QGraphicsRotation>
-#include <QGraphicsTransform>
-#include <QPropertyAnimation>
-
+#include <QObject>
+#include <QPixmap>
+#include <QTimer>
+//#include "game.h"
 
 class enemy :  public Object{
     Q_OBJECT

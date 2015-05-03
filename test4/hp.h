@@ -1,6 +1,6 @@
 #ifndef HP_H
 #define HP_H
-
+#include <QFont>
 #include <QGraphicsTextItem>
 
 class Hp: public QGraphicsTextItem {

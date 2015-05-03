@@ -1,8 +1,7 @@
 #include "groundfactory.h"
-#include "ground.h"
+
+
 QGraphicsItem * GroundFactory::mekk(){
-
-
     int yesno=rand()%10;
     i+=50;
     if(yesno!=1){
@@ -10,7 +9,6 @@ QGraphicsItem * GroundFactory::mekk(){
 
         return ground;
     }
-
 
     Ground * seethrough= new Ground(i,400);
     seethrough->setPixmap(QPixmap(":/images/BOKSnei.png"));

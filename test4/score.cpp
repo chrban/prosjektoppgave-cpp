@@ -1,6 +1,6 @@
 #include "score.h"
 #include "game.h"
-#include <QFont>
+
 
 extern game * g;
 

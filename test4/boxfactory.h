@@ -1,5 +1,6 @@
 #ifndef BOXFACTORY
 #define BOXFACTORY
+#include "box.h"
 
 #include <QGraphicsRectItem>
 #include <abstractfac.h>

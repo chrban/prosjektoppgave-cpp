@@ -4,19 +4,12 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsPixmapItem>
 #include <QFont>
-#include "rectfac.h"
-//#include "boxfactory.h"
-#include "groundfactory.h"
-#include "linusfactory.h"
-#include "cloudfactory.h"
 #include "levelfactory.h"
 #include <QBrush>
 #include <QImage>
 #include "button.h"
 #include "sun.h"
 #include <QPixmap>
-#include "superboss.h"
-#include "globalvar.h"
 #include "game.h"
 
 

@@ -1,15 +1,26 @@
 #ifndef GAME_H
 #define GAME_H
-
 #include <QGraphicsView>
 #include <QWidget>
 #include <QGraphicsScene>
-#include "figur.h"
 #include "score.h"
 #include "hp.h"
 #include "globalvar.h"
 #include "superboss.h"
+#include "figur.h"
 
+//#include "enemy.h"
+//#include <QTimer>
+//#include <QGraphicsTextItem>
+//#include <QGraphicsRectItem>
+//#include <QGraphicsPixmapItem>
+//#include <QFont>
+//#include "levelfactory.h"
+//#include <QBrush>
+//#include <QImage>
+//#include "button.h"
+//#include "sun.h"
+//#include <QPixmap>
 
 
 class game: public QGraphicsView{

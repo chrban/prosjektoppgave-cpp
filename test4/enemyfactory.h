@@ -1,8 +1,8 @@
 #ifndef ENEMYFACTORY
 #define ENEMYFACTORY
-
-#include <QGraphicsRectItem>
 #include <abstractfac.h>
+#include "enemy.h"
+
 
 class EnemyFactory : public abstractFac{
 

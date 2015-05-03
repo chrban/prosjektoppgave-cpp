@@ -1,5 +1,5 @@
 #include "linus.h"
-#include <QTimer>
+
 
 Linus::Linus(int x, int y)
 {

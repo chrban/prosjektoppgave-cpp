@@ -1,5 +1,8 @@
 #ifndef SUPERBOSS
 #define SUPERBOSS
+//#include <QPixmap>
+#include <QTimer>
+#include <stdlib.h>
 #include "object.h"
 #include <QList>
 #include <QGraphicsRotation>

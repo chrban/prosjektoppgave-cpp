@@ -1,14 +1,5 @@
 #include "enemy.h"
-#include <QPixmap>
-#include <QTimer>
-#include <QGraphicsScene>
-#include <QList>
-#include <stdlib.h> //rand()
-#include <QObject>
-#include <qmath.h>
-#include "game.h"
-
-extern game * g;
+//extern game * g;
 
 enemy::enemy(int x, int y) {
     // set graphics

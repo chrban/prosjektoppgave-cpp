@@ -1,7 +1,6 @@
 #ifndef GROUNDFACTORY
 #define GROUNDFACTORY
-
-#include <QGraphicsRectItem>
+#include "ground.h"
 #include <abstractfac.h>
 
 class GroundFactory : public abstractFac{

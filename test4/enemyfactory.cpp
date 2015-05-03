@@ -1,6 +1,4 @@
 #include "enemyfactory.h"
-#include "enemy.h"
-#include <stdlib.h>
 
 
 QGraphicsItem *EnemyFactory::mekk()

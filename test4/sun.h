@@ -1,6 +1,5 @@
 #ifndef SUN
 #define SUN
-
 #include "object.h"
 #include <QTimer>
 

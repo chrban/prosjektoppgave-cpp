@@ -1,6 +1,4 @@
 #include "linusfactory.h"
-#include "linus.h"
-#include <stdlib.h>
 
 
 QGraphicsItem *LinusFactory::mekk()

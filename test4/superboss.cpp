@@ -1,11 +1,5 @@
 #include "superboss.h"
 #include "bullet.h"
-#include <QPixmap>
-#include <QTimer>
-#include <QGraphicsScene>
-#include <stdlib.h>
-#include <QObject>
-#include <qmath.h>
 #include "game.h"
 
 extern game * g;

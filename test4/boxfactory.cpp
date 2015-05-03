@@ -1,14 +1,4 @@
-#include "box.h"
 #include "boxfactory.h"
-#include <stdlib.h>
-#include <QGraphicsPixmapItem>
-#include <QDebug>
-#include <utility>
-#include <map>
-
-using namespace std;
-
-
 
 QGraphicsItem *boxFactory::mekk()
 {

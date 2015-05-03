@@ -1,7 +1,7 @@
 #ifndef LINUSFACTORY
 #define LINUSFACTORY
-
-#include <QGraphicsRectItem>
+#include "linus.h"
+#include <stdlib.h>
 #include <abstractfac.h>
 
 class LinusFactory : public abstractFac{

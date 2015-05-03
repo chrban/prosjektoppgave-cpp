@@ -1,16 +1,8 @@
-#include <vector>
 #include "levelfactory.h"
-#include <utility>
-#include <map>
-//#include "figur.h"
-#include <iostream>
-#include <iterator>
-#include <fstream>
-#include <algorithm> // for std::copy
-#include <QFile>
-#include <QMessageBox>
-#include <QPair>
-#include <QRegExp>
+
+
+
+
 
 LevelFactory::LevelFactory() {}
 

@@ -1,15 +1,5 @@
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QGraphicsRectItem>
 #include <QApplication>
-#include <QTimer>
-#include <rectfac.h>
 #include <game.h>
-#include <time.h>
-#include <iostream>
-#include <fstream>
-
-
 
 game * g;
 

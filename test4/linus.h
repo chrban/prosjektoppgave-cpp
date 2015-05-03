@@ -1,8 +1,6 @@
 #ifndef LINUS
 #define LINUS
-
 #include "object.h"
-//#include <QObject>
 #include <QTimer>
 
 class Linus : public Object{

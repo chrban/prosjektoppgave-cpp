@@ -1,16 +1,11 @@
-#include "mur.h"
 #include "murfactory.h"
-#include <stdlib.h>
-#include <QGraphicsPixmapItem>
-#include <utility>
-#include <map>
 
 using namespace std;
 
 QGraphicsItem * MurFactory::mekk()
 {
     int random_x = rand()%700;
-    int random_y = 480;//(rand()%20) + 480;
+    int random_y = 480;
     Mur * mur = new Mur(random_x,random_y);
     return mur;
 }

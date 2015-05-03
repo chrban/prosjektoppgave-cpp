@@ -1,7 +1,8 @@
 #ifndef MURFACTORY
 #define MURFACTORY
 
-#include <QGraphicsRectItem>
+#include <stdlib.h>
+#include "mur.h"
 #include <abstractfac.h>
 
 class MurFactory : public abstractFac{
