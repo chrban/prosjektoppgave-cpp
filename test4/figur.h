@@ -4,8 +4,9 @@
 #include <QObject>
 #include <QTimer>
 #include "globalvar.h"
+#include "object.h"
 
-class Figur:public QObject, public QGraphicsPixmapItem{
+class Figur:public Object{
     Q_OBJECT
 public:
     Figur();

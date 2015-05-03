@@ -64,6 +64,10 @@ int frameLokal=0;
                 item = CF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
                 scene->addItem(item);
             }
+            else if(maplist[0]=="mur"){
+                item = MF->mekk(maplist[1].toInt(),maplist[2].toInt()) ;
+                scene->addItem(item);
+            }
             else if(maplist[0]=="mapdefine"){ //mapdefine, mapname, reqScore
                 g->GV->setRequiredScore( maplist[2].toInt() );
             }
