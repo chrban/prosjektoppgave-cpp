@@ -25,6 +25,8 @@ public:
     GlobalVar * GV;
     CourseCreator * CC;
     superboss * SB;
+    QGraphicsRectItem* pausePanel = new QGraphicsRectItem(0,0,800,600);
+    QGraphicsTextItem* pauseText = new QGraphicsTextItem();
 
 
     int hpCount;
@@ -42,9 +44,11 @@ public slots:
     void pause();
 
 private:
+    bool paused;
 
 
 
 };
 
 #endif // GAME_H
+
