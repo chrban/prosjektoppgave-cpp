@@ -44,7 +44,6 @@ HEADERS  += \
     bullet.h \
     enemy.h \
     abstractfac.h \
-    rectfac.h \
     game.h \
     box.h \
     object.h \
