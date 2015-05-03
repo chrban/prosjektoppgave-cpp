@@ -18,7 +18,6 @@
 #include <QPixmap>
 #include "superboss.h"
 #include "globalvar.h"
-#include "coursecreator.h"
 #include "game.h"
 
 

@@ -7,9 +7,7 @@
 #include "figur.h"
 #include "score.h"
 #include "hp.h"
-//#include "levelfactory.h"
 #include "globalvar.h"
-#include "coursecreator.h"
 #include "superboss.h"
 
 
@@ -23,7 +21,6 @@ public:
     Score * score;
     Hp * hp;
     GlobalVar * GV;
-    CourseCreator * CC;
     superboss * SB;
     QGraphicsRectItem* pausePanel = new QGraphicsRectItem(0,0,800,600);
     QGraphicsTextItem* pauseText = new QGraphicsTextItem();
