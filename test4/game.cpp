@@ -43,7 +43,7 @@ game::game(QWidget * parent){
 void game::showMainMenu(){
 
     scene->clear();
-    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Tux goes postal!"));
+    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Mario in the flesh!"));
     QFont titleFont("Comic Sans MS",40);
     title->setFont(titleFont);
     title->setDefaultTextColor(Qt::red);
@@ -52,7 +52,10 @@ void game::showMainMenu(){
     title->setPos(txPos,tyPos);
     scene->addItem(title);
 
-    setBackgroundBrush(QBrush(QImage(":/images/tuxvsgit.png")));
+
+
+
+    setBackgroundBrush(QBrush(QImage(":images/paper-mario.png")));
 
     Button* play = new Button(QString("PLAY GAME"));
     int bxPos = this->width()/2-play->boundingRect().width()/2;
@@ -81,6 +84,7 @@ void game::showMainMenu(){
 }
 
 void game::setUp(){
+
 
     scene->clear();
     setBackgroundBrush(QBrush(QImage(":/images/rorStdbackground.png")));
@@ -111,7 +115,7 @@ void game::setUp(){
         setBackgroundBrush(QBrush(QImage(":/images/bossback.jpg")));
         score->setDefaultTextColor(Qt::white);
         hp->setDefaultTextColor(Qt::white);
-        SB = new superboss(700,450);
+        SB = new superboss(700,490);
         scene->addItem( SB );
         SB->setHealth(  bossHpCount );
         scene->removeItem(sun);
