@@ -66,7 +66,7 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
         jumping=false;
     }
 
-    if(event->key()==Qt::Key_Space){
+    if(event->key()==Qt::Key_Q){
         superspeed=0;
     }
 
@@ -171,7 +171,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
         timer_for_jump->start(0);
         }
     } 
-    else if(event->key()==Qt::Key_Space){
+    else if(event->key()==Qt::Key_Q){
     superspeed=10;
     }
     else if(event->key()==Qt::Key_P )
