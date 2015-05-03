@@ -17,7 +17,6 @@ CONFIG +=c++11
 SOURCES += main.cpp \
     bullet.cpp \
     enemy.cpp \
-    rectfac.cpp \
     game.cpp \
     box.cpp \
     boxfactory.cpp \

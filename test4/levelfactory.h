@@ -11,10 +11,10 @@
 #include "enemyfactory.h"
 #include "murfactory.h"
 
-
 #include <iostream>
 #include <QFile>
 #include <vector>
+#include <QTextStream>
 
 class LevelFactory{
 
