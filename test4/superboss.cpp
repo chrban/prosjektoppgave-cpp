@@ -5,7 +5,6 @@
 #include <QGraphicsScene>
 #include <stdlib.h>
 #include <QObject>
-#include <QDebug>
 #include <qmath.h>
 #include "game.h"
 
@@ -13,14 +12,14 @@ extern game * g;
 
 superboss::superboss(int x, int y){
     // set graphics
-    setPixmap(QPixmap(":/new/img/octocat1.png"));
+    setPixmap(QPixmap(":/new/img/ironcat.png"));
     setPos(x,y);
     m = new QTimer();
     s = new QTimer();
     j = new QTimer();
     jmpr = new QTimer();
     count = 0;
-    jump_count = 0;
+    jump_count = 1;
     health = 3;
     direction = true;
     horizontal_direction = true;
@@ -29,8 +28,8 @@ superboss::superboss(int x, int y){
     connect(j,SIGNAL(timeout()),this,SLOT(jump()));
     connect(jmpr,SIGNAL(timeout()),this,SLOT(jumper()));
 
-    m->start(90);
-    s->start(700);
+    m->start(20);
+    s->start(2000);
     j->start(2000);
 }
 
@@ -55,11 +54,6 @@ void superboss::move(){
         direction =false;
     }
 
-    if(count%2==0)
-        setPixmap(QPixmap(":/new/img/octocat1.png"));
-    else
-        setPixmap(QPixmap(":/new/img/octocat2.png"));
-
     if(direction){
         count++;
         setPos(x()-2,y());
@@ -74,34 +68,30 @@ void superboss::move(){
 
 void superboss::shoot(){
     bullet * b = new bullet();
-    b->setPos(x()-10,y()+30);
+    b->setPos(x()-50,y());
     scene()->addItem(b);
 }
 void superboss::jump(){
-    jump_count = 0;
+    jump_count = 1;
     jmpr->start(5);
-    qDebug()<<"jump";
 }
 void superboss::jumper(){
 
-
-    if(jump_count==0 && !horizontal_direction){
+    if(jump_count==0){
         jmpr->stop();
-        horizontal_direction=true;
         return;
     }
 
-    if(jump_count ==70)
+    if(jump_count ==30)
         horizontal_direction = false;
 
     if(horizontal_direction){
+        jump_count++;
         setPos(x(),y()-2);
-        jump_count++;     
     }
     else{
-        setPos(x(),y()+2);
         jump_count--;
-
+        setPos(x(),y()+2);
     }
 }
 
