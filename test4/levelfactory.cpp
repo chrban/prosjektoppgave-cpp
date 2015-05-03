@@ -24,7 +24,7 @@ int frameLokal=0;
 
 
 
-    QFile file(":/new/img/map.txt");
+    QFile file(":/map/map.txt");
     if(!file.open(QIODevice::ReadOnly)) {
         std::cout<<"Error reading from file";
 

@@ -9,7 +9,7 @@ using namespace std;
 
 Cloud::Cloud(int x, int y)
 {
-    setPixmap(QPixmap(":/new/img/large_cloud.png"));
+    setPixmap(QPixmap(":/images/large_cloud.png"));
     setPos(x,y);
 
     animate = new QTimer();
@@ -17,7 +17,7 @@ Cloud::Cloud(int x, int y)
 
     int r = (rand()%40)+200;
     if(r>220)
-        setPixmap(QPixmap(":/new/img/small_cloud.png"));
+        setPixmap(QPixmap(":/images/small_cloud.png"));
 
     int direction = rand()%2;
     left = false;

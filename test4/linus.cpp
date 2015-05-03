@@ -4,7 +4,7 @@
 
 Linus::Linus(int x, int y)
 {
-    setPixmap(QPixmap(":/new/img/linus-torvalds.png"));
+    setPixmap(QPixmap(":/images/linus-torvalds.png"));
     setPos(x,y);
     fps = new QTimer();
     count =0;
@@ -37,15 +37,15 @@ void Linus::animate()
         count = 0;
 
     switch(count){
-    case 0 : setPixmap(QPixmap(":/new/img/linus-torvalds.png"));
+    case 0 : setPixmap(QPixmap(":/images/linus-torvalds.png"));
         break;
-    case 1 : setPixmap(QPixmap(":/new/img/linus-torvalds2.png"));
+    case 1 : setPixmap(QPixmap(":/images/linus-torvalds2.png"));
         break;
-    case 2 : setPixmap(QPixmap(":/new/img/linus-torvalds3.png"));
+    case 2 : setPixmap(QPixmap(":/images/linus-torvalds3.png"));
         break;
-    case 3 : setPixmap(QPixmap(":/new/img/linus-torvalds4.png"));
+    case 3 : setPixmap(QPixmap(":/images/linus-torvalds4.png"));
 
-    default : setPixmap(QPixmap(":/new/img/linus-torvalds4.png"));
+    default : setPixmap(QPixmap(":/images/linus-torvalds4.png"));
     }
     count++;
     */

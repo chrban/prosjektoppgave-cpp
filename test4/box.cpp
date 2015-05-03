@@ -6,6 +6,6 @@ using namespace std;
 
 Box::Box(int x, int y)
 {
-    setPixmap(QPixmap(":/new/img/BOKS.png"));
+    setPixmap(QPixmap(":/images/BOKS.png"));
     setPos(x,y);
 }
