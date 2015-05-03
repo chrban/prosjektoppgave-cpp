@@ -183,9 +183,9 @@ void game::showWinScreen(){
 
     // You Win!
     QGraphicsTextItem* winText = new QGraphicsTextItem();
-    winText->setPlainText("You Win!"+QString::number(scoreCount));
+    winText->setPlainText("You Win!");
     winText->setDefaultTextColor(Qt::yellow);
-    winText->setFont(QFont("tahoma",20));
+    winText->setFont(QFont("tahoma",32));
     winText->setPos(330,325);
     scene->addItem(winText);
 
