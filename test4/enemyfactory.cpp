@@ -14,3 +14,5 @@ QGraphicsItem *EnemyFactory::mekk(int x,int y)
     enemy * Enemy = new enemy(x,y);
     return Enemy;
 }
+
+EnemyFactory::~EnemyFactory(){}

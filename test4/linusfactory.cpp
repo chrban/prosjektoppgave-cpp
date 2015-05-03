@@ -14,3 +14,5 @@ QGraphicsItem *LinusFactory::mekk(int x,int y)
     Linus * linus = new Linus(x,y);
     return linus;
 }
+
+LinusFactory::~LinusFactory(){}

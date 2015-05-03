@@ -7,6 +7,7 @@ class Sun : public Object{
     Q_OBJECT
 public:
     Sun(int x, int y);
+    ~Sun();
 private:
     QTimer * animate;
     bool turn;

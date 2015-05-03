@@ -31,3 +31,7 @@ void Linus::animate()
         count--;
     }
 }
+
+Linus::~Linus(){
+    delete fps;
+}

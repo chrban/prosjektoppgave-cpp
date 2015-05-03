@@ -21,6 +21,7 @@ public:
     Figur();
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent *event);
+    ~Figur();
 public slots:
     //void spawn();
     void jump();

@@ -1,9 +1,6 @@
 #include "levelfactory.h"
 
 
-
-
-
 LevelFactory::LevelFactory() {}
 
 extern game * g; //global variable
@@ -67,5 +64,4 @@ int frameLokal=0;
     file.close();
 }
 
-
-
+LevelFactory::~LevelFactory(){}

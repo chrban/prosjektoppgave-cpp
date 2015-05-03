@@ -37,3 +37,7 @@ void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event){
     brush.setColor(Qt::white);
     setBrush(brush);
 }
+
+Button::~Button(){
+    delete text;
+}

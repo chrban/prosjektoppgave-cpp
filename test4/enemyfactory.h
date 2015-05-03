@@ -8,6 +8,7 @@ class EnemyFactory : public abstractFac{
 
 public:
     EnemyFactory(){}
+    ~EnemyFactory();
     QGraphicsItem * mekk();
     QGraphicsItem * mekk(int x,int y);
 

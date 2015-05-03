@@ -14,6 +14,7 @@ class bullet :  public QObject ,public QGraphicsPixmapItem{
 public:
     bullet();
     Hp * hp;
+    ~bullet();
 public slots:
     void move();
 

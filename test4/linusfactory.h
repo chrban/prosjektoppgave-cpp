@@ -8,6 +8,7 @@ class LinusFactory : public abstractFac{
 
 public:
     LinusFactory(){}
+    ~LinusFactory();
     QGraphicsItem * mekk();
     QGraphicsItem * mekk(int x,int y);
 

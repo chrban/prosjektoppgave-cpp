@@ -75,7 +75,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
         timer_scanner->start();
 
              QList<QGraphicsItem *> colliding_items2 = collidingItems(Qt::IntersectsItemShape);
-             QList<QGraphicsItem *> colliding_items = collidingItems();
+            /* QList<QGraphicsItem *> colliding_items = collidingItems();
              for(int i = 0, n= colliding_items.size();i<n;i++){
                   if(typeid(*(colliding_items[i]))==typeid(enemy)){
                              scene()->removeItem(colliding_items[i]);
@@ -84,6 +84,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
                              return;
                 }
              }
+             */
              if(falling && colliding_items2.isEmpty() /*&& !timer_for_walk->isActive()*/){
                 updateImg();
                 //starter timer som beveger figur horisontalt mens den er i luften
@@ -116,7 +117,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
         right=true;
         walking = true;
         timer_scanner->start();
-
+/*
             QList<QGraphicsItem *> colliding_items2 = collidingItems(Qt::IntersectsItemShape);
             QList<QGraphicsItem *> colliding_items = collidingItems();
             for(int i = 0, n= colliding_items.size();i<n;i++){
@@ -127,7 +128,7 @@ void Figur::keyPressEvent(QKeyEvent *event)
                             return;
                 }
             }
-
+*/
             // ikke start timer på nytt hvis den allerede kjører
             if(timer_for_walk->isActive())
                 return;
@@ -218,11 +219,12 @@ void Figur::jump()
 
                 for(int i = 0, n= colliding_items.size();i<n;i++){
                      if(typeid(*(colliding_items[i]))==typeid(Linus)){
-                                scene()->removeItem(colliding_items[i]);
-                                delete colliding_items[i];
-                                g->score->increase();
-                                return;
-                            }
+                         scene()->removeItem(colliding_items[i]);
+                         delete colliding_items[i];
+                         g->score->increase();
+                         return;
+                     }
+
                      if(typeid(*(colliding_items[i]))==typeid(superboss)){
                          g->SB->decrease();
                          falling =false;
@@ -231,8 +233,7 @@ void Figur::jump()
                          timer=5;
                          timer_for_walk->start(20);
 
-                         if( g->SB->getHealth() <= 0 )
-                         {
+                         if( g->SB->getHealth() <= 0 ){
                              g->showWinScreen();
                              g->bossHpCount = 3;
                              delete colliding_items[i];
@@ -243,14 +244,13 @@ void Figur::jump()
                 }
 
                 for(int i = 0, n= colliding_items.size();i<n;i++){
-                                     if(typeid(*(colliding_items[i]))==typeid(enemy)){
-                                                scene()->removeItem(colliding_items[i]);
-                                                delete colliding_items[i];
-                                                g->score->increase();
-                                                return;
-                                            }
-
-                                }
+                     if(typeid(*(colliding_items[i]))==typeid(enemy)){
+                        scene()->removeItem(colliding_items[i]);
+                        delete colliding_items[i];
+                        g->score->increase();
+                        return;
+                     }
+                }
 
                 setPos(x(),y());
                 falling = false;
@@ -265,14 +265,15 @@ void Figur::jump()
         //Figuren krasjer ikke med noe og faller videre nedover.
         else{
             // øker farten i begynnelsen av fallet, helt til figuren når treminal velocity
-            if(velocity <15 && timer>0){
+            if(velocity<15 && timer>0){
                 timer -= 1;
 
                 timer_for_jump->setInterval(timer);
             }
-            else
+            else{
                 timer =0;
-
+                setPos(x(),y()+1);
+            }
             //flytter nedover
             setPos(x(),y()+3);
             velocity += 1;
@@ -402,6 +403,7 @@ void Figur::walk()
            falling = true;
            walked =0;
            velocity=0;
+           timer= 11;
            timer_for_jump->start(11);
            return;
        }
@@ -416,6 +418,14 @@ void Figur::walk()
                g->score->increase();
                return;
            }
+           if(typeid(*(colliding_items1[i]))==typeid(enemy)){
+                     // scene()->removeItem(colliding_items1[i]);
+                     // delete colliding_items1[i];
+               setPos(x()+25,y());
+               timer_for_walk->stop();
+               g->hp->decrease();
+               return;
+           }
        }
 
        // treffer en dings på vensresiden
@@ -427,6 +437,7 @@ void Figur::walk()
                walking=false;
                return;
             }
+
        }
 
        walked++;
@@ -468,17 +479,26 @@ void Figur::walk()
        falling = true;
        walked=0;
        velocity=0;
+       timer= 11;
        timer_for_jump->start(11);
        return;
    }
 
    for(int i = 0, n= colliding_items.size();i<n;i++){
       if(typeid(*(colliding_items[i]))==typeid(Linus)){
-           scene()->removeItem(colliding_items[i]);
-           delete colliding_items[i];
-           g->score->increase();
-           return;
+         scene()->removeItem(colliding_items[i]);
+         delete colliding_items[i];
+         g->score->increase();
+         return;
        }
+      if(typeid(*(colliding_items[i]))==typeid(enemy)){
+        // scene()->removeItem(colliding_items[i]);
+         //delete colliding_items[i];
+          setPos(x()-25,y());
+         g->hp->decrease();
+         timer_for_walk->stop();
+         return;
+      }
    }
 
    // treffer en dings på høyre
@@ -557,4 +577,10 @@ void Figur::updateImg(){
     else if(right){
          setPixmap(QPixmap(":/images/mario1.png"));
     }
+}
+
+Figur::~Figur(){
+    delete timer_for_jump;
+    delete timer_for_walk;
+    delete timer_scanner;
 }

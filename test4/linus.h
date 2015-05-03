@@ -7,6 +7,7 @@ class Linus : public Object{
     Q_OBJECT
 public:
     Linus(int x, int y);
+    ~Linus();
 public slots:
     void animate();
 private:

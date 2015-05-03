@@ -13,6 +13,7 @@ QGraphicsItem * CloudFactory::mekk(int x, int y){
 
     Cloud * cloud = new Cloud(x,y);
     return cloud;
-
 }
+
+CloudFactory::~CloudFactory(){}
 

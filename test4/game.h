@@ -35,6 +35,7 @@ public:
     superboss * SB;
     QGraphicsRectItem* pausePanel = new QGraphicsRectItem(0,0,800,600);
     QGraphicsTextItem* pauseText = new QGraphicsTextItem();
+    ~game();
 
 
     int hpCount;

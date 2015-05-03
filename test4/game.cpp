@@ -54,6 +54,7 @@ void game::showMainMenu(){
     scene->addItem(quit);
 
     show();
+
 }
 
 void game::setUp(){
@@ -128,10 +129,6 @@ void game::setUp(){
     tux->setFlag(QGraphicsItem::ItemIsFocusable);
     tux->setFocus();
     scene->addItem(tux);
-
-
-
-
 }
 
 
@@ -173,6 +170,7 @@ void game::showKillScreen(){
     scoreCount=0;
     frameCount=0;
     GV->setFrame(frameCount);
+
 }
 
 void game::showWinScreen(){
@@ -239,4 +237,15 @@ void game::pause()
 
        }
 
+}
+
+game::~game(){
+    delete scene;
+    delete score;
+    delete hp;
+    delete GV;
+    delete SB;
+    delete tux;
+    delete pausePanel;
+    delete pauseText;
 }

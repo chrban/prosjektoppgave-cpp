@@ -6,6 +6,7 @@
 class Mur : public Object{
 public:
     Mur(int x, int y);
+    ~Mur();
 };
 
 #endif // MUR

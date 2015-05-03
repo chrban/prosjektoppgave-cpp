@@ -6,6 +6,7 @@
 class Box : public Object{
 public:
     Box(int x, int y);
+    ~Box();
 
 };
 

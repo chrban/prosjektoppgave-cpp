@@ -41,6 +41,8 @@ void GlobalVar::setRequiredScore(int r)
     requiredScore = r;
 }
 
+GlobalVar::~GlobalVar(){}
+
 
 
 

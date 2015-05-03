@@ -9,6 +9,7 @@ class MurFactory : public abstractFac{
 
 public:
     MurFactory();
+    ~MurFactory();
     QGraphicsItem * mekk();
     QGraphicsItem *mekk(int x,int y);
 private:

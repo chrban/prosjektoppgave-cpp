@@ -8,6 +8,7 @@ class CloudFactory : public abstractFac{
 public:
     QGraphicsItem * mekk();
     QGraphicsItem * mekk(int x, int y);
+    ~CloudFactory();
 };
 #endif // CLOUDFACTORY
 

@@ -6,6 +6,7 @@
 class Ground : public Object{
 public :
     Ground(int x,int y);
+    ~Ground();
 };
 
 #endif // GROUND
