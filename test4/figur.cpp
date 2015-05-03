@@ -19,7 +19,7 @@ extern game * g; //global variable
 //extern LevelFactory * lf;
 
 Figur::Figur(){
-    setPixmap(QPixmap(":/new/img/mario1.png"));
+    setPixmap(QPixmap(":/images/mario1.png"));
 
 
     //states
@@ -53,12 +53,12 @@ void Figur::keyReleaseEvent(QKeyEvent *event)
         //left=false;
         walking = false;
         timer_for_walk->stop();
-        setPixmap(QPixmap(":/new/img/marioleft.png"));
+        setPixmap(QPixmap(":/images/marioleft.png"));
         timer_scanner->stop();
     }
 
     if(event->key()==Qt::Key_Right){
-        setPixmap(QPixmap(":/new/img/mario1.png"));
+        setPixmap(QPixmap(":/images/mario1.png"));
         walking = false;
         timer_for_walk->stop();
         timer_scanner->stop();
@@ -239,20 +239,23 @@ void Figur::jump()
                                 return;
                             }
                      if(typeid(*(colliding_items[i]))==typeid(superboss)){
-
-
-                                g->SB->decrease();
-                                qDebug()<<"truffet boss på hodet senker HP:"<< g->SB->getHealth();
-                                setPos(x(),y()+10);
+                         g->SB->decrease();
+                         qDebug()<<"truffet boss på hodet senker HP:"<< g->SB->getHealth();
+                         falling =false;
+                         jumping = true;
+                         velocity=15;
+                         timer=5;
+                         timer_for_walk->start(20);
 
                          if( g->SB->getHealth() <= 0 )
                          {
                              g->showWinScreen();
+                             g->bossHpCount = 3;
                              delete colliding_items[i];
                              qDebug()<<"truffet boss på hodet, ikke mer HP SLETTER HAN:"<< g->SB->getHealth();
                              return;
                          }
-
+                         return;
                     }
                 }
 
@@ -399,16 +402,16 @@ void Figur::walk()
 
        // velger bilder for animasjonen. Må flytte dette til updateImg
        if(walked>7){
-         setPixmap(QPixmap(":/new/img/mariowalkleft4.png"));
+         setPixmap(QPixmap(":/images/mariowalkleft4.png"));
        }
        else if(walked>5){
-        setPixmap(QPixmap(":/new/img/mariowalkleft3.png"));
+        setPixmap(QPixmap(":/images/mariowalkleft3.png"));
        }
        else if(walked>3){
-        setPixmap(QPixmap(":/new/img/mariowalkleft2.png"));
+        setPixmap(QPixmap(":/images/mariowalkleft2.png"));
        }
        else{
-        setPixmap(QPixmap(":/new/img/mariowalkleft.png"));
+        setPixmap(QPixmap(":/images/mariowalkleft.png"));
        }
 
 
@@ -442,7 +445,7 @@ void Figur::walk()
         for(int i = 0, n= colliding_items1.size();i<n;i++){ // THE FIX
             if(colliding_items1[i]->y() < y()+23){
                setPos(x()+4,y());
-               setPixmap(QPixmap(":/new/img/marioleft.png"));
+               setPixmap(QPixmap(":/images/marioleft.png"));
                walked=0;
                walking=false;
                return;
@@ -453,7 +456,7 @@ void Figur::walk()
 
        // ferdig å gå
        if(walked == 10){
-           setPixmap(QPixmap(":/new/img/marioleft.png"));
+           setPixmap(QPixmap(":/images/marioleft.png"));
            walked =0;
            return;
        }
@@ -465,16 +468,16 @@ void Figur::walk()
 
    // switchcase? prøvde, fikk det ikke helt til
    if(walked>7){
-     setPixmap(QPixmap(":/new/img/mariowalkright4.png"));
+     setPixmap(QPixmap(":/images/mariowalkright4.png"));
    }
    else if(walked>5){
-    setPixmap(QPixmap(":/new/img/mariowalkright3.png"));
+    setPixmap(QPixmap(":/images/mariowalkright3.png"));
    }
    else if(walked>3){
-    setPixmap(QPixmap(":/new/img/mariowalkright2.png"));
+    setPixmap(QPixmap(":/images/mariowalkright2.png"));
    }
    else{
-    setPixmap(QPixmap(":/new/img/mariowalkright.png"));
+    setPixmap(QPixmap(":/images/mariowalkright.png"));
    }
 
    //flytter høyre
@@ -505,7 +508,7 @@ void Figur::walk()
     for(int i = 0, n= colliding_items.size();i<n;i++){ // THE FIX
         if(colliding_items[i]->y() < y()+23){
            setPos(x()-4,y());
-           setPixmap(QPixmap(":/new/img/mario1.png"));
+           setPixmap(QPixmap(":/images/mario1.png"));
            walked=0;
            walking=false;
            return;
@@ -516,7 +519,7 @@ void Figur::walk()
 
    //ferdig å gå
    if(walked == 10){
-       setPixmap(QPixmap(":/new/img/mario1.png"));
+       setPixmap(QPixmap(":/images/mario1.png"));
        walked=0;
        return;
 
@@ -558,28 +561,28 @@ void Figur::scanner()
 void Figur::updateImg(){
     if(jumping){
         if(right){
-            setPixmap(QPixmap(":/new/img/mariohopp.png"));
+            setPixmap(QPixmap(":/images/mariohopp.png"));
         }
         else{
-            setPixmap(QPixmap(":/new/img/mariohoppleft.png"));
+            setPixmap(QPixmap(":/images/mariohoppleft.png"));
         }
     }
     else if(walking){
         if(!jumping && !falling){
 
             if(right){
-                setPixmap(QPixmap(":/new/img/mariowalkright.png"));
+                setPixmap(QPixmap(":/images/mariowalkright.png"));
             }
             else{
-                setPixmap(QPixmap(":/new/img/mariowalkleft.png"));
+                setPixmap(QPixmap(":/images/mariowalkleft.png"));
             }
         }
     }
     else if(left){
-         setPixmap(QPixmap(":/new/img/marioleft.png"));
+         setPixmap(QPixmap(":/images/marioleft.png"));
     }
     else if(right){
-         setPixmap(QPixmap(":/new/img/mario1.png"));
+         setPixmap(QPixmap(":/images/mario1.png"));
     }
 }
 

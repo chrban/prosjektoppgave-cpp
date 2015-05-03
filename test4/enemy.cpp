@@ -13,7 +13,7 @@ extern game * g;
 
 enemy::enemy(int x, int y) {
     // set graphics
-    setPixmap(QPixmap(":/new/img/java1.png"));
+    setPixmap(QPixmap(":/images/java1.png"));
     setPos(x,y);
     m = new QTimer();
    // s = new QTimer();
@@ -24,24 +24,24 @@ enemy::enemy(int x, int y) {
 }
 void enemy::move() {
     if(count==10){
-        setPixmap(QPixmap(":/new/img/java1.png"));
+        setPixmap(QPixmap(":/images/java1.png"));
         direction=false;
     }
     else if(count == 7){
-        setPixmap(QPixmap(":/new/img/java2.png"));
+        setPixmap(QPixmap(":/images/java2.png"));
         setPos(x(),y()-2);
     }
     else if(count == 4){
-        setPixmap(QPixmap(":/new/img/java3.png"));
+        setPixmap(QPixmap(":/images/java3.png"));
         setPos(x(),y()+4);
     }
     else if(count == 2){
-        setPixmap(QPixmap(":/new/img/java2.png"));
+        setPixmap(QPixmap(":/images/java2.png"));
         setPos(x(),y()-2);
     }
 
     else if(count ==0){
-        setPixmap(QPixmap(":/new/img/java1.png"));
+        setPixmap(QPixmap(":/images/java1.png"));
 
         direction=true;
     }

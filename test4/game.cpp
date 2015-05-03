@@ -27,7 +27,7 @@ game::game(QWidget * parent){
     Q_UNUSED(parent);
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
-    setBackgroundBrush(QBrush(QImage(":/new/img/rorStdbackground.png")));
+    setBackgroundBrush(QBrush(QImage(":/images/rorStdbackground.png")));
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -52,7 +52,10 @@ void game::showMainMenu(){
     title->setPos(txPos,tyPos);
     scene->addItem(title);
 
-    setBackgroundBrush(QBrush(QImage(":/new/img/paper-mario.png")));
+
+
+
+    setBackgroundBrush(QBrush(QImage(":images/paper-mario.png")));
 
     Button* play = new Button(QString("PLAY GAME"));
     int bxPos = this->width()/2-play->boundingRect().width()/2;
@@ -82,8 +85,9 @@ void game::showMainMenu(){
 
 void game::setUp(){
 
+
     scene->clear();
-    setBackgroundBrush(QBrush(QImage(":/new/img/rorStdbackground.png")));
+    setBackgroundBrush(QBrush(QImage(":/images/rorStdbackground.png")));
 
     //create sun
     Sun * sun = new Sun(680,30);
@@ -108,10 +112,10 @@ void game::setUp(){
 
     //Activate bossbattle
     if(scoreCount >= GV->getRequiredScore() ){
-        setBackgroundBrush(QBrush(QImage(":/new/img/bossback.jpg")));
+        setBackgroundBrush(QBrush(QImage(":/images/bossback.jpg")));
         score->setDefaultTextColor(Qt::white);
         hp->setDefaultTextColor(Qt::white);
-        SB = new superboss(700,450);
+        SB = new superboss(700,490);
         scene->addItem( SB );
         SB->setHealth(  bossHpCount );
         scene->removeItem(sun);
@@ -159,7 +163,7 @@ void game::showKillScreen(){
     scene->addItem(panel);
 
     // Wasted :):):)
-    QGraphicsPixmapItem* wasted = scene->addPixmap(QPixmap(":/new/img/wasted.png"));
+    QGraphicsPixmapItem* wasted = scene->addPixmap(QPixmap(":/images/wasted.png"));
     wasted->setPos(250,100);
 
     // Vis endelig score
@@ -230,27 +234,23 @@ void game::showEditorScreen()
 
 void game::pause()
 {
-    if(!paused)
-    {
-        QBrush male;
-        male.setStyle(Qt::SolidPattern);
-        male.setColor(Qt::black);
-        pausePanel->setBrush(male);
-        pausePanel->setOpacity(0.65);
-        pauseText->setPlainText("PAUSE");
-        pauseText->setDefaultTextColor(Qt::blue);
-        pauseText->setFont(QFont("tahoma",90));
-        pauseText->setPos(this->width()/2-pauseText->boundingRect().width()/2,this->height()/2-pauseText->boundingRect().width()/2);
-        scene->addItem(pausePanel);
-        scene->addItem(pauseText);
-        paused = true;
-    }
-    else{
-        scene->removeItem(pausePanel);
-        scene->removeItem(pauseText);
-        paused = false;
 
-    }
+    QGraphicsRectItem* panel = new QGraphicsRectItem(0,0,800,600);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::black);
+    panel->setBrush(brush);
+    panel->setOpacity(0.65);
+    scene->addItem(panel);
+
+
+    QGraphicsTextItem* pause = new QGraphicsTextItem();
+    pause->setPlainText("PAUSE"+QString::number(scoreCount));
+    pause->setDefaultTextColor(Qt::blue);
+    pause->setFont(QFont("tahoma",20));
+    pause->setPos(330,325);
+    scene->addItem(pause);
+
+
 
 }
-

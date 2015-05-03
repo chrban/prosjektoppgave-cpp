@@ -13,7 +13,7 @@ extern game * g;
 
 superboss::superboss(int x, int y){
     // set graphics
-    setPixmap(QPixmap(":/new/img/octocat1.png"));
+    setPixmap(QPixmap(":/images/octocat1.png"));
     setPos(x,y);
     m = new QTimer();
     s = new QTimer();
@@ -56,9 +56,9 @@ void superboss::move(){
     }
 
     if(count%2==0)
-        setPixmap(QPixmap(":/new/img/octocat1.png"));
+        setPixmap(QPixmap(":/images/octocat1.png"));
     else
-        setPixmap(QPixmap(":/new/img/octocat2.png"));
+        setPixmap(QPixmap(":/images/octocat2.png"));
 
     if(direction){
         count++;

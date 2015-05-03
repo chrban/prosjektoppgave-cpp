@@ -5,7 +5,7 @@
 
 Sun::Sun(int x, int y)
 {
-    setPixmap(QPixmap(":/new/img/sun1.png"));
+    setPixmap(QPixmap(":/images/sun1.png"));
     setPos(x,y);
     turn = true;
 
@@ -17,11 +17,11 @@ Sun::Sun(int x, int y)
 void Sun::spinn()
 {
     if(turn){
-        setPixmap(QPixmap(":/new/img/sun2.png"));
+        setPixmap(QPixmap(":/images/sun2.png"));
         turn=false;
     }
     else{
-        setPixmap(QPixmap(":/new/img/sun1.png"));
+        setPixmap(QPixmap(":/images/sun1.png"));
         turn = true;
     }
 }

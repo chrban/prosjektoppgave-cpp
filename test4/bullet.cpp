@@ -9,7 +9,7 @@
 extern game * g;
 
 bullet::bullet(){
-    setPixmap(QPixmap(":/new/img/projectile.gif"));
+    setPixmap(QPixmap(":/images/projectile.gif"));
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 

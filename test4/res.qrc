@@ -1,53 +1,36 @@
 <RCC>
-    <qresource prefix="/new/img">
-        <file>TUX3MINI.png</file>
-        <file>TUXNY.png</file>
-        <file>mariohopp.png</file>
-        <file>mario1.png</file>
-        <file>mariohoppleft.png</file>
-        <file>marioleft.png</file>
-        <file>mariowalkleft.png</file>
-        <file>mariowalkright.png</file>
-        <file>BOKS.png</file>
-        <file>Stdbackground.png</file>
-        <file>mariowalkright2.png</file>
-        <file>mariowalkleft4.png</file>
-        <file>mariowalkright4.png</file>
-        <file>mariowalkleft3.png</file>
-        <file>mariowalkright3.png</file>
-        <file>mariowalkleft2.png</file>
-        <file>Linus.png</file>
-        <file>linus-torvalds.png</file>
-        <file>linus-torvalds6.png</file>
-        <file>linus-torvalds5.png</file>
-        <file>linus-torvalds4.png</file>
-        <file>linus-torvalds3.png</file>
-        <file>linus-torvalds2.png</file>
-        <file>ground.png</file>
-        <file>boss.png</file>
-        <file>ground2.png</file>
-        <file>large_cloud.png</file>
-        <file>SKY.png</file>
-        <file>small_cloud.png</file>
-        <file>sun1.png</file>
-        <file>sun2.png</file>
-        <file>wasted.png</file>
-        <file>tuxvsgit.png</file>
-        <file>map.txt</file>
-        <file>ironcat.png</file>
-        <file>projectile.gif</file>
-        <file>javaenemy.png</file>
-        <file>java3.png</file>
-        <file>java2.png</file>
-        <file>java1.png</file>
-        <file>bossback.jpg</file>
-        <file>rorStdbackground.png</file>
-        <file>octocat2.png</file>
-        <file>octocat1.png</file>
-        <file>paper-mario.png</file>
-    </qresource>
-    <qresource prefix="/new/sounds">
-        <file>Uglehull.mp3</file>
-        <file>Super Mario Bros Official Theme Song.mp3</file>
+    <qresource prefix="/">
+        <file>images/BOKS.png</file>
+        <file>images/bossback.jpg</file>
+        <file>images/ground2.png</file>
+        <file>images/java1.png</file>
+        <file>images/java2.png</file>
+        <file>images/java3.png</file>
+        <file>images/large_cloud.png</file>
+        <file>images/linus-torvalds.png</file>
+        <file>images/mario1.png</file>
+        <file>images/mariohopp.png</file>
+        <file>images/mariohoppleft.png</file>
+        <file>images/marioleft.png</file>
+        <file>images/mariowalkleft.png</file>
+        <file>images/mariowalkleft2.png</file>
+        <file>images/mariowalkleft3.png</file>
+        <file>images/mariowalkleft4.png</file>
+        <file>images/mariowalkright.png</file>
+        <file>images/mariowalkright2.png</file>
+        <file>images/mariowalkright3.png</file>
+        <file>images/mariowalkright4.png</file>
+        <file>images/octocat1.png</file>
+        <file>images/octocat2.png</file>
+        <file>images/projectile.gif</file>
+        <file>images/rorStdbackground.png</file>
+        <file>images/SKY.png</file>
+        <file>images/small_cloud.png</file>
+        <file>images/Stdbackground.png</file>
+        <file>images/sun1.png</file>
+        <file>images/sun2.png</file>
+        <file>images/wasted.png</file>
+        <file>map/map.txt</file>
+        <file>images/paper-mario.png</file>
     </qresource>
 </RCC>

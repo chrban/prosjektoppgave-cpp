@@ -13,7 +13,7 @@ QGraphicsItem * GroundFactory::mekk(){
 
 
     Ground * seethrough= new Ground(i,400);
-    seethrough->setPixmap(QPixmap(":/new/img/BOKSnei.png"));
+    seethrough->setPixmap(QPixmap(":/images/BOKSnei.png"));
     return seethrough;
 }
 

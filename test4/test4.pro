@@ -70,4 +70,33 @@ RESOURCES += \
     res.qrc
 
 DISTFILES += \
-    projectile.gif
+    projectile.gif \
+    img/projectile.gif \
+    img/bossback.jpg \
+    img/ground2.png \
+    img/java1.png \
+    img/java2.png \
+    img/java3.png \
+    img/large_cloud.png \
+    img/linus-torvalds.png \
+    img/mario1.png \
+    img/mariohopp.png \
+    img/mariohoppleft.png \
+    img/marioleft.png \
+    img/mariowalkleft.png \
+    img/mariowalkleft2.png \
+    img/mariowalkleft3.png \
+    img/mariowalkleft4.png \
+    img/mariowalkright.png \
+    img/mariowalkright2.png \
+    img/mariowalkright3.png \
+    img/mariowalkright4.png \
+    img/octocat1.png \
+    img/octocat2.png \
+    img/rorStdbackground.png \
+    img/SKY.png \
+    img/small_cloud.png \
+    img/Stdbackground.png \
+    img/sun1.png \
+    img/sun2.png \
+    img/wasted.png
