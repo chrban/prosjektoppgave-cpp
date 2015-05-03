@@ -43,7 +43,7 @@ game::game(QWidget * parent){
 void game::showMainMenu(){
 
     scene->clear();
-    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Tux goes postal!"));
+    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Mario in the flesh!"));
     QFont titleFont("Comic Sans MS",40);
     title->setFont(titleFont);
     title->setDefaultTextColor(Qt::red);
@@ -52,7 +52,7 @@ void game::showMainMenu(){
     title->setPos(txPos,tyPos);
     scene->addItem(title);
 
-    setBackgroundBrush(QBrush(QImage("://new/img/tuxvsgit.png")));
+    setBackgroundBrush(QBrush(QImage(":/new/img/paper-mario.png")));
 
     Button* play = new Button(QString("PLAY GAME"));
     int bxPos = this->width()/2-play->boundingRect().width()/2;

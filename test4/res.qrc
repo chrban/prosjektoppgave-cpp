@@ -44,7 +44,7 @@
         <file>rorStdbackground.png</file>
         <file>octocat2.png</file>
         <file>octocat1.png</file>
-        <file>rorStdbackground.png</file>
+        <file>paper-mario.png</file>
     </qresource>
     <qresource prefix="/new/sounds">
         <file>Uglehull.mp3</file>
