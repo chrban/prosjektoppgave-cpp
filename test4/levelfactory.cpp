@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include <QPair>
 #include <QRegExp>
+#include <QTextStream>
 
 LevelFactory::LevelFactory() {}
 

@@ -20,6 +20,4 @@ QGraphicsItem * MurFactory::mekk(int x,int y){
     return mur;
 }
 
-MurFactory::~MurFactory(){
-    delete mur;
-}
+MurFactory::~MurFactory(){}

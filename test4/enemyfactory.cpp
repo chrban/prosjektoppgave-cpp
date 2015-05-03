@@ -17,6 +17,4 @@ QGraphicsItem *EnemyFactory::mekk(int x,int y)
     return Enemy;
 }
 
-EnemyFactory::~EnemyFactory(){
-    delete Enemy;
-}
+EnemyFactory::~EnemyFactory(){}
