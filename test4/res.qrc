@@ -34,5 +34,6 @@
         <file>images/mur.png</file>
         <file>images/mariovsgit.png</file>
         <file>images/coin.png</file>
+        <file>images/intro.png</file>
     </qresource>
 </RCC>
