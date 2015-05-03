@@ -28,9 +28,12 @@ superboss::superboss(int x, int y){
     connect(j,SIGNAL(timeout()),this,SLOT(jump()));
     connect(jmpr,SIGNAL(timeout()),this,SLOT(jumper()));
 
-    m->start(20);
-    s->start(2000);
-    j->start(2000);
+
+
+    m->start(90);
+    s->start(1000);
+    j->start(2500);
+
 }
 
 void superboss::move(){
@@ -82,7 +85,8 @@ void superboss::jumper(){
         return;
     }
 
-    if(jump_count ==30)
+
+    if(jump_count ==90)
         horizontal_direction = false;
 
     if(horizontal_direction){
