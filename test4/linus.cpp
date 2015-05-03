@@ -3,7 +3,7 @@
 
 Linus::Linus(int x, int y)
 {
-    setPixmap(QPixmap(":/images/linus-torvalds.png"));
+    setPixmap(QPixmap(":/images/coin.png"));
     setPos(x,y);
     fps = new QTimer();
     count =0;

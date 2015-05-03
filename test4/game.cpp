@@ -67,14 +67,15 @@ void game::setUp(){
 
 
     scene->clear();
-    if(frameCount!=0)
-        setBackgroundBrush(QBrush(QImage(":/images/rorStdbackground.png")));
-    else
-        setBackgroundBrush(QBrush(QImage(":/images/intro.png")));
 
     //create sun
     Sun * sun = new Sun(680,30);
     scene->addItem(sun);
+
+
+
+
+
 
     //lager score
     score = new Score();
@@ -110,6 +111,17 @@ void game::setUp(){
         bossText->setPos(350,10);
         scene->addItem(bossText);
     }
+
+
+    //show intro-screen
+    if(frameCount==0){
+        setBackgroundBrush(QBrush(QImage(":/images/intro.png")));
+        scene->removeItem(sun);
+    }
+    else
+        setBackgroundBrush(QBrush(QImage(":/images/rorStdbackground.png")));
+
+
 
     //Create Level
     LevelFactory * LF = new LevelFactory;
