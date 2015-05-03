@@ -31,5 +31,6 @@
         <file>images/sun2.png</file>
         <file>images/wasted.png</file>
         <file>map/map.txt</file>
-  </qresource>
+        <file>images/paper-mario.png</file>
+    </qresource>
 </RCC>
