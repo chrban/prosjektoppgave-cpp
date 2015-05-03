@@ -1,4 +1,4 @@
-mapdefine,map.txt,1
+mapdefine,map.txt,42
 frame,0,--------------------------------------------------------------
 ground,0,552
 ground,31,552
