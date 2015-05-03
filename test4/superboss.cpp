@@ -5,7 +5,6 @@
 #include <QGraphicsScene>
 #include <stdlib.h>
 #include <QObject>
-#include <QDebug>
 #include <qmath.h>
 #include "game.h"
 
@@ -80,7 +79,6 @@ void superboss::shoot(){
 void superboss::jump(){
     jump_count = 0;
     jmpr->start(5);
-    qDebug()<<"jump";
 }
 void superboss::jumper(){
 

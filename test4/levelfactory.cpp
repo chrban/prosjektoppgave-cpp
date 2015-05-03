@@ -1,6 +1,5 @@
 #include <vector>
 #include "levelfactory.h"
-#include <QDebug>
 #include <utility>
 #include <map>
 //#include "figur.h"

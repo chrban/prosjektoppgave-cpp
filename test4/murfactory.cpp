@@ -2,7 +2,6 @@
 #include "murfactory.h"
 #include <stdlib.h>
 #include <QGraphicsPixmapItem>
-#include <QDebug>
 #include <utility>
 #include <map>
 

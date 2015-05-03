@@ -4,7 +4,6 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsPixmapItem>
 #include <QFont>
-#include <QDebug>
 #include "rectfac.h"
 //#include "boxfactory.h"
 #include "groundfactory.h"
