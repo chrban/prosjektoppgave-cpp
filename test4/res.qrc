@@ -7,7 +7,6 @@
         <file>images/java2.png</file>
         <file>images/java3.png</file>
         <file>images/large_cloud.png</file>
-        <file>images/linus-torvalds.png</file>
         <file>images/mario1.png</file>
         <file>images/mariohopp.png</file>
         <file>images/mariohoppleft.png</file>
@@ -34,5 +33,6 @@
         <file>images/paper-mario.png</file>
         <file>images/mur.png</file>
         <file>images/mariovsgit.png</file>
+        <file>images/coin.png</file>
     </qresource>
 </RCC>
