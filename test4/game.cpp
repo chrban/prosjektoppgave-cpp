@@ -38,7 +38,6 @@ game::game(QWidget * parent){
     frameCount = 0;
     requiredScoreCount=40;
     bossHpCount=3;
-    paused=false;
 }
 
 void game::showMainMenu(){
@@ -218,9 +217,6 @@ void game::showWinScreen(){
     scoreCount=0;
     frameCount=0;
     GV->setFrame(frameCount);
-
-
-
 }
 
 
@@ -257,3 +253,4 @@ void game::pause()
     }
 
 }
+

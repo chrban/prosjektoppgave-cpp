@@ -359,6 +359,7 @@ void Figur::jump()
 
 void Figur::walk()
 {
+    qDebug()<<"fire";
    // horisontal bevegelse i luften
    if(falling || jumping){
        walked++;
@@ -371,6 +372,7 @@ void Figur::walk()
            //Treffer noe på siden
            QList<QGraphicsItem *> colliding_items = collidingItems();
            if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-28){
+               qDebug()<<"noe på siden i fall jump";
                    setPos(x()+2,y());
            }
            updateImg();
@@ -384,6 +386,7 @@ void Figur::walk()
        // Treffer noe på siden
        QList<QGraphicsItem *> colliding_items = collidingItems();
        if(!colliding_items.isEmpty() && colliding_items.back()->y() > y()-28){
+           qDebug()<<"noe på siden i fall jump";
                setPos(x()-2,y());
        }
        return;
@@ -435,14 +438,15 @@ void Figur::walk()
            }
        }
 
-       // Treffer en dings
-       QList<QGraphicsItem *> colliding_items = collidingItems();
-       if(!colliding_items.isEmpty() && colliding_items.back()->y() < y()+23 && colliding_items.back()->y()!=0){
+       // treffer en dings på vensresiden
+        for(int i = 0, n= colliding_items1.size();i<n;i++){ // THE FIX
+            if(colliding_items1[i]->y() < y()+23){
                setPos(x()+4,y());
-               setPixmap(QPixmap(":/new/img/marioleft.png"));// gjør det i updateImg
+               setPixmap(QPixmap(":/new/img/marioleft.png"));
                walked=0;
-               walking = false;
+               walking=false;
                return;
+            }
        }
 
        walked++;
@@ -497,13 +501,15 @@ void Figur::walk()
        }
    }
 
-   // treffer en dings
-   if(!colliding_items.isEmpty() && colliding_items.back()->y() < y()+23 && colliding_items.back()->y() !=0){
+   // treffer en dings på høyre
+    for(int i = 0, n= colliding_items.size();i<n;i++){ // THE FIX
+        if(colliding_items[i]->y() < y()+23){
            setPos(x()-4,y());
            setPixmap(QPixmap(":/new/img/mario1.png"));
            walked=0;
            walking=false;
            return;
+        }
    }
 
    walked++;
@@ -513,6 +519,8 @@ void Figur::walk()
        setPixmap(QPixmap(":/new/img/mario1.png"));
        walked=0;
        return;
+
+
    }
 }
 
@@ -534,11 +542,12 @@ void Figur::scanner()
     else if( x()<5 )
     {
         setPos(x()+2,y()); //kan ikke gå hvis ikke noe der
-        if(g->GV->getFrame() > 0 );
-         /* { kommenter inn hvis man skal kunne gå til venstre.
+        /*if(g->GV->getFrame() > 0 );
+             { //kommenter inn hvis man skal kunne gå til venstre.
               g->GV->decreaseFrame();
               emit gott_av_banen();//
-           }*/
+           }
+           */
     }
 
 
