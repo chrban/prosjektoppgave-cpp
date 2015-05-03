@@ -33,5 +33,6 @@
         <file>map/map.txt</file>
         <file>images/paper-mario.png</file>
         <file>images/mur.png</file>
+        <file>images/mariovsgit.png</file>
     </qresource>
 </RCC>

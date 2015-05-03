@@ -41,14 +41,14 @@ game::game(QWidget * parent){
 void game::showMainMenu(){
 
     scene->clear();
-    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Mario in the flesh!"));
+    QGraphicsTextItem* title = new QGraphicsTextItem(QString(""));
     QFont titleFont("Comic Sans MS",37);
     title->setFont(titleFont);
     title->setDefaultTextColor(Qt::red);
     title->setPos(4,550);
     scene->addItem(title);
 
-    setBackgroundBrush(QBrush(QImage(":images/paper-mario.png")));
+    setBackgroundBrush(QBrush(QImage(":/images/mariovsgit.png")));
 
     Button* play = new Button(QString("PLAY GAME"));    
     play->setPos(50,475);
