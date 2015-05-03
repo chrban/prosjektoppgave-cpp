@@ -40,6 +40,10 @@
         <file>java3.png</file>
         <file>java2.png</file>
         <file>java1.png</file>
+        <file>bossback.jpg</file>
+        <file>rorStdbackground.png</file>
+        <file>octocat2.png</file>
+        <file>octocat1.png</file>
         <file>rorStdbackground.png</file>
     </qresource>
     <qresource prefix="/new/sounds">
