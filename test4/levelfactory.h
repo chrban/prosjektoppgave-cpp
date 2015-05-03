@@ -1,8 +1,6 @@
 #ifndef LEVELFACTORY
 #define LEVELFACTORY
-
 #include "game.h"
-
 #include "boxfactory.h"
 #include "linusfactory.h"
 #include "groundfactory.h"
@@ -10,7 +8,6 @@
 #include "globalvar.h"
 #include "enemyfactory.h"
 #include "murfactory.h"
-
 #include <iostream>
 #include <QFile>
 #include <vector>

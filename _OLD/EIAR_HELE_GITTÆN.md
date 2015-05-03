@@ -1,1 +1,0 @@
-## EIAR HELE GITTÆN
