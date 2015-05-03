@@ -35,7 +35,6 @@ SOURCES += main.cpp \
     hp.cpp \
     superboss.cpp \
     globalvar.cpp \
-    coursecreator.cpp \
     enemyfactory.cpp \
     mur.cpp \
     murfactory.cpp
@@ -63,7 +62,6 @@ HEADERS  += \
     hp.h \
     superboss.h \
     globalvar.h \
-    coursecreator.h \
     enemyfactory.h \
     mur.h \
     murfactory.h
