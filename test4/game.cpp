@@ -94,6 +94,15 @@ void game::setUp(){
     GV-> setFrame(frameCount);
     GV->setRequiredScore(requiredScoreCount);
 
+    //show intro-screen
+    if(frameCount==0){
+        setBackgroundBrush(QBrush(QImage(":/images/intro.png")));
+        scene->removeItem(sun);
+    }
+    else
+        setBackgroundBrush(QBrush(QImage(":/images/rorStdbackground.png")));
+
+
     //Activate bossbattle
     if(scoreCount >= GV->getRequiredScore() ){
         setBackgroundBrush(QBrush(QImage(":/images/bossback.jpg")));
@@ -111,15 +120,6 @@ void game::setUp(){
         bossText->setPos(350,10);
         scene->addItem(bossText);
     }
-
-
-    //show intro-screen
-    if(frameCount==0){
-        setBackgroundBrush(QBrush(QImage(":/images/intro.png")));
-        scene->removeItem(sun);
-    }
-    else
-        setBackgroundBrush(QBrush(QImage(":/images/rorStdbackground.png")));
 
 
 
@@ -224,22 +224,26 @@ void game::showWinScreen(){
 void game::pause()
 {
 
-    QGraphicsRectItem* panel = new QGraphicsRectItem(0,0,800,600);
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::black);
-    panel->setBrush(brush);
-    panel->setOpacity(0.65);
-    scene->addItem(panel);
+    if(!paused)
+       {
+           QBrush male;
+           male.setStyle(Qt::SolidPattern);
+           male.setColor(Qt::black);
+           pausePanel->setBrush(male);
+           pausePanel->setOpacity(0.65);
+           pauseText->setPlainText("PAUSE");
+           pauseText->setDefaultTextColor(Qt::blue);
+           pauseText->setFont(QFont("tahoma",90));
+           pauseText->setPos(this->width()/2-pauseText->boundingRect().width()/2,this->height()/2-pauseText->boundingRect().width()/2);
+           scene->addItem(pausePanel);
+           scene->addItem(pauseText);
+           paused = true;
+       }
+       else{
+           scene->removeItem(pausePanel);
+           scene->removeItem(pauseText);
+           paused = false;
 
-
-    QGraphicsTextItem* pause = new QGraphicsTextItem();
-    pause->setPlainText("PAUSE"+QString::number(scoreCount));
-    pause->setDefaultTextColor(Qt::blue);
-    pause->setFont(QFont("tahoma",20));
-    pause->setPos(330,325);
-    scene->addItem(pause);
-
-
+       }
 
 }
