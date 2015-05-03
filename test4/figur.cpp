@@ -12,10 +12,9 @@
 #include "game.h"
 #include "hp.h"
 #include "superboss.h"
-//#include "levelfactory.h"
+
 
 extern game * g; //global variable
-//extern LevelFactory * lf;
 
 Figur::Figur(){
     setPixmap(QPixmap(":/images/mario1.png"));

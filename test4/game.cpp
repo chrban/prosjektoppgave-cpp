@@ -67,7 +67,10 @@ void game::setUp(){
 
 
     scene->clear();
-    setBackgroundBrush(QBrush(QImage(":/images/rorStdbackground.png")));
+    if(frameCount!=0)
+        setBackgroundBrush(QBrush(QImage(":/images/rorStdbackground.png")));
+    else
+        setBackgroundBrush(QBrush(QImage(":/images/intro.png")));
 
     //create sun
     Sun * sun = new Sun(680,30);

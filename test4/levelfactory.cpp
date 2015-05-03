@@ -21,18 +21,15 @@ void LevelFactory::loadMap( QGraphicsScene* scene, int f  )
 int frameLokal=0;
 
 
-
-
     QFile file(":/map/map.txt");
     if(!file.open(QIODevice::ReadOnly)) {
         std::cout<<"Error reading from file";
-
     }
     QTextStream in(&file);
 
     while(!in.atEnd()) {
         QGraphicsItem* item;
-        QString line = in.readLine(); //seek todo
+        QString line = in.readLine();
 
             QStringList maplist = line.split(",");
 
