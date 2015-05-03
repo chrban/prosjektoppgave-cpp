@@ -31,4 +31,3 @@ Vi skal lage et spill om pingvinen Tux sine eventyr for å bekjempe onde, ressur
 
 
 
-![tux](TUX3MINI.png)
