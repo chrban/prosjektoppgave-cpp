@@ -652,3 +652,5 @@ ground,713,550
 ground,744,550
 ground,775,550
 ground,800,550
+cloud,100,110
+cloud,200,300

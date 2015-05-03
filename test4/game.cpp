@@ -94,6 +94,13 @@ void game::setUp(){
     score->increase(scoreCount);
     scene->addItem(score);
 
+    //HP
+    hp = new Hp();
+    hp->setPos(0,20);
+    hp->setHp(hpCount);
+    scene->addItem(hp);
+
+
     //frameNr
     GV = new GlobalVar();
     GV-> setFrame(frameCount);
@@ -102,9 +109,12 @@ void game::setUp(){
     //Activate bossbattle
     if(scoreCount >= GV->getRequiredScore() ){
         setBackgroundBrush(QBrush(QImage(":/new/img/bossback.jpg")));
+        score->setDefaultTextColor(Qt::white);
+        hp->setDefaultTextColor(Qt::white);
         SB = new superboss(700,450);
         scene->addItem( SB );
         SB->setHealth(  bossHpCount );
+        scene->removeItem(sun);
         frameCount = 1337;
         QGraphicsTextItem* bossText = new QGraphicsTextItem();
         bossText->setPlainText("Boss Battle!");
@@ -127,11 +137,9 @@ void game::setUp(){
     tux->setFocus();
     scene->addItem(tux);
 
-    //HP
-    hp = new Hp();
-    hp->setPos(0,20);
-    hp->setHp(hpCount);
-    scene->addItem(hp);    
+
+
+
 }
 
 

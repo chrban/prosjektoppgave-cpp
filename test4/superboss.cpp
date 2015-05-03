@@ -110,3 +110,6 @@ void superboss::decrease(){
     g->bossHpCount=health;
 
 }
+
+
+
