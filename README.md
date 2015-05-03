@@ -37,7 +37,8 @@ Klassene “Linus” og “LinusFactory” produserer en rekke QPixmapItems med 
 
 CHRISTER SKRIV HER:
 
-
+###klassediagram:
+![Alt text](klassediagram.png)
 
 
 
