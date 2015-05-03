@@ -9,8 +9,8 @@
 
 ####How to Install:
 
-Programmet kjøres i Qt Creator.
-Prosjektet lar seg importere i Qt Creator på Windows og OS X uten problemer.
+Programmet buildes i Qt creator(v5.4.1) ved å importere prosjektet vha. `test4.pro` filen.
+Prosjektet lar seg importere i Qt Creator på Windows og OS X uten problemer. 
 På Linux er det nødvendig å innstallere libgl-dev ved hjelp av følgende kommando:
 
 `sudo apt-get install libgl1-mesa-dev`
