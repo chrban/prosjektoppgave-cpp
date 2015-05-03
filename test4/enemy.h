@@ -1,14 +1,13 @@
 #ifndef ENEMY
 #define ENEMY
-#include <QGraphicsPixmapItem>
-#include <QObject>
+#include "object.h"
 #include <QList>
 #include <QGraphicsRotation>
 #include <QGraphicsTransform>
 #include <QPropertyAnimation>
 
 
-class enemy :  public QObject ,public QGraphicsPixmapItem {
+class enemy :  public Object{
     Q_OBJECT
 
 public:

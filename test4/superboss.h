@@ -1,13 +1,12 @@
 #ifndef SUPERBOSS
 #define SUPERBOSS
-#include <QGraphicsPixmapItem>
-#include <QObject>
+#include "object.h"
 #include <QList>
 #include <QGraphicsRotation>
 #include <QGraphicsTransform>
 #include <QPropertyAnimation>
 
-class superboss :  public QObject ,public QGraphicsPixmapItem {
+class superboss :  public Object{
     Q_OBJECT
 
 public:
