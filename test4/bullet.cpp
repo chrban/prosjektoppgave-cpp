@@ -35,3 +35,5 @@ void bullet::move(){
     }
 
 }
+
+bullet::~bullet(){}

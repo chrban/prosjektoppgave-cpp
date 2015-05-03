@@ -570,3 +570,9 @@ void Figur::updateImg(){
          setPixmap(QPixmap(":/images/mario1.png"));
     }
 }
+
+Figur::~Figur(){
+    delete timer_for_jump;
+    delete timer_for_walk;
+    delete timer_scanner;
+}

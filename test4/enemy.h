@@ -12,6 +12,7 @@ class enemy :  public Object{
 
 public:
     enemy(int x, int y);
+    ~enemy();
 
 public slots:
     void move();

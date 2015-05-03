@@ -247,3 +247,23 @@ void game::pause()
        }
 
 }
+
+game::~game(){
+    delete scene;
+    delete title;
+    delete play;
+    delete quit;
+    delete sun;
+    delete score;
+    delete hp;
+    delete GV;
+    delete SB;
+    delete LF;
+    delete tux;
+    delete panel;
+    delete menu;
+    delete bossText;
+    delete winText;
+    delete pausePanel;
+    delete pauseText;
+}

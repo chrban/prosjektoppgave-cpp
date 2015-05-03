@@ -10,6 +10,7 @@ public:
     void decrease();
     void setHp(int h);
     int getHp();
+    ~Hp();
 
 private:
     int hp;

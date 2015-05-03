@@ -4,8 +4,9 @@
 using namespace std;
 
 
-Box::Box(int x, int y)
-{
+Box::Box(int x, int y){
     setPixmap(QPixmap(":/images/BOKS.png"));
     setPos(x,y);
 }
+
+Box::~Box(){}

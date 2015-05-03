@@ -119,5 +119,12 @@ void superboss::decrease(){
 
 }
 
+superboss::~superboss(){
+    delete m;
+    delete s;
+    delete j;
+    delete jmpr;
+}
+
 
 

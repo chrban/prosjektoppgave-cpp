@@ -7,6 +7,7 @@ class Cloud : public Object{
     Q_OBJECT
 public:
     Cloud(int x, int y);
+    ~Cloud();
 private:
     QTimer * animate;
     bool left;

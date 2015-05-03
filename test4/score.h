@@ -12,6 +12,7 @@ public:
     void increase(int inc);
     void increase();
     int getScore();
+    ~Score();
 
 private:
     int score;

@@ -6,3 +6,4 @@ Ground::Ground(int x, int y){
     setPos(x,y);
 }
 
+Ground::~Ground(){}

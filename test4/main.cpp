@@ -3,7 +3,6 @@
 #include <QGraphicsRectItem>
 #include <QApplication>
 #include <QTimer>
-#include <rectfac.h>
 #include <game.h>
 #include <time.h>
 #include <iostream>

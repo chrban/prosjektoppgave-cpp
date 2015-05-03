@@ -23,6 +23,7 @@ public:
     EnemyFactory * EF;
     MurFactory * MF;
     LevelFactory();
+    ~LevelFactory();
     void loadMap(QGraphicsScene* scene, int f);
 
 private:

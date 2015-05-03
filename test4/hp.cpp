@@ -38,3 +38,4 @@ int Hp::getHp() {
     return hp;
 }
 
+Hp::~Hp(){}

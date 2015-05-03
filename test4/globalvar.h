@@ -10,6 +10,7 @@ public:
     void setFrame(int f);
     void increaseFrame();
     void decreaseFrame();
+    ~GlobalVar();
 
     //requiredScore to reach boss-level
     int getRequiredScore();

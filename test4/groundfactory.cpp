@@ -25,5 +25,9 @@ QGraphicsItem * GroundFactory::mekk(int x, int y)
 
 }
 
+GroundFactory::~GroundFactory(){
+    delete ground;
+}
+
 
 

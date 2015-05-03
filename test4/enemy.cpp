@@ -54,3 +54,7 @@ void enemy::move() {
         count--;
         }
 }
+
+enemy::~enemy(){
+    delete m;
+}

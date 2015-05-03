@@ -1,10 +1,6 @@
 #ifndef SUPERBOSS
 #define SUPERBOSS
 #include "object.h"
-#include <QList>
-#include <QGraphicsRotation>
-#include <QGraphicsTransform>
-#include <QPropertyAnimation>
 
 class superboss :  public Object{
     Q_OBJECT
@@ -14,6 +10,7 @@ public:
     void decrease();
     void setHealth(int h);
     int getHealth();
+    ~superboss();
 
 public slots:
     void move();

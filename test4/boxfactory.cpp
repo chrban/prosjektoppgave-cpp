@@ -23,3 +23,6 @@ QGraphicsItem *boxFactory::mekk(int x,int y){
     return box;
 }
 
+boxFactory::~boxFactory(){
+    delete box;
+}

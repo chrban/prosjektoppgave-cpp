@@ -36,3 +36,7 @@ void Cloud::move()
     else
         setPos(x()+1,y());
 }
+
+Cloud::~Cloud(){
+    delete animate;
+}

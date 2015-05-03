@@ -24,3 +24,7 @@ void Sun::spinn()
         turn = true;
     }
 }
+
+Sun::~Sun(){
+    delete animate;
+}

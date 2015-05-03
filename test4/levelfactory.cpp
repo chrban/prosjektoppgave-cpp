@@ -75,5 +75,4 @@ int frameLokal=0;
     file.close();
 }
 
-
-
+LevelFactory::~LevelFactory(){}

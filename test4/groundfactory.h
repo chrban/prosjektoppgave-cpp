@@ -8,6 +8,7 @@ class GroundFactory : public abstractFac{
 
 public:
     GroundFactory():i(-50){}
+    ~GroundFactory();
     QGraphicsItem * mekk();
     QGraphicsItem * mekk(int x, int);
 
